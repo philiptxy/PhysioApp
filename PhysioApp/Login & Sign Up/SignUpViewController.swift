@@ -19,6 +19,25 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var emailLabel: UILabel! {
+        didSet {
+            emailLabel.textColor = UIColor.white
+        }
+    }
+    
+    @IBOutlet weak var passwordLabel: UILabel! {
+        didSet {
+            passwordLabel.textColor = UIColor.white
+        }
+    }
+    
+    @IBOutlet weak var confirmPasswordLabel: UILabel! {
+        didSet {
+            confirmPasswordLabel.textColor = UIColor.white
+        }
+    }
+    
+    
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
@@ -40,6 +59,9 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         
         ref = Database.database().reference()
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.bold)]
+        self.navigationItem.title = "Sign Up"
         
         //Set Background Image
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
@@ -80,7 +102,7 @@ class SignUpViewController: UIViewController {
                     
                     guard let vc = sb.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController else {return}
                     
-                    self.navigationController?.popViewController(animated: false)
+                    self.navigationController?.popToRootViewController(animated: false)
                     
                     self.present(vc, animated: false, completion: nil)
                 }
