@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		00D867482056345200AA5E80 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00D867472056345200AA5E80 /* GoogleService-Info.plist */; };
+		00D8674A2056623200AA5E80 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D867492056623200AA5E80 /* Auth.storyboard */; };
 		7AD676E0342604D2E869A968 /* Pods_PhysioApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11C35223592EEB1AB6910ABB /* Pods_PhysioApp.framework */; };
 		FC28C33F2056328B003336A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC28C33E2056328B003336A2 /* AppDelegate.swift */; };
-		FC28C3412056328B003336A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC28C3402056328B003336A2 /* ViewController.swift */; };
+		FC28C3412056328B003336A2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC28C3402056328B003336A2 /* LoginViewController.swift */; };
 		FC28C3442056328B003336A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3422056328B003336A2 /* Main.storyboard */; };
 		FC28C3462056328B003336A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3452056328B003336A2 /* Assets.xcassets */; };
 		FC28C3492056328B003336A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3472056328B003336A2 /* LaunchScreen.storyboard */; };
@@ -18,12 +19,13 @@
 
 /* Begin PBXFileReference section */
 		00D867472056345200AA5E80 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		00D867492056623200AA5E80 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		11C35223592EEB1AB6910ABB /* Pods_PhysioApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhysioApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF3AC66576EBBC400AA83A3 /* Pods-PhysioApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhysioApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhysioApp/Pods-PhysioApp.release.xcconfig"; sourceTree = "<group>"; };
 		BE8B64D38082172B32275B21 /* Pods-PhysioApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhysioApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhysioApp/Pods-PhysioApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FC28C33B2056328B003336A2 /* PhysioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhysioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC28C33E2056328B003336A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FC28C3402056328B003336A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FC28C3402056328B003336A2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FC28C3432056328B003336A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC28C3452056328B003336A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC28C3482056328B003336A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +44,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00D8674E2056645900AA5E80 /* Login & Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				00D867492056623200AA5E80 /* Auth.storyboard */,
+				FC28C3402056328B003336A2 /* LoginViewController.swift */,
+			);
+			path = "Login & Sign Up";
+			sourceTree = "<group>";
+		};
 		0E770CA14CDE8F7478814857 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,7 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				FC28C33E2056328B003336A2 /* AppDelegate.swift */,
-				FC28C3402056328B003336A2 /* ViewController.swift */,
+				00D8674E2056645900AA5E80 /* Login & Sign Up */,
 				FC28C3422056328B003336A2 /* Main.storyboard */,
 				FC28C3452056328B003336A2 /* Assets.xcassets */,
 				FC28C3472056328B003336A2 /* LaunchScreen.storyboard */,
@@ -156,6 +167,7 @@
 				00D867482056345200AA5E80 /* GoogleService-Info.plist in Resources */,
 				FC28C3492056328B003336A2 /* LaunchScreen.storyboard in Resources */,
 				FC28C3462056328B003336A2 /* Assets.xcassets in Resources */,
+				00D8674A2056623200AA5E80 /* Auth.storyboard in Resources */,
 				FC28C3442056328B003336A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,7 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC28C3412056328B003336A2 /* ViewController.swift in Sources */,
+				FC28C3412056328B003336A2 /* LoginViewController.swift in Sources */,
 				FC28C33F2056328B003336A2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
