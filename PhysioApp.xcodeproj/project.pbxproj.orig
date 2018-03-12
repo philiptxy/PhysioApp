@@ -17,7 +17,11 @@
 		FC1AAC43205663D100D4A1C0 /* AllProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AAC42205663D100D4A1C0 /* AllProgramsViewController.swift */; };
 		FC1AAC4520566AA100D4A1C0 /* BodyPartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AAC4420566AA100D4A1C0 /* BodyPartCollectionViewCell.swift */; };
 		FC28C33F2056328B003336A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC28C33E2056328B003336A2 /* AppDelegate.swift */; };
+<<<<<<< HEAD
 		FC28C3412056328B003336A2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC28C3402056328B003336A2 /* LoginViewController.swift */; };
+=======
+		FC28C3442056328B003336A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3422056328B003336A2 /* Main.storyboard */; };
+>>>>>>> b5b7288c824e493dad5068e1055fb2be0793cfbe
 		FC28C3462056328B003336A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3452056328B003336A2 /* Assets.xcassets */; };
 		FC28C3492056328B003336A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3472056328B003336A2 /* LaunchScreen.storyboard */; };
 		FC96E1C320566F6500BB880C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3422056328B003336A2 /* Main.storyboard */; };
@@ -265,8 +269,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
+				FC0458F820566ED100CA578E /* HomeBodyPartViewController.swift in Sources */,
+				FC28C3412056328B003336A2 /* LoginViewController.swift in Sources */,
+				FC1AAC4520566AA100D4A1C0 /* BodyPartCollectionViewCell.swift in Sources */,
+=======
 				FC1AAC3F2056634A00D4A1C0 /* HomeBodyPartViewController.swift in Sources */,
 				00E782D620566A73001554B1 /* SignUpViewController.swift in Sources */,
+>>>>>>> b5b7288c824e493dad5068e1055fb2be0793cfbe
 				FC1AAC43205663D100D4A1C0 /* AllProgramsViewController.swift in Sources */,
 				FC1AAC41205663B500D4A1C0 /* FavoritesViewController.swift in Sources */,
 				00E782D5205668D5001554B1 /* DisclaimerViewController.swift in Sources */,
