@@ -10,14 +10,15 @@
 		00D867482056345200AA5E80 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00D867472056345200AA5E80 /* GoogleService-Info.plist */; };
 		00D8674A2056623200AA5E80 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D867492056623200AA5E80 /* Auth.storyboard */; };
 		7AD676E0342604D2E869A968 /* Pods_PhysioApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11C35223592EEB1AB6910ABB /* Pods_PhysioApp.framework */; };
-		FC1AAC3F2056634A00D4A1C0 /* HomeBodyPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AAC3E2056634A00D4A1C0 /* HomeBodyPartViewController.swift */; };
+		FC0458F820566ED100CA578E /* HomeBodyPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AAC3E2056634A00D4A1C0 /* HomeBodyPartViewController.swift */; };
 		FC1AAC41205663B500D4A1C0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AAC40205663B500D4A1C0 /* FavoritesViewController.swift */; };
 		FC1AAC43205663D100D4A1C0 /* AllProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AAC42205663D100D4A1C0 /* AllProgramsViewController.swift */; };
+		FC1AAC4520566AA100D4A1C0 /* BodyPartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AAC4420566AA100D4A1C0 /* BodyPartCollectionViewCell.swift */; };
 		FC28C33F2056328B003336A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC28C33E2056328B003336A2 /* AppDelegate.swift */; };
 		FC28C3412056328B003336A2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC28C3402056328B003336A2 /* LoginViewController.swift */; };
-		FC28C3442056328B003336A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3422056328B003336A2 /* Main.storyboard */; };
 		FC28C3462056328B003336A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3452056328B003336A2 /* Assets.xcassets */; };
 		FC28C3492056328B003336A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3472056328B003336A2 /* LaunchScreen.storyboard */; };
+		FC96E1C320566F6500BB880C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3422056328B003336A2 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		FC1AAC3E2056634A00D4A1C0 /* HomeBodyPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBodyPartViewController.swift; sourceTree = "<group>"; };
 		FC1AAC40205663B500D4A1C0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		FC1AAC42205663D100D4A1C0 /* AllProgramsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProgramsViewController.swift; sourceTree = "<group>"; };
+		FC1AAC4420566AA100D4A1C0 /* BodyPartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPartCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC28C33B2056328B003336A2 /* PhysioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhysioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC28C33E2056328B003336A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC28C3402056328B003336A2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FC1AAC4620566AA700D4A1C0 /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				FC1AAC3E2056634A00D4A1C0 /* HomeBodyPartViewController.swift */,
+				FC1AAC4420566AA100D4A1C0 /* BodyPartCollectionViewCell.swift */,
+			);
+			path = Exercises;
+			sourceTree = "<group>";
+		};
 		FC28C3322056328B003336A2 = {
 			isa = PBXGroup;
 			children = (
@@ -99,10 +110,10 @@
 			children = (
 				FC28C33E2056328B003336A2 /* AppDelegate.swift */,
 				00D8674E2056645900AA5E80 /* Login & Sign Up */,
+				FC1AAC4620566AA700D4A1C0 /* Exercises */,
 				FC28C3422056328B003336A2 /* Main.storyboard */,
-				FC1AAC42205663D100D4A1C0 /* AllProgramsViewController.swift */,
 				FC1AAC40205663B500D4A1C0 /* FavoritesViewController.swift */,
-				FC1AAC3E2056634A00D4A1C0 /* HomeBodyPartViewController.swift */,
+				FC1AAC42205663D100D4A1C0 /* AllProgramsViewController.swift */,
 				FC28C3452056328B003336A2 /* Assets.xcassets */,
 				FC28C3472056328B003336A2 /* LaunchScreen.storyboard */,
 				FC28C34A2056328B003336A2 /* Info.plist */,
@@ -173,11 +184,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC96E1C320566F6500BB880C /* Main.storyboard in Resources */,
 				00D867482056345200AA5E80 /* GoogleService-Info.plist in Resources */,
 				FC28C3492056328B003336A2 /* LaunchScreen.storyboard in Resources */,
 				FC28C3462056328B003336A2 /* Assets.xcassets in Resources */,
 				00D8674A2056623200AA5E80 /* Auth.storyboard in Resources */,
-				FC28C3442056328B003336A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,8 +259,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC28C3412056328B003336A2 /* ViewController.swift in Sources */,
-				FC1AAC3F2056634A00D4A1C0 /* HomeBodyPartViewController.swift in Sources */,
+				FC0458F820566ED100CA578E /* HomeBodyPartViewController.swift in Sources */,
+				FC28C3412056328B003336A2 /* LoginViewController.swift in Sources */,
+				FC1AAC4520566AA100D4A1C0 /* BodyPartCollectionViewCell.swift in Sources */,
 				FC1AAC43205663D100D4A1C0 /* AllProgramsViewController.swift in Sources */,
 				FC1AAC41205663B500D4A1C0 /* FavoritesViewController.swift in Sources */,
 				FC28C3412056328B003336A2 /* LoginViewController.swift in Sources */,
