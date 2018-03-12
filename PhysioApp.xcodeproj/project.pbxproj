@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00D867482056345200AA5E80 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00D867472056345200AA5E80 /* GoogleService-Info.plist */; };
+		7AD676E0342604D2E869A968 /* Pods_PhysioApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11C35223592EEB1AB6910ABB /* Pods_PhysioApp.framework */; };
 		FC28C33F2056328B003336A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC28C33E2056328B003336A2 /* AppDelegate.swift */; };
 		FC28C3412056328B003336A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC28C3402056328B003336A2 /* ViewController.swift */; };
 		FC28C3442056328B003336A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3422056328B003336A2 /* Main.storyboard */; };
@@ -15,6 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00D867472056345200AA5E80 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		11C35223592EEB1AB6910ABB /* Pods_PhysioApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhysioApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EF3AC66576EBBC400AA83A3 /* Pods-PhysioApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhysioApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhysioApp/Pods-PhysioApp.release.xcconfig"; sourceTree = "<group>"; };
+		BE8B64D38082172B32275B21 /* Pods-PhysioApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhysioApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhysioApp/Pods-PhysioApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FC28C33B2056328B003336A2 /* PhysioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhysioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC28C33E2056328B003336A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC28C3402056328B003336A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AD676E0342604D2E869A968 /* Pods_PhysioApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E770CA14CDE8F7478814857 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11C35223592EEB1AB6910ABB /* Pods_PhysioApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		25E8236C8F5A7EE1AD033C71 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE8B64D38082172B32275B21 /* Pods-PhysioApp.debug.xcconfig */,
+				2EF3AC66576EBBC400AA83A3 /* Pods-PhysioApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FC28C3322056328B003336A2 = {
 			isa = PBXGroup;
 			children = (
 				FC28C33D2056328B003336A2 /* PhysioApp */,
 				FC28C33C2056328B003336A2 /* Products */,
+				25E8236C8F5A7EE1AD033C71 /* Pods */,
+				0E770CA14CDE8F7478814857 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +86,7 @@
 				FC28C3452056328B003336A2 /* Assets.xcassets */,
 				FC28C3472056328B003336A2 /* LaunchScreen.storyboard */,
 				FC28C34A2056328B003336A2 /* Info.plist */,
+				00D867472056345200AA5E80 /* GoogleService-Info.plist */,
 			);
 			path = PhysioApp;
 			sourceTree = "<group>";
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC28C34D2056328B003336A2 /* Build configuration list for PBXNativeTarget "PhysioApp" */;
 			buildPhases = (
+				BC6DB5A2C769F687BD624D2B /* [CP] Check Pods Manifest.lock */,
 				FC28C3372056328B003336A2 /* Sources */,
 				FC28C3382056328B003336A2 /* Frameworks */,
 				FC28C3392056328B003336A2 /* Resources */,
+				166FA998BAE49802217DDDF3 /* [CP] Embed Pods Frameworks */,
+				B2C2CF48E98DD8C196FE710D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,6 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00D867482056345200AA5E80 /* GoogleService-Info.plist in Resources */,
 				FC28C3492056328B003336A2 /* LaunchScreen.storyboard in Resources */,
 				FC28C3462056328B003336A2 /* Assets.xcassets in Resources */,
 				FC28C3442056328B003336A2 /* Main.storyboard in Resources */,
@@ -130,6 +161,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		166FA998BAE49802217DDDF3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PhysioApp/Pods-PhysioApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhysioApp/Pods-PhysioApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2C2CF48E98DD8C196FE710D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhysioApp/Pods-PhysioApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC6DB5A2C769F687BD624D2B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhysioApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FC28C3372056328B003336A2 /* Sources */ = {
@@ -272,6 +363,7 @@
 		};
 		FC28C34E2056328B003336A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE8B64D38082172B32275B21 /* Pods-PhysioApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -286,6 +378,7 @@
 		};
 		FC28C34F2056328B003336A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EF3AC66576EBBC400AA83A3 /* Pods-PhysioApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
