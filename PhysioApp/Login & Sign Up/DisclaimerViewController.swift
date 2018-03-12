@@ -9,27 +9,36 @@
 import UIKit
 
 class DisclaimerViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBOutlet weak var titleLabel: UILabel! {
+        didSet {
+            titleLabel.textColor = UIColor.white
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBOutlet weak var textView: UITextView! {
+        didSet {
+            textView.textColor = UIColor.white
+        }
     }
-    */
+    
+    @IBOutlet weak var understoodButton: UIButton! {
+        didSet {
+            understoodButton.layer.borderWidth = 2
+            understoodButton.layer.borderColor = UIColor(red: 154/255, green: 202/255, blue: 247/255, alpha: 1).cgColor
+            understoodButton.setTitleColor(UIColor.white, for: .normal)
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //Set Background Image
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Gradient Background")
+        self.view.insertSubview(backgroundImage, at: 0)
+        
+    }
+
 
 }
