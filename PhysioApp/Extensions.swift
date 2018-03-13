@@ -23,3 +23,27 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
 }
+
+extension UIViewController {
+    func getImage(_ urlString: String, _ imageView: UIImageView) {
+        guard let url = URL.init(string: urlString) else {return}
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let validError = error {
+                print(validError.localizedDescription)
+            }
+            
+            if let validData = data {
+                let profileImage = UIImage(data: validData)
+                
+                DispatchQueue.main.async {
+                    imageView.image = profileImage
+                }
+            }
+        }
+        task.resume()
+    }
+    
+}

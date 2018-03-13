@@ -26,6 +26,8 @@
 		FC96E1C52056718300BB880C /* HomeBodyPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1C42056718200BB880C /* HomeBodyPartViewController.swift */; };
 		FC96E1C72056720200BB880C /* BodyPartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1C62056720200BB880C /* BodyPartCollectionViewCell.swift */; };
 		FC96E1C920568EE400BB880C /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1C820568EE400BB880C /* BodyPart.swift */; };
+		FC96E1CB2057816300BB880C /* HomeExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1CA2057816300BB880C /* HomeExerciseViewController.swift */; };
+		FC96E1CD205783D000BB880C /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1CC205783D000BB880C /* Exercise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		FC96E1C42056718200BB880C /* HomeBodyPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBodyPartViewController.swift; sourceTree = "<group>"; };
 		FC96E1C62056720200BB880C /* BodyPartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPartCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC96E1C820568EE400BB880C /* BodyPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
+		FC96E1CA2057816300BB880C /* HomeExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExerciseViewController.swift; sourceTree = "<group>"; };
+		FC96E1CC205783D000BB880C /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +103,10 @@
 			isa = PBXGroup;
 			children = (
 				FC96E1C42056718200BB880C /* HomeBodyPartViewController.swift */,
-				FC96E1C820568EE400BB880C /* BodyPart.swift */,
 				FC96E1C62056720200BB880C /* BodyPartCollectionViewCell.swift */,
+				FC96E1C820568EE400BB880C /* BodyPart.swift */,
+				FC96E1CA2057816300BB880C /* HomeExerciseViewController.swift */,
+				FC96E1CC205783D000BB880C /* Exercise.swift */,
 			);
 			path = Exercises;
 			sourceTree = "<group>";
@@ -287,8 +293,10 @@
 				00E782D920567BC4001554B1 /* Extensions.swift in Sources */,
 				FC1AAC43205663D100D4A1C0 /* AllProgramsViewController.swift in Sources */,
 				00E782DB205706D9001554B1 /* LoginViewController.swift in Sources */,
+				FC96E1CB2057816300BB880C /* HomeExerciseViewController.swift in Sources */,
 				FC1AAC41205663B500D4A1C0 /* FavoritesViewController.swift in Sources */,
 				00E782D5205668D5001554B1 /* DisclaimerViewController.swift in Sources */,
+				FC96E1CD205783D000BB880C /* Exercise.swift in Sources */,
 				FC96E1C52056718300BB880C /* HomeBodyPartViewController.swift in Sources */,
 				FC96E1C920568EE400BB880C /* BodyPart.swift in Sources */,
 				000C302120577224001CEF22 /* ExerciseVideoViewController.swift in Sources */,
