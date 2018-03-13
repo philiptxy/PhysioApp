@@ -7,29 +7,60 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class HomeBodyPartViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBOutlet weak var collectionView: UICollectionView! {
+        didSet {
+            collectionView.dataSource = self
+            //  collectionView.delegate = self
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    var bodyParts : [BodyPart] = []
+    var ref: DatabaseReference!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        ref = Database.database().reference()
+        
+        
     }
-    */
-
+    
+    func loadInfo() {
+        ref.child("bodyParts").observe(.childAdded) { (snapshot) in
+            guard let articleDict = snapshot.value as? [String : Any] else {return}
+            let aBodyPart = BodyPart(bodyPart: snapshot.key, dict: articleDict)
+            
+            DispatchQueue.main.async {
+                self.bodyParts.append(aBodyPart)
+                let indexPath = IndexPath(row: self.bodyParts.count - 1, section: 0)
+                self.collectionView.insertItems(at: [indexPath])
+            }
+            
+            
+        }
+    }
+    
 }
+
+extension HomeBodyPartViewController : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return bodyParts.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? BodyPartCollectionViewCell else {return UICollectionViewCell()}
+        let currentBodyPart = bodyParts[indexPath.row]
+        
+        
+        return cell
+    }
+}
+//
+//extension HomeBodyPartViewController : UICollectionViewDelegate {
+//
+//}
+

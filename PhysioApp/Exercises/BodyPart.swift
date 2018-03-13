@@ -7,3 +7,25 @@
 //
 
 import Foundation
+
+class BodyPart {
+    
+    var bodyPart : String = ""
+    var exercises : [String : Any] = [:]
+    var pictureUrl : String = ""
+    
+    
+    init() {
+        
+    }
+    
+    init(bodyPart: String, dict: [String : Any]) {
+        self.bodyPart = bodyPart
+        self.exercises = dict["exercise"] as? [String : Any] ?? [:]
+        self.pictureUrl = dict["pictureUrl"] as? String ?? ""
+    }
+    
+    
+    
+    
+}

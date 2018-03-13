@@ -10,4 +10,9 @@ import UIKit
 
 class BodyPartCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var label: UILabel!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    
 }

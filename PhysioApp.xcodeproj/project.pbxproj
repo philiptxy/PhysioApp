@@ -12,15 +12,15 @@
 		00E782D5205668D5001554B1 /* DisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E782D4205668D5001554B1 /* DisclaimerViewController.swift */; };
 		00E782D620566A73001554B1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E782D220566873001554B1 /* SignUpViewController.swift */; };
 		7AD676E0342604D2E869A968 /* Pods_PhysioApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11C35223592EEB1AB6910ABB /* Pods_PhysioApp.framework */; };
-		FC0458F820566ED100CA578E /* HomeBodyPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AAC3E2056634A00D4A1C0 /* HomeBodyPartViewController.swift */; };
 		FC1AAC41205663B500D4A1C0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AAC40205663B500D4A1C0 /* FavoritesViewController.swift */; };
 		FC1AAC43205663D100D4A1C0 /* AllProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AAC42205663D100D4A1C0 /* AllProgramsViewController.swift */; };
-		FC1AAC4520566AA100D4A1C0 /* BodyPartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AAC4420566AA100D4A1C0 /* BodyPartCollectionViewCell.swift */; };
 		FC28C33F2056328B003336A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC28C33E2056328B003336A2 /* AppDelegate.swift */; };
-		FC28C3412056328B003336A2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC28C3402056328B003336A2 /* LoginViewController.swift */; };
 		FC28C3462056328B003336A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3452056328B003336A2 /* Assets.xcassets */; };
 		FC28C3492056328B003336A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3472056328B003336A2 /* LaunchScreen.storyboard */; };
 		FC96E1C320566F6500BB880C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3422056328B003336A2 /* Main.storyboard */; };
+		FC96E1C52056718300BB880C /* HomeBodyPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1C42056718200BB880C /* HomeBodyPartViewController.swift */; };
+		FC96E1C72056720200BB880C /* BodyPartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1C62056720200BB880C /* BodyPartCollectionViewCell.swift */; };
+		FC96E1C920568EE400BB880C /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1C820568EE400BB880C /* BodyPart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,10 +31,8 @@
 		11C35223592EEB1AB6910ABB /* Pods_PhysioApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhysioApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF3AC66576EBBC400AA83A3 /* Pods-PhysioApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhysioApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhysioApp/Pods-PhysioApp.release.xcconfig"; sourceTree = "<group>"; };
 		BE8B64D38082172B32275B21 /* Pods-PhysioApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhysioApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhysioApp/Pods-PhysioApp.debug.xcconfig"; sourceTree = "<group>"; };
-		FC1AAC3E2056634A00D4A1C0 /* HomeBodyPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBodyPartViewController.swift; sourceTree = "<group>"; };
 		FC1AAC40205663B500D4A1C0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		FC1AAC42205663D100D4A1C0 /* AllProgramsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProgramsViewController.swift; sourceTree = "<group>"; };
-		FC1AAC4420566AA100D4A1C0 /* BodyPartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPartCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC28C33B2056328B003336A2 /* PhysioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhysioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC28C33E2056328B003336A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC28C3402056328B003336A2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +40,9 @@
 		FC28C3452056328B003336A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC28C3482056328B003336A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC28C34A2056328B003336A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC96E1C42056718200BB880C /* HomeBodyPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBodyPartViewController.swift; sourceTree = "<group>"; };
+		FC96E1C62056720200BB880C /* BodyPartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPartCollectionViewCell.swift; sourceTree = "<group>"; };
+		FC96E1C820568EE400BB880C /* BodyPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +88,9 @@
 		FC1AAC4620566AA700D4A1C0 /* Exercises */ = {
 			isa = PBXGroup;
 			children = (
-				FC1AAC3E2056634A00D4A1C0 /* HomeBodyPartViewController.swift */,
-				FC1AAC4420566AA100D4A1C0 /* BodyPartCollectionViewCell.swift */,
+				FC96E1C42056718200BB880C /* HomeBodyPartViewController.swift */,
+				FC96E1C820568EE400BB880C /* BodyPart.swift */,
+				FC96E1C62056720200BB880C /* BodyPartCollectionViewCell.swift */,
 			);
 			path = Exercises;
 			sourceTree = "<group>";
@@ -265,11 +267,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC1AAC3F2056634A00D4A1C0 /* HomeBodyPartViewController.swift in Sources */,
 				00E782D620566A73001554B1 /* SignUpViewController.swift in Sources */,
+				FC96E1C72056720200BB880C /* BodyPartCollectionViewCell.swift in Sources */,
 				FC1AAC43205663D100D4A1C0 /* AllProgramsViewController.swift in Sources */,
 				FC1AAC41205663B500D4A1C0 /* FavoritesViewController.swift in Sources */,
 				00E782D5205668D5001554B1 /* DisclaimerViewController.swift in Sources */,
+				FC96E1C52056718300BB880C /* HomeBodyPartViewController.swift in Sources */,
+				FC96E1C920568EE400BB880C /* BodyPart.swift in Sources */,
 				FC28C33F2056328B003336A2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
