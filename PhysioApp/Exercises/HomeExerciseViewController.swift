@@ -15,7 +15,7 @@ class HomeExerciseViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
-           //tableView.delegate = self
+            tableView.delegate = self
         }
     }
     
@@ -62,11 +62,12 @@ extension HomeExerciseViewController : UITableViewDataSource {
 
 extension HomeExerciseViewController : UITableViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "HomeExerciseViewController") as? HomeExerciseViewController else {return}
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "ExerciseVideoViewController") as? ExerciseVideoViewController else {return}
         
-       // let selectedBodyPart = bodyParts[indexPath.row]
+        let selectedExercise = exercises[indexPath.row]
         
-     //   vc.selectedBodyPart = selectedBodyPart
+        vc.selectedExercise = selectedExercise
+        vc.selectedBodyPart = selectedBodyPart
         
         navigationController?.pushViewController(vc, animated: true)
     }
