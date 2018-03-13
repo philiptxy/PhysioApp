@@ -181,11 +181,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpW-SI-KW4">
+                                <rect key="frame" x="166" y="37" width="45" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="OjD-zt-fRH"/>
                     </view>
                     <connections>
+                        <outlet property="descriptionLabel" destination="Opd-zk-qen" id="EfM-6t-ciw"/>
+                        <outlet property="nameLabel" destination="mpW-SI-KW4" id="ud6-qH-FJF"/>
                         <outlet property="playVideoButton" destination="rau-am-jcH" id="u5K-6i-OrN"/>
                     </connections>
                 </viewController>

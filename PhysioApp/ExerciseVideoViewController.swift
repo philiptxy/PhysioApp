@@ -19,9 +19,13 @@ class ExerciseVideoViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var descriptionLabel: UITextView!
+    
     var selectedVideo : String = ""
     var selectedBodyPart : BodyPart = BodyPart()
-//    var selectedExercise : Exercise = Exercise()
+    var selectedExercise : Exercise = Exercise()
     
     
     var ref : DatabaseReference!
@@ -49,20 +53,38 @@ class ExerciseVideoViewController: UIViewController {
     
     func downloadVideosFromStorage() {
         
-//        ref.child("bodyParts").child(selectedBodyPart.bodyPart).child("exercises").child(selectedExercise.exerciseID).observe(.value) { (snapshot) in
-//
-//            if let dict = snapshot.value as? [String:Any],
-//                let videoURL = dict["videoUrl"] as? String {
-//
-//            }
+        ref.child("bodyParts").child(selectedBodyPart.bodyPart).child("exercises").child(selectedExercise.exerciseID).observe(.value) { (snapshot) in
+
+            if let dict = snapshot.value as? [String:Any],
+                let name = dict["name"] as? String,
+                let desc = dict["description"] as? String,
+                let videoURL = dict["videoUrl"] as? String {
+                
+                self.nameLabel.text = name
+                self.descriptionLabel.text = desc
+                let storageRef = Storage.storage().reference(forURL: videoURL)
+                storageRef.getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
+                    if let validError = error {
+                        print(validError.localizedDescription)
+                    }
+                    
+                    if let validData = data {
+                        print("asd")
+                        
+                        
+                    }
+                    
+                })
+                
+            }
         
-//        }
+        }
         
         
             
         
         
-        let storage = Storage.storage()
+//        let storage = Storage.storage()
         
 //        storage.reference(forURL: <#T##String#>)
     }
