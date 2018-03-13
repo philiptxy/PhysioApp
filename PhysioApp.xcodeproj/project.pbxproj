@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000C302120577224001CEF22 /* ExerciseVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C302020577224001CEF22 /* ExerciseVideoViewController.swift */; };
+		000C3023205776AF001CEF22 /* 【ボルダリング】プロ・フリークライマー 楢﨑智亜のトレーニング【クライミング】-rdRgL9wg8BA.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 000C3022205776AF001CEF22 /* 【ボルダリング】プロ・フリークライマー 楢﨑智亜のトレーニング【クライミング】-rdRgL9wg8BA.mp4 */; };
 		00D867482056345200AA5E80 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00D867472056345200AA5E80 /* GoogleService-Info.plist */; };
 		00D8674A2056623200AA5E80 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D867492056623200AA5E80 /* Auth.storyboard */; };
 		00E782D5205668D5001554B1 /* DisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E782D4205668D5001554B1 /* DisclaimerViewController.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		000C302020577224001CEF22 /* ExerciseVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseVideoViewController.swift; sourceTree = "<group>"; };
+		000C3022205776AF001CEF22 /* 【ボルダリング】プロ・フリークライマー 楢﨑智亜のトレーニング【クライミング】-rdRgL9wg8BA.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "【ボルダリング】プロ・フリークライマー 楢﨑智亜のトレーニング【クライミング】-rdRgL9wg8BA.mp4"; sourceTree = "<group>"; };
 		00D867472056345200AA5E80 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00D867492056623200AA5E80 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		00E782D220566873001554B1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 		FC28C3322056328B003336A2 = {
 			isa = PBXGroup;
 			children = (
+				000C3022205776AF001CEF22 /* 【ボルダリング】プロ・フリークライマー 楢﨑智亜のトレーニング【クライミング】-rdRgL9wg8BA.mp4 */,
 				FC28C33D2056328B003336A2 /* PhysioApp */,
 				FC28C33C2056328B003336A2 /* Products */,
 				25E8236C8F5A7EE1AD033C71 /* Pods */,
@@ -127,6 +132,7 @@
 				00D8674E2056645900AA5E80 /* Login & Sign Up */,
 				FC1AAC4620566AA700D4A1C0 /* Exercises */,
 				FC28C3422056328B003336A2 /* Main.storyboard */,
+				000C302020577224001CEF22 /* ExerciseVideoViewController.swift */,
 				FC1AAC40205663B500D4A1C0 /* FavoritesViewController.swift */,
 				FC1AAC42205663D100D4A1C0 /* AllProgramsViewController.swift */,
 				FC28C3452056328B003336A2 /* Assets.xcassets */,
@@ -199,6 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000C3023205776AF001CEF22 /* 【ボルダリング】プロ・フリークライマー 楢﨑智亜のトレーニング【クライミング】-rdRgL9wg8BA.mp4 in Resources */,
 				FC96E1C320566F6500BB880C /* Main.storyboard in Resources */,
 				00D867482056345200AA5E80 /* GoogleService-Info.plist in Resources */,
 				FC28C3492056328B003336A2 /* LaunchScreen.storyboard in Resources */,
@@ -284,6 +291,7 @@
 				00E782D5205668D5001554B1 /* DisclaimerViewController.swift in Sources */,
 				FC96E1C52056718300BB880C /* HomeBodyPartViewController.swift in Sources */,
 				FC96E1C920568EE400BB880C /* BodyPart.swift in Sources */,
+				000C302120577224001CEF22 /* ExerciseVideoViewController.swift in Sources */,
 				FC28C33F2056328B003336A2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
