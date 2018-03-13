@@ -11,6 +11,9 @@
 		00D8674A2056623200AA5E80 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D867492056623200AA5E80 /* Auth.storyboard */; };
 		00E782D5205668D5001554B1 /* DisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E782D4205668D5001554B1 /* DisclaimerViewController.swift */; };
 		00E782D620566A73001554B1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E782D220566873001554B1 /* SignUpViewController.swift */; };
+		00E782D7205678E0001554B1 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC28C3402056328B003336A2 /* InitialViewController.swift */; };
+		00E782D920567BC4001554B1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E782D820567BC4001554B1 /* Extensions.swift */; };
+		00E782DB205706D9001554B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E782DA205706D9001554B1 /* LoginViewController.swift */; };
 		7AD676E0342604D2E869A968 /* Pods_PhysioApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11C35223592EEB1AB6910ABB /* Pods_PhysioApp.framework */; };
 		FC1AAC41205663B500D4A1C0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AAC40205663B500D4A1C0 /* FavoritesViewController.swift */; };
 		FC1AAC43205663D100D4A1C0 /* AllProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AAC42205663D100D4A1C0 /* AllProgramsViewController.swift */; };
@@ -28,6 +31,8 @@
 		00D867492056623200AA5E80 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		00E782D220566873001554B1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		00E782D4205668D5001554B1 /* DisclaimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerViewController.swift; sourceTree = "<group>"; };
+		00E782D820567BC4001554B1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		00E782DA205706D9001554B1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		11C35223592EEB1AB6910ABB /* Pods_PhysioApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhysioApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF3AC66576EBBC400AA83A3 /* Pods-PhysioApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhysioApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhysioApp/Pods-PhysioApp.release.xcconfig"; sourceTree = "<group>"; };
 		BE8B64D38082172B32275B21 /* Pods-PhysioApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhysioApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhysioApp/Pods-PhysioApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -35,7 +40,7 @@
 		FC1AAC42205663D100D4A1C0 /* AllProgramsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProgramsViewController.swift; sourceTree = "<group>"; };
 		FC28C33B2056328B003336A2 /* PhysioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhysioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC28C33E2056328B003336A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FC28C3402056328B003336A2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FC28C3402056328B003336A2 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		FC28C3432056328B003336A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC28C3452056328B003336A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC28C3482056328B003336A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,9 +66,10 @@
 			isa = PBXGroup;
 			children = (
 				00D867492056623200AA5E80 /* Auth.storyboard */,
+				00E782DA205706D9001554B1 /* LoginViewController.swift */,
 				00E782D4205668D5001554B1 /* DisclaimerViewController.swift */,
 				00E782D220566873001554B1 /* SignUpViewController.swift */,
-				FC28C3402056328B003336A2 /* LoginViewController.swift */,
+				FC28C3402056328B003336A2 /* InitialViewController.swift */,
 			);
 			path = "Login & Sign Up";
 			sourceTree = "<group>";
@@ -117,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				FC28C33E2056328B003336A2 /* AppDelegate.swift */,
+				00E782D820567BC4001554B1 /* Extensions.swift */,
 				00D8674E2056645900AA5E80 /* Login & Sign Up */,
 				FC1AAC4620566AA700D4A1C0 /* Exercises */,
 				FC28C3422056328B003336A2 /* Main.storyboard */,
@@ -267,9 +274,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00E782D7205678E0001554B1 /* InitialViewController.swift in Sources */,
 				00E782D620566A73001554B1 /* SignUpViewController.swift in Sources */,
 				FC96E1C72056720200BB880C /* BodyPartCollectionViewCell.swift in Sources */,
+				00E782D920567BC4001554B1 /* Extensions.swift in Sources */,
 				FC1AAC43205663D100D4A1C0 /* AllProgramsViewController.swift in Sources */,
+				00E782DB205706D9001554B1 /* LoginViewController.swift in Sources */,
 				FC1AAC41205663B500D4A1C0 /* FavoritesViewController.swift in Sources */,
 				00E782D5205668D5001554B1 /* DisclaimerViewController.swift in Sources */,
 				FC96E1C52056718300BB880C /* HomeBodyPartViewController.swift in Sources */,
