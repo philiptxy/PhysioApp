@@ -12,7 +12,12 @@ class BodyPartCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var label: UILabel!
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView! {
+        didSet {
+            imageView.layer.cornerRadius = 8.0
+            imageView.clipsToBounds = true
+        }
+    }
     
     
 }
