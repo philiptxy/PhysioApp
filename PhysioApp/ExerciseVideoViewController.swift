@@ -7,29 +7,67 @@
 //
 
 import UIKit
+import AVKit
+import FirebaseDatabase
+import FirebaseStorage
 
 class ExerciseVideoViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBOutlet weak var playVideoButton: UIButton! {
+        didSet {
+            playVideoButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    var selectedVideo : String = ""
+    var selectedBodyPart : BodyPart = BodyPart()
+//    var selectedExercise : Exercise = Exercise()
+    
+    
+    var ref : DatabaseReference!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        ref = Database.database().reference()
+        
+        downloadVideosFromStorage()
+        
     }
-    */
+    
+    @objc func playButtonTapped() {
+        if let path = Bundle.main.path(forResource: selectedVideo, ofType: "mp4") {
+            let video = AVPlayer(url: URL(fileURLWithPath: path))
+            let videoPlayer = AVPlayerViewController()
+            videoPlayer.player = video
+            
+            present(videoPlayer, animated: true, completion: {
+                video.play()
+            })
+        }
+    }
+    
+    func downloadVideosFromStorage() {
+        
+//        ref.child("bodyParts").child(selectedBodyPart.bodyPart).child("exercises").child(selectedExercise.exerciseID).observe(.value) { (snapshot) in
+//
+//            if let dict = snapshot.value as? [String:Any],
+//                let videoURL = dict["videoUrl"] as? String {
+//
+//            }
+        
+//        }
+        
+        
+            
+        
+        
+        let storage = Storage.storage()
+        
+//        storage.reference(forURL: <#T##String#>)
+    }
+    
+    
+
 
 }
