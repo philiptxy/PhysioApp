@@ -61,7 +61,7 @@ extension HomeExerciseViewController : UITableViewDataSource {
 }
 
 extension HomeExerciseViewController : UITableViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "ExerciseVideoViewController") as? ExerciseVideoViewController else {return}
         
         let selectedExercise = exercises[indexPath.row]
