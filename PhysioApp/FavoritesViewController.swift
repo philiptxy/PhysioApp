@@ -36,7 +36,20 @@ class FavoritesViewController: UIViewController {
         currentUserID = Auth.auth().currentUser?.uid ?? ""
         
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         loadInfo()
+        
+        hipExercises = []
+        kneeExercises = []
+        lowerBackExercises = []
+        neckExercises = []
+        shoulderExercises = []
+        wristExercises = []
+        twoDimensionalArray = []
+        tableView.reloadData()
     }
 
     func loadInfo() {
@@ -153,14 +166,17 @@ extension FavoritesViewController : UITableViewDelegate {
         ref.child("bodyParts").child(selectedBodyPartName).child("exercises").child(selectedExerciseID).observe(.value) { (snapshot) in
             guard let dict = snapshot.value as? [String : Any] else {return}
             selectedExercise = Exercise(exerciseID: snapshot.key, dict: dict)
+            
+            DispatchQueue.main.async {
+                vc.selectedBodyPart = selectedBodyPart
+                vc.selectedExercise = selectedExercise
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
         }
         
-        DispatchQueue.main.async {
-            vc.selectedBodyPart = selectedBodyPart
-            vc.selectedExercise = selectedExercise
-            
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        
         
     }
 }
