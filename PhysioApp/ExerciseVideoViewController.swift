@@ -10,19 +10,21 @@ import UIKit
 import AVKit
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 class ExerciseVideoViewController: UIViewController {
     
-
+    
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
+    
     @IBAction func favoriteButtonTapped(_ sender: UIBarButtonItem) {
         
-//        if let image = UIImage(named: "Empty Star") {
-//            sender.image = UIImage(named: "Filled Star")
-//        }
-//        
-//        if let image = UIImage(named: "Filled Star") {
-//            sender.image = UIImage(named: "Empty Star")
-//        }
+        if let user = Auth.auth().currentUser {
+            let userID = user.uid
+            
+            let favoritePost : [String : Any] = [selectedExercise.exerciseID : true]
+            ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).setValue(favoritePost)
+        }
         
         if favoriteChecker == false {
             let filledStarImage = UIImage(named: "Filled Star")
@@ -67,25 +69,38 @@ class ExerciseVideoViewController: UIViewController {
         super.viewDidLoad()
         
         ref = Database.database().reference()
-                
+        
         downloadVideosFromStorage()
+        
+        if let user = Auth.auth().currentUser {
+            let userID = user.uid
+            ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).observe(.childAdded, with: { (snapshot) in
+                
+                if snapshot.key == self.selectedExercise.exerciseID && snapshot.value != nil {
+                    let filledStarImage = UIImage(named: "Filled Star")
+                    self.favoriteButton.setBackgroundImage(filledStarImage, for: .normal, barMetrics: .default)
+                    self.favoriteButton.tintColor = UIColor.black
+                    self.favoriteChecker = true
+                }
+            })
+        }
         
     }
     
     @objc func playButtonTapped() {
         guard let url = downloadURL else {return}
-            let video = AVPlayer(url: url)
-            let videoPlayer = AVPlayerViewController()
-            videoPlayer.player = video
-            
-            present(videoPlayer, animated: true, completion: {
-                video.play()
-            })
+        let video = AVPlayer(url: url)
+        let videoPlayer = AVPlayerViewController()
+        videoPlayer.player = video
+        
+        present(videoPlayer, animated: true, completion: {
+            video.play()
+        })
     }
     
     func downloadVideosFromStorage() {
         ref.child("bodyParts").child(selectedBodyPart.bodyPart).child("exercises").child(selectedExercise.exerciseID).observe(.value) { (snapshot) in
-
+            
             if let dict = snapshot.value as? [String:Any],
                 let name = dict["name"] as? String,
                 let desc = dict["description"] as? String,
