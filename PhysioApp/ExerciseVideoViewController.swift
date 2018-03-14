@@ -13,9 +13,41 @@ import FirebaseStorage
 
 class ExerciseVideoViewController: UIViewController {
     
+
+    @IBAction func favoriteButtonTapped(_ sender: UIBarButtonItem) {
+        
+//        if let image = UIImage(named: "Empty Star") {
+//            sender.image = UIImage(named: "Filled Star")
+//        }
+//        
+//        if let image = UIImage(named: "Filled Star") {
+//            sender.image = UIImage(named: "Empty Star")
+//        }
+        
+        if favoriteChecker == false {
+            let filledStarImage = UIImage(named: "Filled Star")
+            sender.setBackgroundImage(filledStarImage, for: .normal, barMetrics: .default)
+            sender.tintColor = UIColor.black
+            favoriteChecker = true
+        } else {
+            let emptyStarImage = UIImage(named: "Empty Star")
+            sender.setBackgroundImage(emptyStarImage, for: .normal, barMetrics: .default)
+            sender.tintColor = UIColor.black
+            favoriteChecker = false
+        }
+    }
+    
     @IBOutlet weak var playVideoButton: UIButton! {
         didSet {
             playVideoButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
+        }
+    }
+    
+    @IBOutlet weak var watchVideoLabel: UILabel! {
+        didSet {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(playButtonTapped))
+            watchVideoLabel.addGestureRecognizer(tap)
+            watchVideoLabel.isUserInteractionEnabled = true
         }
     }
     
@@ -23,36 +55,35 @@ class ExerciseVideoViewController: UIViewController {
     
     @IBOutlet weak var descriptionLabel: UITextView!
     
-    var selectedVideo : String = ""
     var selectedBodyPart : BodyPart = BodyPart()
     var selectedExercise : Exercise = Exercise()
-    
+    var downloadURL : URL?
     
     var ref : DatabaseReference!
+    
+    var favoriteChecker : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
-        
+                
         downloadVideosFromStorage()
         
     }
     
     @objc func playButtonTapped() {
-        if let path = Bundle.main.path(forResource: selectedVideo, ofType: "mp4") {
-            let video = AVPlayer(url: URL(fileURLWithPath: path))
+        guard let url = downloadURL else {return}
+            let video = AVPlayer(url: url)
             let videoPlayer = AVPlayerViewController()
             videoPlayer.player = video
             
             present(videoPlayer, animated: true, completion: {
                 video.play()
             })
-        }
     }
     
     func downloadVideosFromStorage() {
-        
         ref.child("bodyParts").child(selectedBodyPart.bodyPart).child("exercises").child(selectedExercise.exerciseID).observe(.value) { (snapshot) in
 
             if let dict = snapshot.value as? [String:Any],
@@ -63,33 +94,16 @@ class ExerciseVideoViewController: UIViewController {
                 self.nameLabel.text = name
                 self.descriptionLabel.text = desc
                 let storageRef = Storage.storage().reference(forURL: videoURL)
-                storageRef.getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
+                storageRef.getMetadata(completion: { (metaData, error) in
                     if let validError = error {
                         print(validError.localizedDescription)
                     }
                     
-                    if let validData = data {
-                        print("asd")
-                        
-                        
+                    if let validMetaData = metaData {
+                        self.downloadURL = validMetaData.downloadURL()
                     }
-                    
                 })
-                
             }
-        
         }
-        
-        
-            
-        
-        
-//        let storage = Storage.storage()
-        
-//        storage.reference(forURL: <#T##String#>)
     }
-    
-    
-
-
 }
