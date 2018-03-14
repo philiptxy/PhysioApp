@@ -10,8 +10,34 @@ import UIKit
 import AVKit
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 class ExerciseVideoViewController: UIViewController {
+    
+    
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
+    
+    @IBAction func favoriteButtonTapped(_ sender: UIBarButtonItem) {
+        
+        if let user = Auth.auth().currentUser {
+            let userID = user.uid
+            
+            let favoritePost : [String : Any] = [selectedExercise.exerciseID : true]
+            ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).setValue(favoritePost)
+        }
+        
+        if favoriteChecker == false {
+            let filledStarImage = UIImage(named: "Filled Star")
+            sender.setBackgroundImage(filledStarImage, for: .normal, barMetrics: .default)
+            sender.tintColor = UIColor.black
+            favoriteChecker = true
+        } else {
+            let emptyStarImage = UIImage(named: "Empty Star")
+            sender.setBackgroundImage(emptyStarImage, for: .normal, barMetrics: .default)
+            sender.tintColor = UIColor.black
+            favoriteChecker = false
+        }
+    }
     
     @IBOutlet weak var playVideoButton: UIButton! {
         didSet {
@@ -19,16 +45,25 @@ class ExerciseVideoViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var watchVideoLabel: UILabel! {
+        didSet {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(playButtonTapped))
+            watchVideoLabel.addGestureRecognizer(tap)
+            watchVideoLabel.isUserInteractionEnabled = true
+        }
+    }
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var descriptionLabel: UITextView!
     
-    var selectedVideo : String = ""
     var selectedBodyPart : BodyPart = BodyPart()
     var selectedExercise : Exercise = Exercise()
-    
+    var downloadURL : URL?
     
     var ref : DatabaseReference!
+    
+    var favoriteChecker : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,24 +72,35 @@ class ExerciseVideoViewController: UIViewController {
         
         downloadVideosFromStorage()
         
+        if let user = Auth.auth().currentUser {
+            let userID = user.uid
+            ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).observe(.childAdded, with: { (snapshot) in
+                
+                if snapshot.key == self.selectedExercise.exerciseID && snapshot.value != nil {
+                    let filledStarImage = UIImage(named: "Filled Star")
+                    self.favoriteButton.setBackgroundImage(filledStarImage, for: .normal, barMetrics: .default)
+                    self.favoriteButton.tintColor = UIColor.black
+                    self.favoriteChecker = true
+                }
+            })
+        }
+        
     }
     
     @objc func playButtonTapped() {
-        if let path = Bundle.main.path(forResource: selectedVideo, ofType: "mp4") {
-            let video = AVPlayer(url: URL(fileURLWithPath: path))
-            let videoPlayer = AVPlayerViewController()
-            videoPlayer.player = video
-            
-            present(videoPlayer, animated: true, completion: {
-                video.play()
-            })
-        }
+        guard let url = downloadURL else {return}
+        let video = AVPlayer(url: url)
+        let videoPlayer = AVPlayerViewController()
+        videoPlayer.player = video
+        
+        present(videoPlayer, animated: true, completion: {
+            video.play()
+        })
     }
     
     func downloadVideosFromStorage() {
-        
         ref.child("bodyParts").child(selectedBodyPart.bodyPart).child("exercises").child(selectedExercise.exerciseID).observe(.value) { (snapshot) in
-
+            
             if let dict = snapshot.value as? [String:Any],
                 let name = dict["name"] as? String,
                 let desc = dict["description"] as? String,
@@ -63,33 +109,16 @@ class ExerciseVideoViewController: UIViewController {
                 self.nameLabel.text = name
                 self.descriptionLabel.text = desc
                 let storageRef = Storage.storage().reference(forURL: videoURL)
-                storageRef.getData(maxSize: 10 * 1024 * 1024, completion: { (data, error) in
+                storageRef.getMetadata(completion: { (metaData, error) in
                     if let validError = error {
                         print(validError.localizedDescription)
                     }
                     
-                    if let validData = data {
-                        print("asd")
-                        
-                        
+                    if let validMetaData = metaData {
+                        self.downloadURL = validMetaData.downloadURL()
                     }
-                    
                 })
-                
             }
-        
         }
-        
-        
-            
-        
-        
-//        let storage = Storage.storage()
-        
-//        storage.reference(forURL: <#T##String#>)
     }
-    
-    
-
-
 }

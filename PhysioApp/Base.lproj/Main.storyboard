@@ -6,12 +6,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="HelveticaNeueExtras.ttc">
             <string>HelveticaNeue-CondensedBold</string>
+        </array>
+        <array key="Kefa.ttf">
+            <string>Kefa-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -193,38 +197,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Opd-zk-qen">
-                                <rect key="frame" x="67" y="384" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opd-zk-qen">
+                                <rect key="frame" x="20" y="227" width="335" height="390"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="390" id="lxZ-T8-usd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rau-am-jcH">
-                                <rect key="frame" x="164" y="296" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpW-SI-KW4">
-                                <rect key="frame" x="166" y="37" width="45" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpW-SI-KW4">
+                                <rect key="frame" x="154.5" y="94" width="67" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="fsY-Qe-4SO">
+                                <rect key="frame" x="51" y="132" width="273.5" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rau-am-jcH">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="4YY-4K-3db"/>
+                                            <constraint firstAttribute="width" secondItem="rau-am-jcH" secondAttribute="height" multiplier="1:1" id="dys-cG-d9c"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="icons8-next-80"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watch Video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiH-iM-LQj">
+                                        <rect key="frame" x="105" y="22.5" width="168.5" height="35"/>
+                                        <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mpW-SI-KW4" firstAttribute="centerX" secondItem="JhV-RJ-n41" secondAttribute="centerX" id="Gb1-nV-fQ9"/>
+                            <constraint firstItem="OjD-zt-fRH" firstAttribute="bottom" secondItem="Opd-zk-qen" secondAttribute="bottom" constant="50" id="Wwp-pF-DP6"/>
+                            <constraint firstItem="mpW-SI-KW4" firstAttribute="top" secondItem="OjD-zt-fRH" secondAttribute="top" constant="30" id="Zyy-hp-b8w"/>
+                            <constraint firstItem="Opd-zk-qen" firstAttribute="top" secondItem="fsY-Qe-4SO" secondAttribute="bottom" constant="15" id="fQc-fQ-c9a"/>
+                            <constraint firstItem="Opd-zk-qen" firstAttribute="leading" secondItem="OjD-zt-fRH" secondAttribute="leading" constant="20" id="hwr-gL-6Dr"/>
+                            <constraint firstItem="OjD-zt-fRH" firstAttribute="trailing" secondItem="Opd-zk-qen" secondAttribute="trailing" constant="20" id="mjn-8g-MSg"/>
+                            <constraint firstItem="fsY-Qe-4SO" firstAttribute="centerX" secondItem="JhV-RJ-n41" secondAttribute="centerX" id="wQc-Kw-gOe"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OjD-zt-fRH"/>
                     </view>
+                    <navigationItem key="navigationItem" id="mUU-BN-nXl">
+                        <barButtonItem key="rightBarButtonItem" image="Empty Star" id="ioN-h2-AL1">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="favoriteButtonTapped:" destination="KXi-Tg-gNH" id="W4R-yR-Gg8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="Opd-zk-qen" id="EfM-6t-ciw"/>
+                        <outlet property="favoriteButton" destination="ioN-h2-AL1" id="Xky-XL-FJT"/>
                         <outlet property="nameLabel" destination="mpW-SI-KW4" id="ud6-qH-FJF"/>
                         <outlet property="playVideoButton" destination="rau-am-jcH" id="u5K-6i-OrN"/>
+                        <outlet property="watchVideoLabel" destination="QiH-iM-LQj" id="39J-eP-oFf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CS7-YL-Zrk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839.2" y="841.52923538230891"/>
+            <point key="canvasLocation" x="1500" y="841.52923538230891"/>
         </scene>
         <!--Programs-->
         <scene sceneID="dxE-Tc-WdO">
@@ -301,4 +340,8 @@
             <point key="canvasLocation" x="330" y="833"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Empty Star" width="30" height="30"/>
+        <image name="icons8-next-80" width="80" height="80"/>
+    </resources>
 </document>
