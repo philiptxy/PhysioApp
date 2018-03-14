@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		000C302120577224001CEF22 /* ExerciseVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C302020577224001CEF22 /* ExerciseVideoViewController.swift */; };
+		001A9DB62058E1FD005400F1 /* CustomProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A9DB52058E1FD005400F1 /* CustomProgramViewController.swift */; };
+		001A9DB82058FFEC005400F1 /* CustomProgramCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A9DB72058FFEC005400F1 /* CustomProgramCollectionViewCell.swift */; };
+		001A9DBA205900C7005400F1 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A9DB9205900C7005400F1 /* Program.swift */; };
+		001A9DBC205904B4005400F1 /* AddProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A9DBB205904B4005400F1 /* AddProgramViewController.swift */; };
+		001A9DBE205906A9005400F1 /* EditProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A9DBD205906A9005400F1 /* EditProgramViewController.swift */; };
+		001A9DC0205906C8005400F1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A9DBF205906C8005400F1 /* TimerViewController.swift */; };
 		00D867482056345200AA5E80 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00D867472056345200AA5E80 /* GoogleService-Info.plist */; };
 		00D8674A2056623200AA5E80 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D867492056623200AA5E80 /* Auth.storyboard */; };
 		00E782D5205668D5001554B1 /* DisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E782D4205668D5001554B1 /* DisclaimerViewController.swift */; };
@@ -31,6 +37,12 @@
 
 /* Begin PBXFileReference section */
 		000C302020577224001CEF22 /* ExerciseVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseVideoViewController.swift; sourceTree = "<group>"; };
+		001A9DB52058E1FD005400F1 /* CustomProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgramViewController.swift; sourceTree = "<group>"; };
+		001A9DB72058FFEC005400F1 /* CustomProgramCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgramCollectionViewCell.swift; sourceTree = "<group>"; };
+		001A9DB9205900C7005400F1 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		001A9DBB205904B4005400F1 /* AddProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProgramViewController.swift; sourceTree = "<group>"; };
+		001A9DBD205906A9005400F1 /* EditProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProgramViewController.swift; sourceTree = "<group>"; };
+		001A9DBF205906C8005400F1 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		00D867472056345200AA5E80 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00D867492056623200AA5E80 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		00E782D220566873001554B1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +80,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		001A9DB42058E1C4005400F1 /* Custom Program */ = {
+			isa = PBXGroup;
+			children = (
+				001A9DB52058E1FD005400F1 /* CustomProgramViewController.swift */,
+				001A9DBB205904B4005400F1 /* AddProgramViewController.swift */,
+				001A9DB72058FFEC005400F1 /* CustomProgramCollectionViewCell.swift */,
+				001A9DB9205900C7005400F1 /* Program.swift */,
+				001A9DBD205906A9005400F1 /* EditProgramViewController.swift */,
+				001A9DBF205906C8005400F1 /* TimerViewController.swift */,
+			);
+			path = "Custom Program";
+			sourceTree = "<group>";
+		};
 		00D8674E2056645900AA5E80 /* Login & Sign Up */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +167,7 @@
 				FC28C3472056328B003336A2 /* LaunchScreen.storyboard */,
 				FC28C34A2056328B003336A2 /* Info.plist */,
 				00D867472056345200AA5E80 /* GoogleService-Info.plist */,
+				001A9DB42058E1C4005400F1 /* Custom Program */,
 			);
 			path = PhysioApp;
 			sourceTree = "<group>";
@@ -283,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				001A9DC0205906C8005400F1 /* TimerViewController.swift in Sources */,
 				00E782D7205678E0001554B1 /* InitialViewController.swift in Sources */,
 				00E782D620566A73001554B1 /* SignUpViewController.swift in Sources */,
 				FC96E1C72056720200BB880C /* BodyPartCollectionViewCell.swift in Sources */,
@@ -290,9 +317,14 @@
 				FC1AAC43205663D100D4A1C0 /* AllProgramsViewController.swift in Sources */,
 				00E782DB205706D9001554B1 /* LoginViewController.swift in Sources */,
 				FC96E1CB2057816300BB880C /* HomeExerciseViewController.swift in Sources */,
+				001A9DBA205900C7005400F1 /* Program.swift in Sources */,
 				FC1AAC41205663B500D4A1C0 /* FavoritesViewController.swift in Sources */,
 				00E782D5205668D5001554B1 /* DisclaimerViewController.swift in Sources */,
+				001A9DB62058E1FD005400F1 /* CustomProgramViewController.swift in Sources */,
+				001A9DB82058FFEC005400F1 /* CustomProgramCollectionViewCell.swift in Sources */,
+				001A9DBE205906A9005400F1 /* EditProgramViewController.swift in Sources */,
 				FC96E1CD205783D000BB880C /* Exercise.swift in Sources */,
+				001A9DBC205904B4005400F1 /* AddProgramViewController.swift in Sources */,
 				FC96E1C52056718300BB880C /* HomeBodyPartViewController.swift in Sources */,
 				FC96E1C920568EE400BB880C /* BodyPart.swift in Sources */,
 				000C302120577224001CEF22 /* ExerciseVideoViewController.swift in Sources */,
