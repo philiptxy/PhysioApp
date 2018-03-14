@@ -33,6 +33,7 @@
 		FC96E1C920568EE400BB880C /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1C820568EE400BB880C /* BodyPart.swift */; };
 		FC96E1CB2057816300BB880C /* HomeExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1CA2057816300BB880C /* HomeExerciseViewController.swift */; };
 		FC96E1CD205783D000BB880C /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1CC205783D000BB880C /* Exercise.swift */; };
+		FCF9BD8C2057BCA400EC7C61 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF9BD8B2057BCA400EC7C61 /* Favorites.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		FC96E1C820568EE400BB880C /* BodyPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
 		FC96E1CA2057816300BB880C /* HomeExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExerciseViewController.swift; sourceTree = "<group>"; };
 		FC96E1CC205783D000BB880C /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		FCF9BD8B2057BCA400EC7C61 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				FC28C3422056328B003336A2 /* Main.storyboard */,
 				000C302020577224001CEF22 /* ExerciseVideoViewController.swift */,
 				FC1AAC40205663B500D4A1C0 /* FavoritesViewController.swift */,
+				FCF9BD8B2057BCA400EC7C61 /* Favorites.swift */,
 				FC1AAC42205663D100D4A1C0 /* AllProgramsViewController.swift */,
 				FC28C3452056328B003336A2 /* Assets.xcassets */,
 				FC28C3472056328B003336A2 /* LaunchScreen.storyboard */,
@@ -313,6 +316,7 @@
 				00E782D7205678E0001554B1 /* InitialViewController.swift in Sources */,
 				00E782D620566A73001554B1 /* SignUpViewController.swift in Sources */,
 				FC96E1C72056720200BB880C /* BodyPartCollectionViewCell.swift in Sources */,
+				FCF9BD8C2057BCA400EC7C61 /* Favorites.swift in Sources */,
 				00E782D920567BC4001554B1 /* Extensions.swift in Sources */,
 				FC1AAC43205663D100D4A1C0 /* AllProgramsViewController.swift in Sources */,
 				00E782DB205706D9001554B1 /* LoginViewController.swift in Sources */,
