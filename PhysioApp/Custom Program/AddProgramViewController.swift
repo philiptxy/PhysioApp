@@ -10,12 +10,26 @@ import UIKit
 
 class AddProgramViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.dataSource = self
+        }
+    }
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBOutlet weak var setButton: UIButton!
+    
+    @IBOutlet weak var programName: UILabel!
+    
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "EditProgramViewController") as? EditProgramViewController else {return}
         
         self.present(vc, animated: true, completion: nil)
         
     }
+    
+    var exercises : [Exercise] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,4 +38,20 @@ class AddProgramViewController: UIViewController {
     }
 
 
+}
+
+extension AddProgramViewController : UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return exercises.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        cell.textLabel?.text = exercises[indexPath.row].name
+        
+        return cell
+    }
+    
 }

@@ -11,6 +11,7 @@ import UIKit
 class EditProgramViewController: UIViewController {
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 
