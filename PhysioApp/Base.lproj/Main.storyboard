@@ -344,7 +344,11 @@
                         <viewLayoutGuide key="safeArea" id="laR-Xv-i5t"/>
                     </view>
                     <navigationItem key="navigationItem" id="1oe-u1-piV">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Ps-Fv-Ckn"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Ps-Fv-Ckn">
+                            <connections>
+                                <segue destination="5OI-Py-2BW" kind="show" id="zfw-QU-vYx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="sRa-V5-U98" id="cGR-qc-Gbg"/>
@@ -357,13 +361,20 @@
         <!--Add Program View Controller-->
         <scene sceneID="1Q4-uc-3nd">
             <objects>
-                <viewController storyboardIdentifier="AddProgramViewController" id="5OI-Py-2BW" customClass="AddProgramViewController" customModule="PhysioApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddProgramViewController" title="Add Program View Controller" id="5OI-Py-2BW" customClass="AddProgramViewController" customModule="PhysioApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KSB-B2-0Mx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="69K-QP-57B"/>
                     </view>
+                    <navigationItem key="navigationItem" id="qL1-hb-0Xh">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="zWL-AH-YSY">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="5OI-Py-2BW" id="Dqf-oP-AyC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVR-iA-LtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -433,13 +444,33 @@
                     <view key="view" contentMode="scaleToFill" id="Var-it-JJ2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FhT-f8-iGp">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="s9C-LN-i5H">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="ci4-4M-88A">
+                                            <connections>
+                                                <action selector="cancelButtonTapped:" destination="1PD-SA-SZG" id="hLM-Vo-zwc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="VoV-DS-7wM"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FhT-f8-iGp" firstAttribute="leading" secondItem="Lmz-uz-YQ8" secondAttribute="leading" id="3BT-eJ-1Lz"/>
+                            <constraint firstItem="FhT-f8-iGp" firstAttribute="top" secondItem="Lmz-uz-YQ8" secondAttribute="top" id="FqS-w3-Oec"/>
+                            <constraint firstItem="Lmz-uz-YQ8" firstAttribute="trailing" secondItem="FhT-f8-iGp" secondAttribute="trailing" id="MO8-Wg-vDt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Lmz-uz-YQ8"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X7p-mt-xmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2534" y="1586"/>
+            <point key="canvasLocation" x="2533.5999999999999" y="1585.4572713643179"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="68Z-FG-ntC">
