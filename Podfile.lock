@@ -1,4 +1,6 @@
 PODS:
+  - CountdownLabel (3.0.0)
+  - DLLocalNotifications (0.06)
   - Firebase/Auth (4.10.1):
     - Firebase/Core
     - FirebaseAuth (= 4.4.4)
@@ -51,12 +53,16 @@ PODS:
   - nanopb/encode (0.3.8)
 
 DEPENDENCIES:
+  - CountdownLabel
+  - DLLocalNotifications
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
 
 SPEC CHECKSUMS:
+  CountdownLabel: 4534a68892b1deb73fda18702dfdc2c8444cec08
+  DLLocalNotifications: 751d53da896bc396bb23d4d3570b7fd3c7654e4e
   Firebase: 92c6ba593e32db0defde464a9adc981d5cb49f97
   FirebaseAnalytics: 3dfae28d4a5e06f86c4fae830efc2ad3fadb19bc
   FirebaseAuth: d040bb7a9db6dfc29d0e7ec82d48be51352b2581
@@ -69,6 +75,6 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: e6b420e2da13c51514cb54b42f80c09d2e36dc1f
+PODFILE CHECKSUM: e6c9d06b039586a7732ca0379ae54685a78c0e86
 
 COCOAPODS: 1.4.0

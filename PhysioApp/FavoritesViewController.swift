@@ -36,7 +36,6 @@ class FavoritesViewController: UIViewController {
         currentUserID = Auth.auth().currentUser?.uid ?? ""
         
         
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
