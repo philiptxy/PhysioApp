@@ -432,6 +432,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kZr-FQ-jFs"/>
                     </view>
+                    <connections>
+                        <outlet property="hourTextField" destination="4ys-Ke-Rgy" id="S9v-B1-CQR"/>
+                        <outlet property="minuteTextField" destination="Zpg-ev-ODy" id="HnO-uJ-wlM"/>
+                        <outlet property="secondTextField" destination="rfS-zX-WZ7" id="GT7-pq-iFS"/>
+                        <outlet property="startButton" destination="oJg-vG-aDI" id="Enj-oc-jMI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cvz-nB-6aj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -27,6 +27,8 @@
 		FC28C33F2056328B003336A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC28C33E2056328B003336A2 /* AppDelegate.swift */; };
 		FC28C3462056328B003336A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3452056328B003336A2 /* Assets.xcassets */; };
 		FC28C3492056328B003336A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3472056328B003336A2 /* LaunchScreen.storyboard */; };
+		FC42181D205A2B4F007B3EBA /* TimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC42181C205A2B4F007B3EBA /* TimerView.xib */; };
+		FC42181F205A2B63007B3EBA /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42181E205A2B63007B3EBA /* TimerView.swift */; };
 		FC96E1C320566F6500BB880C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3422056328B003336A2 /* Main.storyboard */; };
 		FC96E1C52056718300BB880C /* HomeBodyPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1C42056718200BB880C /* HomeBodyPartViewController.swift */; };
 		FC96E1C72056720200BB880C /* BodyPartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1C62056720200BB880C /* BodyPartCollectionViewCell.swift */; };
@@ -62,6 +64,8 @@
 		FC28C3452056328B003336A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC28C3482056328B003336A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC28C34A2056328B003336A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC42181C205A2B4F007B3EBA /* TimerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerView.xib; sourceTree = "<group>"; };
+		FC42181E205A2B63007B3EBA /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		FC96E1C42056718200BB880C /* HomeBodyPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBodyPartViewController.swift; sourceTree = "<group>"; };
 		FC96E1C62056720200BB880C /* BodyPartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPartCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC96E1C820568EE400BB880C /* BodyPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 		001A9DB42058E1C4005400F1 /* Custom Program */ = {
 			isa = PBXGroup;
 			children = (
+				FC42181C205A2B4F007B3EBA /* TimerView.xib */,
+				FC42181E205A2B63007B3EBA /* TimerView.swift */,
 				001A9DB52058E1FD005400F1 /* CustomProgramViewController.swift */,
 				001A9DBB205904B4005400F1 /* AddProgramViewController.swift */,
 				001A9DB72058FFEC005400F1 /* CustomProgramCollectionViewCell.swift */,
@@ -241,6 +247,7 @@
 				00D867482056345200AA5E80 /* GoogleService-Info.plist in Resources */,
 				FC28C3492056328B003336A2 /* LaunchScreen.storyboard in Resources */,
 				FC28C3462056328B003336A2 /* Assets.xcassets in Resources */,
+				FC42181D205A2B4F007B3EBA /* TimerView.xib in Resources */,
 				00D8674A2056623200AA5E80 /* Auth.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +329,7 @@
 				FC96E1C72056720200BB880C /* BodyPartCollectionViewCell.swift in Sources */,
 				FCF9BD8C2057BCA400EC7C61 /* Favorites.swift in Sources */,
 				00E782D920567BC4001554B1 /* Extensions.swift in Sources */,
+				FC42181F205A2B63007B3EBA /* TimerView.swift in Sources */,
 				FC1AAC43205663D100D4A1C0 /* AllProgramsViewController.swift in Sources */,
 				00E782DB205706D9001554B1 /* LoginViewController.swift in Sources */,
 				FC96E1CB2057816300BB880C /* HomeExerciseViewController.swift in Sources */,

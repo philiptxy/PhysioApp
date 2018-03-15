@@ -10,26 +10,35 @@ import UIKit
 
 class TimerViewController: UIViewController {
 
+    @IBOutlet weak var hourTextField: UITextField!
+    @IBOutlet weak var minuteTextField: UITextField!
+    @IBOutlet weak var secondTextField: UITextField!
+    @IBOutlet weak var startButton: UIButton! {
+        didSet {
+            startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @objc func startButtonTapped() {
+        guard let hour = hourTextField.text,
+            let minute = minuteTextField.text,
+            let second = secondTextField.text else {return}
+        
+        let timer = TimerView()
+        
+        timer.hour = hour
+        timer.minute = minute
+        timer.second = second
+        
+        view.addSubview(timer)
     }
-    */
+ 
 
 }
