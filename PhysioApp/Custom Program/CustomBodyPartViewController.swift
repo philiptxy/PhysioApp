@@ -73,20 +73,15 @@ class CustomBodyPartViewController: UIViewController {
         
     }
     
-    func preSelectCells() {
-        let indexPath = IndexPath(row: 0, section: 0)
-        
-        tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
-
-        
-        
-//        if highlightedExercises.count != 0 {
-//            if twoDimensionalArray[indexPath.section][indexPath.row].name ==  highlightedExercises[indexPath.row].name {
-//                cell.setSelected(true, animated: false)
-//                cell.setHighlighted(true, animated: false)
-//            }
-//        }
-    }
+//    func preSelectCells() {
+//        let indexPath = IndexPath(row: 0, section: 0)
+//
+//        tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
+//
+//        let cell = tableView.cellForRow(at: indexPath)
+//
+//
+//    }
     
     func sendNotification() {
         var notification = Notification(name: Notification.Name.init(""))
@@ -196,8 +191,17 @@ extension CustomBodyPartViewController : UITableViewDataSource {
         
         cell.textLabel?.text = twoDimensionalArray[indexPath.section][indexPath.row].name
         
+//        if selectedExercises.count != 0 {
+//            if twoDimensionalArray[indexPath.section][indexPath.row] ==  selectedExercises {
+//                cell.isSelected = true
+//                cell.isHighlighted = true
+//                cell.backgroundColor = UIColor.red
+//            }
+//        }
+        
         return cell
     }
+    
 }
 
 extension CustomBodyPartViewController : UITableViewDelegate {
@@ -232,7 +236,6 @@ extension CustomBodyPartViewController : UITableViewDelegate {
         
         self.selectedExercises.remove(at: indexPath.row)
     }
-    
     
     
 }
