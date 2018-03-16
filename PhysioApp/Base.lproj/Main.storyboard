@@ -385,7 +385,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AZ-dI-Xwc">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="8AZ-dI-Xwc">
                                         <rect key="frame" x="0.0" y="30" width="335" height="90"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="vDo-QD-8wL"/>
@@ -394,6 +394,9 @@
                                             <!--2016-03-15 00:00:15 +0000-->
                                         </date>
                                         <locale key="locale" localeIdentifier="en_MY"/>
+                                        <connections>
+                                            <action selector="datePickerChanged:" destination="5OI-Py-2BW" eventType="valueChanged" id="ryw-cP-l4n"/>
+                                        </connections>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jN-vc-KW0">
                                         <rect key="frame" x="0.0" y="120" width="335" height="30"/>
@@ -464,7 +467,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="qL1-hb-0Xh">
                         <rightBarButtonItems>
-                            <barButtonItem title="Edit" id="zWL-AH-YSY">
+                            <barButtonItem title="Add" id="zWL-AH-YSY">
                                 <connections>
                                     <action selector="editButtonTapped:" destination="5OI-Py-2BW" id="Dqf-oP-AyC"/>
                                 </connections>
