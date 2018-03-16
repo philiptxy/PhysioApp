@@ -29,6 +29,7 @@
 		FC28C3492056328B003336A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3472056328B003336A2 /* LaunchScreen.storyboard */; };
 		FC42181D205A2B4F007B3EBA /* TimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC42181C205A2B4F007B3EBA /* TimerView.xib */; };
 		FC42181F205A2B63007B3EBA /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC42181E205A2B63007B3EBA /* TimerView.swift */; };
+		FC421821205AC482007B3EBA /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC421820205AC482007B3EBA /* CountdownViewController.swift */; };
 		FC96E1C320566F6500BB880C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC28C3422056328B003336A2 /* Main.storyboard */; };
 		FC96E1C52056718300BB880C /* HomeBodyPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1C42056718200BB880C /* HomeBodyPartViewController.swift */; };
 		FC96E1C72056720200BB880C /* BodyPartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1C62056720200BB880C /* BodyPartCollectionViewCell.swift */; };
@@ -66,6 +67,7 @@
 		FC28C34A2056328B003336A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC42181C205A2B4F007B3EBA /* TimerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerView.xib; sourceTree = "<group>"; };
 		FC42181E205A2B63007B3EBA /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		FC421820205AC482007B3EBA /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
 		FC96E1C42056718200BB880C /* HomeBodyPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBodyPartViewController.swift; sourceTree = "<group>"; };
 		FC96E1C62056720200BB880C /* BodyPartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPartCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC96E1C820568EE400BB880C /* BodyPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		001A9DB42058E1C4005400F1 /* Custom Program */ = {
 			isa = PBXGroup;
 			children = (
+				FC421820205AC482007B3EBA /* CountdownViewController.swift */,
 				FC42181C205A2B4F007B3EBA /* TimerView.xib */,
 				FC42181E205A2B63007B3EBA /* TimerView.swift */,
 				001A9DB52058E1FD005400F1 /* CustomProgramViewController.swift */,
@@ -345,6 +348,7 @@
 				FC96E1C920568EE400BB880C /* BodyPart.swift in Sources */,
 				000C302120577224001CEF22 /* ExerciseVideoViewController.swift in Sources */,
 				FC28C33F2056328B003336A2 /* AppDelegate.swift in Sources */,
+				FC421821205AC482007B3EBA /* CountdownViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
