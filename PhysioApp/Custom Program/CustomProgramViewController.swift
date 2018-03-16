@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class CustomProgramViewController: UIViewController {
     
@@ -19,23 +20,50 @@ class CustomProgramViewController: UIViewController {
     }
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        
+        let path = ref.child("users").child(currentUserID).child("programs").childByAutoId()
+        
+        let key = path.key
+        
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddProgramViewController") as? AddProgramViewController else {return}
         
-        navigationController?.pushViewController(vc, animated: true)
+        ref.child("users").child(currentUserID).child("programs").child(key).observe(.value) { (snapshot) in
+            guard let dict = snapshot.value as? [String : Any] else {return}
+            let aProgram = Program(programID: snapshot.key, dict: dict)
+            DispatchQueue.main.async {
+                vc.selectedProgram = aProgram
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        
+        
 //        ref
     }
     
-    
+    var ref : DatabaseReference!
+    var currentUserID : String = ""
     var programs : [Program] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        ref = Database.database().reference()
+        currentUserID = Auth.auth().currentUser?.uid ?? ""
     }
     
     
-
+    func loadPrograms() {
+        ref.child("users").child(currentUserID).child("programs").observe(.childAdded) { (snapshot) in
+            guard let dict = snapshot.value as? [String : Any] else {return}
+            let aProgram = Program(programID: snapshot.key, dict: dict)
+            
+            DispatchQueue.main.async {
+                self.programs.append(aProgram)
+                self.collectionView.reloadData()
+            }
+            
+        }
+    }
 
 }
 
