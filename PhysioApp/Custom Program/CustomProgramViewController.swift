@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CustomProgramViewController: UIViewController {
     
@@ -16,6 +17,13 @@ class CustomProgramViewController: UIViewController {
             collectionView.delegate = self
         }
     }
+    
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddProgramViewController") as? AddProgramViewController else {return}
+        
+//        ref
+    }
+    
     
     var programs : [Program] = []
     

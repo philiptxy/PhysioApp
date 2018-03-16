@@ -16,12 +16,6 @@ class CustomBodyPartViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func confirmButtonTapped(_ sender: UIBarButtonItem) {
-        sendNotification()
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -63,39 +57,6 @@ class CustomBodyPartViewController: UIViewController {
         wristExercises = []
         twoDimensionalArray = []
         tableView.reloadData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-        
-        
-    }
-    
-//    func preSelectCells() {
-//        let indexPath = IndexPath(row: 0, section: 0)
-//
-//        tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
-//
-//        let cell = tableView.cellForRow(at: indexPath)
-//
-//
-//    }
-    
-    func sendNotification() {
-        var notification = Notification(name: Notification.Name.init(""))
-//        guard let vc = storyboard?.instantiateViewController(withIdentifier: "EditProgramViewController") as? EditProgramViewController else {return}
-//
-//        vc.selectedBodyParts = selectedBodyParts
-//        vc.selectedExercises = selectedExercises
-        
-//        notification = Notification(name: Notification.Name.init("BodyParts"), object: nil, userInfo: ["BodyParts":selectedBodyParts])
-        
-        notification = Notification(name: Notification.Name.init("Exercises"), object: nil, userInfo: ["Exercises":selectedExercises])
-        
-        NotificationCenter.default.post(notification)
-
     }
     
     func loadInfo() {
@@ -158,11 +119,6 @@ class CustomBodyPartViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
-        
-        
-        
-        
-        
     }
 }
 
@@ -191,14 +147,6 @@ extension CustomBodyPartViewController : UITableViewDataSource {
         
         cell.textLabel?.text = twoDimensionalArray[indexPath.section][indexPath.row].name
         
-//        if selectedExercises.count != 0 {
-//            if twoDimensionalArray[indexPath.section][indexPath.row] ==  selectedExercises {
-//                cell.isSelected = true
-//                cell.isHighlighted = true
-//                cell.backgroundColor = UIColor.red
-//            }
-//        }
-        
         return cell
     }
     
@@ -206,6 +154,8 @@ extension CustomBodyPartViewController : UITableViewDataSource {
 
 extension CustomBodyPartViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
         
         guard let selectedCell : UITableViewCell = tableView.cellForRow(at: indexPath) else {return}
         selectedCell.contentView.backgroundColor = UIColor.red
@@ -215,26 +165,37 @@ extension CustomBodyPartViewController : UITableViewDelegate {
         let selectedBodyPart = bodyParts[indexPath.section]
         let selectedExercise = twoDimensionalArray[indexPath.section][indexPath.row]
         
-        //        var selectedBodyPart = BodyPart()
-        //        var selectedExercise = Exercise()
+        let exerciseDetails : [String:Any] = ["name": selectedExercise.name]
+        let exerciseDict : [String:Any] = [selectedExercise.exerciseID:exerciseDetails]
         
-        //        ref.child("bodyParts").child(selectedBodyPartName).observe(.value) { (snapshot) in
-        //            guard let dict = snapshot.value as? [String : Any] else {return}
-        //            selectedBodyPart = BodyPart(bodyPart: snapshot.key, dict: dict)
-        //        }
-        //        ref.child("bodyParts").child(selectedBodyPartName).child("exercises").child(selectedExerciseID).observe(.value) { (snapshot) in
-        //            guard let dict = snapshot.value as? [String : Any] else {return}
-        //            selectedExercise = Exercise(exerciseID: snapshot.key, dict: dict)
+        ref.child("users").child(currentUserID).child("programs").childByAutoId().child("exercises").setValue(exerciseDict)
         
-        self.selectedExercises.append(selectedExercise)
-        self.selectedBodyParts.append(selectedBodyPart)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         guard let selectedCell : UITableViewCell = tableView.cellForRow(at: indexPath) else {return}
         selectedCell.contentView.backgroundColor = UIColor.clear
         
-        self.selectedExercises.remove(at: indexPath.row)
+        let selectedExercise = twoDimensionalArray[indexPath.section][indexPath.row]
+        let exerciseDetails : [String:Any] = ["name": selectedExercise.name]
+        let exerciseDict : [String:Any] = [selectedExercise.exerciseID:exerciseDetails]
+        
+//        ref.child("users").child(currentUserID).child("programs").observe(.value) { (snapshot) in
+//            
+//            if let dict = snapshot.value as? [String : Any] {
+//                for (k, v) in dict {
+//                    if let exerciseDict = v["exercises"] as? [String:Any] {
+//                        if selectedExercise.exerciseID == exerciseDict
+//                    }
+//                    let key = k
+//                }
+//            }
+//            
+//            
+//        }
+//        let programID =
+//        
+//       ref.child("users").child(currentUserID).child("programs").
     }
     
     
