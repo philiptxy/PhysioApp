@@ -19,7 +19,7 @@ class EditProgramViewController: UIViewController {
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "CustomBodyPartViewController") as? CustomBodyPartViewController else {return}
         
-        vc.highlightedExercises = selectedExercises
+        vc.selectedExercises = selectedExercises
         
         self.present(vc, animated: true, completion: nil)
     }
