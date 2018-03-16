@@ -8,6 +8,8 @@
 
 import UIKit
 import DLLocalNotifications
+import FirebaseDatabase
+import FirebaseAuth
 
 class AddProgramViewController: UIViewController {
     
@@ -45,7 +47,7 @@ class AddProgramViewController: UIViewController {
     
     @IBOutlet weak var programName: UILabel!
     
-    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "CustomBodyPartViewController") as? CustomBodyPartViewController else {return}
         
         
@@ -58,14 +60,34 @@ class AddProgramViewController: UIViewController {
     var selectedProgram : Program = Program()
     let scheduler = DLNotificationScheduler()
     
+    var ref : DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ref = Database.database().reference()
 //        programName.text = selectedProgram.name
         
+        loadDatabase()
     }
-
-
+    
+    func loadDatabase() {
+        guard let currentUserID = Auth.auth().currentUser else {return}
+        
+        ref.child("users/\(currentUserID)/programs/\(selectedProgram.programID)/exercises").observe(.childAdded) { (snapshot) in
+            
+            if let dict = snapshot.value as? [String:Any] {
+                let exercise = Exercise(exerciseID: snapshot.key, dict: dict)
+                
+                DispatchQueue.main.async {
+                    self.exercises.append(exercise)
+                    let indexPath = IndexPath(row: self.exercises.count - 1, section: 0)
+                    self.tableView.insertRows(at: [indexPath], with: .automatic)
+                }
+            }
+        }
+    }
+    
 }
 
 extension AddProgramViewController : UITableViewDataSource {
@@ -79,6 +101,11 @@ extension AddProgramViewController : UITableViewDataSource {
         
         cell.textLabel?.text = exercises[indexPath.row].name
         
+        let reps = exercises[indexPath.row].reps
+        let sets = exercises[indexPath.row].sets
+        
+        cell.detailTextLabel?.text = "\(sets) sets, \(reps) reps"
+        
         return cell
     }
     
@@ -88,6 +115,14 @@ extension AddProgramViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "ExerciseVideoViewController") as? ExerciseVideoViewController else {return}
+        
+        let selectedBodyPartStr = exercises[indexPath.row].bodyPart
+        let selectedBodyPart = BodyPart(bodyPart: selectedBodyPartStr)
+        
+        let selectedExercise = Exercise(exerciseID: exercises[indexPath.row].exerciseID)
+        
+        vc.selectedBodyPart = selectedBodyPart
+        vc.selectedExercise = selectedExercise
         
         navigationController?.pushViewController(vc, animated: true)
     }

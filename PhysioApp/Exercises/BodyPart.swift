@@ -19,6 +19,10 @@ class BodyPart {
         
     }
     
+    init(bodyPart: String) {
+        self.bodyPart = bodyPart
+    }
+    
     init(bodyPart: String, dict: [String : Any]) {
         self.bodyPart = bodyPart
         self.exercises = dict["exercise"] as? [String : Any] ?? [:]

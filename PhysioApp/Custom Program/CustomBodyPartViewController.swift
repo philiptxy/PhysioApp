@@ -25,6 +25,8 @@ class CustomBodyPartViewController: UIViewController {
     
     @IBOutlet weak var customView: UIView!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    
     @IBOutlet weak var setsTextField: UITextField!
     
     @IBOutlet weak var repsTextField: UITextField!
@@ -39,6 +41,9 @@ class CustomBodyPartViewController: UIViewController {
     var highlightedExercises : [Exercise] = []
     
     var selectedProgramID : String = ""
+    var selectedExerciseID : String = ""
+    var selectedBodyPart : String = ""
+    var selectedExercise : Exercise = Exercise()
     
     var hipExercises : [Exercise] = []
     var kneeExercises : [Exercise] = []
@@ -79,9 +84,21 @@ class CustomBodyPartViewController: UIViewController {
     }
     
     @objc func confirmButtonTapped() {
-        customView.isHidden = true
-        setsTextField.text = ""
-        repsTextField.text = ""
+        if let sets = setsTextField.text,
+            let reps = repsTextField.text,
+            let currentUserID = Auth.auth().currentUser?.uid {
+           
+            let exerciseDict : [String : Any] = ["name" : selectedExercise.name, "sets" : sets, "reps" : reps, "bodyPart" : selectedBodyPart]
+            ref.child("users").child(currentUserID).child("programs").child(selectedProgramID).child("exercises").child(selectedExerciseID).setValue(exerciseDict)
+            
+            customView.isHidden = true
+            setsTextField.text = ""
+            repsTextField.text = ""
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        
     }
     
     func loadInfo() {
@@ -180,33 +197,41 @@ extension CustomBodyPartViewController : UITableViewDataSource {
 extension CustomBodyPartViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
         
-        guard let selectedCell : UITableViewCell = tableView.cellForRow(at: indexPath) else {return}
-        selectedCell.contentView.backgroundColor = UIColor.red
-                
+//        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
+//
+//        guard let selectedCell : UITableViewCell = tableView.cellForRow(at: indexPath) else {return}
+//        selectedCell.contentView.backgroundColor = UIColor.red
+//
         let bodyParts = ["hip", "knee", "lowerBack", "neck", "shoulder", "wrist"]
         
-        let selectedBodyPart = bodyParts[indexPath.section]
-        let selectedExercise = twoDimensionalArray[indexPath.section][indexPath.row]
+        selectedBodyPart = bodyParts[indexPath.section]
+        selectedExercise = twoDimensionalArray[indexPath.section][indexPath.row]
+        selectedExerciseID = selectedExercise.exerciseID
         
-        let exerciseDetails : [String:Any] = ["name": selectedExercise.name]
-        let exerciseDict : [String:Any] = [selectedExercise.exerciseID:exerciseDetails]
-        ref.child("users").child(currentUserID).child("programs").child(selectedProgramID).child("exercises").setValue(exerciseDict)
+        
+//        let exerciseDetails : [String:Any] = ["name": selectedExercise.name]
+//        let exerciseDict : [String:Any] = [selectedExercise.exerciseID:exerciseDetails]
+        
+        nameLabel.text = selectedExercise.name
+
+        loadCustomView()
+
+//        ref.child("users").child(currentUserID).child("programs").child(selectedProgramID).child("exercises").setValue(exerciseDict)
         
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        guard let selectedCell : UITableViewCell = tableView.cellForRow(at: indexPath) else {return}
-        selectedCell.contentView.backgroundColor = UIColor.clear
-        
-        let selectedExercise = twoDimensionalArray[indexPath.section][indexPath.row]
-        
-        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
-        
-        ref.child("users").child(currentUserID).child("programs").child(selectedProgramID).child("exercises").child(selectedExercise.exerciseID).removeValue()
-        
-    }
+//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//        guard let selectedCell : UITableViewCell = tableView.cellForRow(at: indexPath) else {return}
+//        selectedCell.contentView.backgroundColor = UIColor.clear
+//
+//        let selectedExercise = twoDimensionalArray[indexPath.section][indexPath.row]
+//
+//        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
+//
+////        ref.child("users").child(currentUserID).child("programs").child(selectedProgramID).child("exercises").child(selectedExercise.exerciseID).removeValue()
+//
+//    }
     
     
 }
