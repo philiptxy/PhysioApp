@@ -23,9 +23,22 @@ class CustomBodyPartViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var customView: UIView!
+    
+    @IBOutlet weak var setsTextField: UITextField!
+    
+    @IBOutlet weak var repsTextField: UITextField!
+    
+    @IBOutlet weak var confirmButton: UIButton!
+    
+    
+    
+    
     var selectedExercises : [Exercise] = []
     var selectedBodyParts : [String] = []
     var highlightedExercises : [Exercise] = []
+    
+    var selectedProgramID : String = ""
     
     var hipExercises : [Exercise] = []
     var kneeExercises : [Exercise] = []
@@ -44,6 +57,7 @@ class CustomBodyPartViewController: UIViewController {
         ref = Database.database().reference()
         currentUserID = Auth.auth().currentUser?.uid ?? ""
         
+        customView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +71,17 @@ class CustomBodyPartViewController: UIViewController {
         wristExercises = []
         twoDimensionalArray = []
         tableView.reloadData()
+    }
+    
+    func loadCustomView() {
+        customView.isHidden = false
+        confirmButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func confirmButtonTapped() {
+        customView.isHidden = true
+        setsTextField.text = ""
+        repsTextField.text = ""
     }
     
     func loadInfo() {
@@ -167,8 +192,7 @@ extension CustomBodyPartViewController : UITableViewDelegate {
         
         let exerciseDetails : [String:Any] = ["name": selectedExercise.name]
         let exerciseDict : [String:Any] = [selectedExercise.exerciseID:exerciseDetails]
-        
-        ref.child("users").child(currentUserID).child("programs").childByAutoId().child("exercises").setValue(exerciseDict)
+        ref.child("users").child(currentUserID).child("programs").child(selectedProgramID).child("exercises").setValue(exerciseDict)
         
     }
     
@@ -177,25 +201,11 @@ extension CustomBodyPartViewController : UITableViewDelegate {
         selectedCell.contentView.backgroundColor = UIColor.clear
         
         let selectedExercise = twoDimensionalArray[indexPath.section][indexPath.row]
-        let exerciseDetails : [String:Any] = ["name": selectedExercise.name]
-        let exerciseDict : [String:Any] = [selectedExercise.exerciseID:exerciseDetails]
         
-//        ref.child("users").child(currentUserID).child("programs").observe(.value) { (snapshot) in
-//            
-//            if let dict = snapshot.value as? [String : Any] {
-//                for (k, v) in dict {
-//                    if let exerciseDict = v["exercises"] as? [String:Any] {
-//                        if selectedExercise.exerciseID == exerciseDict
-//                    }
-//                    let key = k
-//                }
-//            }
-//            
-//            
-//        }
-//        let programID =
-//        
-//       ref.child("users").child(currentUserID).child("programs").
+        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
+        
+        ref.child("users").child(currentUserID).child("programs").child(selectedProgramID).child("exercises").child(selectedExercise.exerciseID).removeValue()
+        
     }
     
     
