@@ -61,7 +61,7 @@ class AddProgramViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        programName.text = selectedProgram.name
+//        programName.text = selectedProgram.name
         
     }
 

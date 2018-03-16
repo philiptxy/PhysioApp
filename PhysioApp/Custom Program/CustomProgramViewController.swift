@@ -21,6 +21,7 @@ class CustomProgramViewController: UIViewController {
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddProgramViewController") as? AddProgramViewController else {return}
         
+        navigationController?.pushViewController(vc, animated: true)
 //        ref
     }
     

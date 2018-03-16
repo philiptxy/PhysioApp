@@ -12,7 +12,6 @@
 		001A9DB82058FFEC005400F1 /* CustomProgramCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A9DB72058FFEC005400F1 /* CustomProgramCollectionViewCell.swift */; };
 		001A9DBA205900C7005400F1 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A9DB9205900C7005400F1 /* Program.swift */; };
 		001A9DBC205904B4005400F1 /* AddProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A9DBB205904B4005400F1 /* AddProgramViewController.swift */; };
-		001A9DBE205906A9005400F1 /* EditProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A9DBD205906A9005400F1 /* EditProgramViewController.swift */; };
 		001A9DC0205906C8005400F1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A9DBF205906C8005400F1 /* TimerViewController.swift */; };
 		001A9DC6205A7646005400F1 /* CustomBodyPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A9DC5205A7646005400F1 /* CustomBodyPartViewController.swift */; };
 		00D867482056345200AA5E80 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00D867472056345200AA5E80 /* GoogleService-Info.plist */; };
@@ -46,7 +45,6 @@
 		001A9DB72058FFEC005400F1 /* CustomProgramCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgramCollectionViewCell.swift; sourceTree = "<group>"; };
 		001A9DB9205900C7005400F1 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 		001A9DBB205904B4005400F1 /* AddProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProgramViewController.swift; sourceTree = "<group>"; };
-		001A9DBD205906A9005400F1 /* EditProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProgramViewController.swift; sourceTree = "<group>"; };
 		001A9DBF205906C8005400F1 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		001A9DC5205A7646005400F1 /* CustomBodyPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBodyPartViewController.swift; sourceTree = "<group>"; };
 		00D867472056345200AA5E80 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 				FC42181E205A2B63007B3EBA /* TimerView.swift */,
 				001A9DB52058E1FD005400F1 /* CustomProgramViewController.swift */,
 				001A9DBB205904B4005400F1 /* AddProgramViewController.swift */,
-				001A9DBD205906A9005400F1 /* EditProgramViewController.swift */,
 				001A9DC5205A7646005400F1 /* CustomBodyPartViewController.swift */,
 				001A9DB72058FFEC005400F1 /* CustomProgramCollectionViewCell.swift */,
 				001A9DB9205900C7005400F1 /* Program.swift */,
@@ -345,7 +342,6 @@
 				00E782D5205668D5001554B1 /* DisclaimerViewController.swift in Sources */,
 				001A9DB62058E1FD005400F1 /* CustomProgramViewController.swift in Sources */,
 				001A9DB82058FFEC005400F1 /* CustomProgramCollectionViewCell.swift in Sources */,
-				001A9DBE205906A9005400F1 /* EditProgramViewController.swift in Sources */,
 				FC96E1CD205783D000BB880C /* Exercise.swift in Sources */,
 				001A9DBC205904B4005400F1 /* AddProgramViewController.swift in Sources */,
 				FC96E1C52056718300BB880C /* HomeBodyPartViewController.swift in Sources */,
