@@ -13,6 +13,7 @@ class AddProgramViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
+            tableView.delegate = self
         }
     }
     
@@ -25,16 +26,20 @@ class AddProgramViewController: UIViewController {
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "EditProgramViewController") as? EditProgramViewController else {return}
         
+        vc.exercises = exercises
+        
         self.present(vc, animated: true, completion: nil)
         
     }
     
     var exercises : [Exercise] = []
     
+    var selectedProgram : Program = Program()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        programName.text = selectedProgram.name
     }
 
 
@@ -52,6 +57,16 @@ extension AddProgramViewController : UITableViewDataSource {
         cell.textLabel?.text = exercises[indexPath.row].name
         
         return cell
+    }
+    
+}
+
+extension AddProgramViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "ExerciseVideoViewController") as? ExerciseVideoViewController else {return}
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

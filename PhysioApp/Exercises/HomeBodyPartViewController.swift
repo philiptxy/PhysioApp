@@ -19,8 +19,19 @@ class HomeBodyPartViewController: UIViewController {
         }
     }
     
+    @IBAction func logOutButtonTapped(_ sender: UIBarButtonItem) {
+        do{
+            try Auth.auth().signOut()
+            dismiss(animated: true, completion: nil)
+        } catch {
+            
+        }
+    }
+    
+    
     var bodyParts : [BodyPart] = []
     var ref: DatabaseReference!
+    var customChecker : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

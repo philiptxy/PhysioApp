@@ -24,7 +24,7 @@
         <!--Home Body Part View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeBodyPartViewController" customModule="PhysioApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeBodyPartViewController" id="BYZ-38-t0r" customClass="HomeBodyPartViewController" customModule="PhysioApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,7 +83,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="j1q-y1-yTs"/>
+                    <navigationItem key="navigationItem" id="j1q-y1-yTs">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="ily-cs-AAs">
+                            <connections>
+                                <action selector="logOutButtonTapped:" destination="BYZ-38-t0r" id="dzg-FF-BP2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="qKs-yg-c6U" id="0GE-MZ-k3R"/>
                     </connections>
@@ -465,7 +471,7 @@
                             </barButtonItem>
                             <barButtonItem title="Timer" id="K0b-DL-6BD">
                                 <connections>
-                                    <segue destination="yf5-5b-aB4" kind="show" id="bGl-KF-Csq"/>
+                                    <segue destination="yf5-5b-aB4" kind="show" identifier="" id="bGl-KF-Csq"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -542,7 +548,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cvz-nB-6aj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1709.5999999999999" y="2338.3808095952027"/>
+            <point key="canvasLocation" x="1689" y="2340"/>
         </scene>
         <!--Edit Program View Controller-->
         <scene sceneID="URX-0L-77u">
@@ -561,23 +567,115 @@
                                                 <action selector="cancelButtonTapped:" destination="1PD-SA-SZG" id="hLM-Vo-zwc"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="VoV-DS-7wM"/>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Save" id="VoV-DS-7wM">
+                                                <connections>
+                                                    <action selector="saveButtonTapped:" destination="1PD-SA-SZG" id="T6D-PF-9SW"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Add" id="ay0-pg-0Gc">
+                                                <connections>
+                                                    <action selector="addButtonTapped:" destination="1PD-SA-SZG" id="sUy-mG-zeZ"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ciN-ac-iwB">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Vod-wq-j2Y">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vod-wq-j2Y" id="jLo-B1-AW3">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FhT-f8-iGp" firstAttribute="leading" secondItem="Lmz-uz-YQ8" secondAttribute="leading" id="3BT-eJ-1Lz"/>
                             <constraint firstItem="FhT-f8-iGp" firstAttribute="top" secondItem="Lmz-uz-YQ8" secondAttribute="top" id="FqS-w3-Oec"/>
                             <constraint firstItem="Lmz-uz-YQ8" firstAttribute="trailing" secondItem="FhT-f8-iGp" secondAttribute="trailing" id="MO8-Wg-vDt"/>
+                            <constraint firstItem="ciN-ac-iwB" firstAttribute="leading" secondItem="Lmz-uz-YQ8" secondAttribute="leading" id="NNG-vA-gqk"/>
+                            <constraint firstItem="ciN-ac-iwB" firstAttribute="top" secondItem="FhT-f8-iGp" secondAttribute="bottom" id="ODc-T0-dZL"/>
+                            <constraint firstItem="Lmz-uz-YQ8" firstAttribute="trailing" secondItem="ciN-ac-iwB" secondAttribute="trailing" id="VMk-He-72x"/>
+                            <constraint firstItem="Lmz-uz-YQ8" firstAttribute="bottom" secondItem="ciN-ac-iwB" secondAttribute="bottom" id="g92-eh-oOI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lmz-uz-YQ8"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="ciN-ac-iwB" id="x7h-lJ-9xg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X7p-mt-xmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2533.5999999999999" y="1585.4572713643179"/>
+        </scene>
+        <!--Custom Body Part View Controller-->
+        <scene sceneID="8Jg-I9-3lO">
+            <objects>
+                <viewController storyboardIdentifier="CustomBodyPartViewController" id="5Rm-pC-qJA" customClass="CustomBodyPartViewController" customModule="PhysioApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WXH-Fd-SFw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Knr-YK-gup">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="049-SL-8bd">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="049-SL-8bd" id="fn8-EJ-LEG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6X6-KD-n6l">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="p0w-XC-FCm">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="ogJ-Ld-zvY">
+                                            <connections>
+                                                <action selector="cancelButtonTapped:" destination="5Rm-pC-qJA" id="Nap-3C-2bx"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Confirm" id="gwF-kz-1kd">
+                                            <connections>
+                                                <action selector="confirmButtonTapped:" destination="5Rm-pC-qJA" id="CE1-2s-mtV"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6X6-KD-n6l" firstAttribute="top" secondItem="tyd-DA-sNC" secondAttribute="top" id="6Ha-r4-wmI"/>
+                            <constraint firstItem="tyd-DA-sNC" firstAttribute="trailing" secondItem="6X6-KD-n6l" secondAttribute="trailing" id="7Vx-3g-Bhw"/>
+                            <constraint firstItem="Knr-YK-gup" firstAttribute="trailing" secondItem="tyd-DA-sNC" secondAttribute="trailing" id="9j9-gt-EjK"/>
+                            <constraint firstItem="Knr-YK-gup" firstAttribute="bottom" secondItem="tyd-DA-sNC" secondAttribute="bottom" id="DXq-AY-GyM"/>
+                            <constraint firstItem="Knr-YK-gup" firstAttribute="leading" secondItem="tyd-DA-sNC" secondAttribute="leading" id="EHF-WI-ddL"/>
+                            <constraint firstItem="6X6-KD-n6l" firstAttribute="leading" secondItem="WXH-Fd-SFw" secondAttribute="leading" id="Yhe-KR-hMH"/>
+                            <constraint firstItem="Knr-YK-gup" firstAttribute="top" secondItem="6X6-KD-n6l" secondAttribute="bottom" id="a9U-5C-Nth"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tyd-DA-sNC"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Knr-YK-gup" id="1tQ-UA-WgT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QDx-qZ-tQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3367.1999999999998" y="1586.3568215892055"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="68Z-FG-ntC">
@@ -602,7 +700,7 @@
         <!--Exercises-->
         <scene sceneID="dwf-kx-jq6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LmC-Vp-Kex" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigationController" automaticallyAdjustsScrollViewInsets="NO" id="LmC-Vp-Kex" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Exercises" id="ydW-9E-0Au"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3oz-hA-OWD">
