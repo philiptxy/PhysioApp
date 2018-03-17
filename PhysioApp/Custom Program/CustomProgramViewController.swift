@@ -95,7 +95,7 @@ extension CustomProgramViewController : UICollectionViewDataSource {
         
 //        let photoURL = programs[indexPath.row].photoURL
         cell.nameLabel.text = programs[indexPath.row].name
-        cell.timeLabel.text = "Estimated Time : \(String(programs[indexPath.row].totalTime)) minutes"
+        cell.timeLabel.text = "\(String(programs[indexPath.row].totalTime)) mins"
         
         return cell
     }

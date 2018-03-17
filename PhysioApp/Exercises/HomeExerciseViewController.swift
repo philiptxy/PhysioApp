@@ -16,6 +16,8 @@ class HomeExerciseViewController: UIViewController {
         didSet {
             tableView.dataSource = self
             tableView.delegate = self
+//            tableView.backgroundView = UIImageView(image: UIImage(named: "Gradient Background"))
+//        tableView.backgroundView?.alpha = 0.5
         }
     }
     
@@ -55,6 +57,12 @@ extension HomeExerciseViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = exercises[indexPath.row].name
+        
+        //cell.textLabel?.
+        
+//        cell.backgroundView = UIImageView(image: UIImage(named: "Gradient Background"))
+//
+//        cell.backgroundView?.alpha = 0.5
         
         return cell
     }

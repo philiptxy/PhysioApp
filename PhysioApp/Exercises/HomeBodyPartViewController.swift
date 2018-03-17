@@ -16,6 +16,7 @@ class HomeBodyPartViewController: UIViewController {
         didSet {
             collectionView.dataSource = self
             collectionView.delegate = self
+//            collectionView.backgroundColor = UIColor.black
         }
     }
     
@@ -37,6 +38,11 @@ class HomeBodyPartViewController: UIViewController {
         super.viewDidLoad()
         
         ref = Database.database().reference()
+        
+//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+//        backgroundImage.image = UIImage(named: "Gradient Background")
+//        backgroundImage.alpha = 0.5
+//        self.view.insertSubview(backgroundImage, at: 0)
         
         loadInfo()
     }

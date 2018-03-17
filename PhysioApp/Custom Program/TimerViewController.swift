@@ -42,7 +42,11 @@ class TimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Gradient Background")
+        backgroundImage.alpha = 0.5
+        self.view.insertSubview(backgroundImage, at: 0)
+        
     }
     
     @objc func startButtonTapped() {

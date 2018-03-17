@@ -37,7 +37,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qKs-yg-c6U">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.68942713737487793" green="0.81120306253433228" blue="0.83137744665145874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Iy2-Fc-npr">
                                     <size key="itemSize" width="187" height="225"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -114,7 +114,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zLK-GG-x3b">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.68942713737487793" green="0.81120306253433228" blue="0.83137744665145874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="EUo-yA-1xK" style="IBUITableViewCellStyleDefault" id="bUL-vD-XGL">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -132,6 +132,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.68942713737487793" green="0.81120306253433228" blue="0.83137744665145874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -235,7 +236,9 @@
                                             <constraint firstAttribute="width" constant="80" id="4YY-4K-3db"/>
                                             <constraint firstAttribute="width" secondItem="rau-am-jcH" secondAttribute="height" multiplier="1:1" id="dys-cG-d9c"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="icons8-next-80"/>
+                                        <state key="normal" title="Button" image="icons8-next-80">
+                                            <color key="titleColor" red="0.45913159847259521" green="0.45037680864334106" blue="0.47451317310333252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watch Video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiH-iM-LQj">
                                         <rect key="frame" x="105" y="22.5" width="168.5" height="35"/>
@@ -317,17 +320,17 @@
                                                     <blurEffect style="dark"/>
                                                 </visualEffectView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="obY-ob-9By">
-                                                    <rect key="frame" x="28.5" y="68" width="120" height="46"/>
+                                                    <rect key="frame" x="28.5" y="61" width="120" height="60"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTu-7L-NOp">
-                                                            <rect key="frame" x="0.0" y="0.0" width="120" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTu-7L-NOp">
+                                                            <rect key="frame" x="0.0" y="0.0" width="120" height="27.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="23"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1B-W9-uwY">
-                                                            <rect key="frame" x="0.0" y="25.5" width="120" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1B-W9-uwY">
+                                                            <rect key="frame" x="0.0" y="32.5" width="120" height="27.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -489,6 +492,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bp5-ae-wnv">
+                                <rect key="frame" x="208" y="30" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8e-dS-lqd">
+                                <rect key="frame" x="264" y="30" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -496,14 +507,18 @@
                             <constraint firstAttribute="bottomMargin" secondItem="Qp0-SM-Zfs" secondAttribute="bottom" constant="10" id="1Vr-Rj-EA5"/>
                             <constraint firstItem="PQ3-QV-1EH" firstAttribute="leading" secondItem="BVF-rH-pez" secondAttribute="trailing" constant="8" id="2cj-ZM-vdL"/>
                             <constraint firstItem="N36-Yt-glJ" firstAttribute="centerX" secondItem="KSB-B2-0Mx" secondAttribute="centerX" id="39R-6z-ltn"/>
+                            <constraint firstItem="a8e-dS-lqd" firstAttribute="top" secondItem="69K-QP-57B" secondAttribute="top" constant="10" id="HIK-VB-UcP"/>
                             <constraint firstItem="9GM-9v-09x" firstAttribute="leading" secondItem="69K-QP-57B" secondAttribute="leading" id="JfT-Xx-bov"/>
                             <constraint firstItem="BVF-rH-pez" firstAttribute="top" secondItem="69K-QP-57B" secondAttribute="top" constant="10" id="OQT-2F-JIE"/>
                             <constraint firstItem="PQ3-QV-1EH" firstAttribute="centerY" secondItem="BVF-rH-pez" secondAttribute="centerY" id="S5z-ea-QP2"/>
                             <constraint firstItem="9GM-9v-09x" firstAttribute="trailing" secondItem="69K-QP-57B" secondAttribute="trailing" id="V9M-49-DRN"/>
+                            <constraint firstItem="Bp5-ae-wnv" firstAttribute="leading" secondItem="N36-Yt-glJ" secondAttribute="trailing" constant="8" id="Zz2-Ks-D5q"/>
                             <constraint firstItem="Qp0-SM-Zfs" firstAttribute="top" secondItem="9GM-9v-09x" secondAttribute="bottom" constant="10" id="bgh-sY-upf"/>
                             <constraint firstItem="N36-Yt-glJ" firstAttribute="top" secondItem="69K-QP-57B" secondAttribute="top" constant="10" id="cxG-35-Up0"/>
                             <constraint firstItem="BVF-rH-pez" firstAttribute="centerX" secondItem="KSB-B2-0Mx" secondAttribute="centerX" id="lqe-XA-GcC"/>
                             <constraint firstItem="9GM-9v-09x" firstAttribute="top" secondItem="BVF-rH-pez" secondAttribute="bottom" constant="10" id="rVC-4U-2eH"/>
+                            <constraint firstItem="a8e-dS-lqd" firstAttribute="leading" secondItem="Bp5-ae-wnv" secondAttribute="trailing" constant="8" id="vs1-Hd-rgj"/>
+                            <constraint firstItem="Bp5-ae-wnv" firstAttribute="top" secondItem="69K-QP-57B" secondAttribute="top" constant="10" id="x37-cf-L7K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="69K-QP-57B"/>
                     </view>
@@ -522,7 +537,12 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="Bp5-ae-wnv" id="Y7B-yc-c4H"/>
                         <outlet property="datePicker" destination="8AZ-dI-Xwc" id="JvX-gA-fWu"/>
+                        <outlet property="doneEditingButton" destination="a8e-dS-lqd" id="4R6-sZ-KHe"/>
+                        <outlet property="editImageView" destination="PQ3-QV-1EH" id="shf-8q-9Lo"/>
+                        <outlet property="editNameTextField" destination="N36-Yt-glJ" id="GqG-yN-lKM"/>
+                        <outlet property="programName" destination="BVF-rH-pez" id="d3A-Cz-Idh"/>
                         <outlet property="removeButton" destination="VFW-Vv-K0P" id="BNs-hG-nsN"/>
                         <outlet property="setButton" destination="8jN-vc-KW0" id="WhO-TG-lON"/>
                         <outlet property="tableView" destination="9GM-9v-09x" id="Xbf-0x-6nZ"/>

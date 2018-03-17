@@ -20,6 +20,28 @@ class AddProgramViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var editImageView: UIImageView! {
+        didSet {
+            editImageView.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(editImageViewTapped))
+            editImageView.addGestureRecognizer(tap)
+        }
+    }
+    
+    @IBOutlet weak var editNameTextField: UITextField!
+    
+    @IBOutlet weak var cancelButton: UIButton! {
+        didSet {
+            cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
+        }
+    }
+    
+    @IBOutlet weak var doneEditingButton: UIButton! {
+        didSet {
+            doneEditingButton.addTarget(self, action: #selector(doneEditingButtonTapped), for: .touchUpInside)
+        }
+    }
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBAction func datePickerChanged(_ sender: Any) {
@@ -57,7 +79,7 @@ class AddProgramViewController: UIViewController {
     }
     
     var exercises : [Exercise] = []
-    
+    var currentUserID : String = ""
     var selectedProgram : Program = Program()
     let scheduler = DLNotificationScheduler()
     
@@ -65,15 +87,32 @@ class AddProgramViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         ref = Database.database().reference()
-//        programName.text = selectedProgram.name
+        currentUserID = Auth.auth().currentUser?.uid ?? ""
         
+        loadProgramName()
         loadDatabase()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        editImageView.isHidden = false
+        programName.isHidden = false
+        editNameTextField.isHidden = true
+        doneEditingButton.isHidden = true
+        cancelButton.isHidden = true
+    }
+    
+    func loadProgramName() {
+        ref.child("users").child(currentUserID).child("programs").child(selectedProgram.programID).observeSingleEvent(of: .value) { (snapshot) in
+            guard let dict = snapshot.value as? [String : Any] else {return}
+            DispatchQueue.main.async {
+                self.programName.text = dict["name"] as? String ?? ""
+            }
+        }
+    }
+    
     func loadDatabase() {
-        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
+
         
         ref.child("users/\(currentUserID)/programs/\(selectedProgram.programID)/exercises").observe(.childAdded) { (snapshot) in
             
@@ -87,6 +126,35 @@ class AddProgramViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc func editImageViewTapped() {
+        editImageView.isHidden = true
+        programName.isHidden = true
+        editNameTextField.isHidden = false
+        doneEditingButton.isHidden = false
+        cancelButton.isHidden = false
+        editNameTextField.text = programName.text
+    }
+    
+    @objc func cancelButtonTapped() {
+        editImageView.isHidden = false
+        programName.isHidden = false
+        editNameTextField.isHidden = true
+        doneEditingButton.isHidden = true
+        cancelButton.isHidden = true
+    }
+    
+    @objc func doneEditingButtonTapped() {
+        editImageView.isHidden = false
+        programName.isHidden = false
+        editNameTextField.isHidden = true
+        doneEditingButton.isHidden = true
+        cancelButton.isHidden = true
+         guard let newProgramName = editNameTextField.text else {return}
+        programName.text = newProgramName
+       
+        ref.child("users").child(currentUserID).child("programs").child(selectedProgram.programID).updateChildValues(["name" : newProgramName])
     }
     
 }
