@@ -13,11 +13,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="AmericanTypewriter.ttc">
+            <string>AmericanTypewriter-Semibold</string>
+        </array>
         <array key="HelveticaNeueExtras.ttc">
             <string>HelveticaNeue-CondensedBold</string>
         </array>
         <array key="Kefa.ttf">
             <string>Kefa-Regular</string>
+        </array>
+        <array key="Palatino.ttc">
+            <string>Palatino-Bold</string>
         </array>
     </customFonts>
     <scenes>
@@ -215,8 +221,8 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpW-SI-KW4">
-                                <rect key="frame" x="154.5" y="94" width="67" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <rect key="frame" x="147.5" y="94" width="82" height="33.5"/>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -454,22 +460,24 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Program Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVF-rH-pez">
-                                <rect key="frame" x="103.5" y="30" width="169" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <rect key="frame" x="90" y="30" width="195" height="30"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Semibold" family="American Typewriter" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="-1"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Qp0-SM-Zfs" firstAttribute="centerX" secondItem="KSB-B2-0Mx" secondAttribute="centerX" id="1M4-zz-JLp"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Qp0-SM-Zfs" secondAttribute="bottom" constant="10" id="1Vr-Rj-EA5"/>
-                            <constraint firstItem="BVF-rH-pez" firstAttribute="leading" secondItem="69K-QP-57B" secondAttribute="leading" constant="103.5" id="7Kt-VG-AHO"/>
+                            <constraint firstItem="BVF-rH-pez" firstAttribute="leading" secondItem="69K-QP-57B" secondAttribute="leading" constant="90" id="7Kt-VG-AHO"/>
                             <constraint firstItem="9GM-9v-09x" firstAttribute="leading" secondItem="69K-QP-57B" secondAttribute="leading" id="JfT-Xx-bov"/>
                             <constraint firstItem="BVF-rH-pez" firstAttribute="top" secondItem="69K-QP-57B" secondAttribute="top" constant="10" id="OQT-2F-JIE"/>
                             <constraint firstItem="9GM-9v-09x" firstAttribute="trailing" secondItem="69K-QP-57B" secondAttribute="trailing" id="V9M-49-DRN"/>
                             <constraint firstItem="Qp0-SM-Zfs" firstAttribute="top" secondItem="9GM-9v-09x" secondAttribute="bottom" constant="10" id="bgh-sY-upf"/>
-                            <constraint firstItem="69K-QP-57B" firstAttribute="trailing" secondItem="BVF-rH-pez" secondAttribute="trailing" constant="102.5" id="csR-Nv-dtm"/>
+                            <constraint firstItem="69K-QP-57B" firstAttribute="trailing" secondItem="BVF-rH-pez" secondAttribute="trailing" constant="90" id="csR-Nv-dtm"/>
                             <constraint firstItem="9GM-9v-09x" firstAttribute="top" secondItem="BVF-rH-pez" secondAttribute="bottom" constant="10" id="rVC-4U-2eH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="69K-QP-57B"/>
@@ -605,16 +613,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lbq-yp-QSi">
                                         <rect key="frame" x="46.5" y="15" width="107" height="120"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYC-SR-58w">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYC-SR-58w">
                                                 <rect key="frame" x="0.0" y="0.0" width="107" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Bt7-1k-TF5">
                                                 <rect key="frame" x="0.0" y="30" width="107" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhz-mJ-ib8">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sets" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhz-mJ-ib8">
                                                         <rect key="frame" x="0.0" y="0.0" width="53.5" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -631,7 +639,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QnK-h4-E5J">
                                                 <rect key="frame" x="0.0" y="60" width="107" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1J-KX-O5v">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1J-KX-O5v">
                                                         <rect key="frame" x="0.0" y="0.0" width="53.5" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -647,6 +655,7 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNu-Sy-GPK">
                                                 <rect key="frame" x="0.0" y="90" width="107" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <state key="normal" title="Confirm"/>
                                             </button>
                                         </subviews>
@@ -669,7 +678,6 @@
                                                 <action selector="cancelButtonTapped:" destination="5Rm-pC-qJA" id="Nap-3C-2bx"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Done" id="gwF-kz-1kd"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

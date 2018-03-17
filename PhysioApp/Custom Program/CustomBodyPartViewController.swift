@@ -38,7 +38,6 @@ class CustomBodyPartViewController: UIViewController {
     
     var selectedExercises : [Exercise] = []
     var selectedBodyParts : [String] = []
-    var highlightedExercises : [Exercise] = []
     
     var selectedProgramID : String = ""
     var selectedExerciseID : String = ""
@@ -94,6 +93,8 @@ class CustomBodyPartViewController: UIViewController {
             customView.isHidden = true
             setsTextField.text = ""
             repsTextField.text = ""
+            nameLabel.text = ""
+            
             
             self.dismiss(animated: true, completion: nil)
         }
@@ -184,10 +185,17 @@ extension CustomBodyPartViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        //when using .value, snapshot.key is the last .child() in the code.
-        //when using .childAdded, snapshot.key is each item inside the last .child() in the code.
-        
         cell.textLabel?.text = twoDimensionalArray[indexPath.section][indexPath.row].name
+        
+        ref.child("users/\(currentUserID)/programs/\(selectedProgramID)/exercises").observe(.childAdded) { (snapshot) in
+            
+            if snapshot.key == self.twoDimensionalArray[indexPath.section][indexPath.row].exerciseID {
+                cell.selectionStyle = UITableViewCellSelectionStyle.gray
+                cell.isUserInteractionEnabled = false
+                cell.textLabel?.isEnabled = false
+            }
+            
+        }
         
         return cell
     }
@@ -196,7 +204,6 @@ extension CustomBodyPartViewController : UITableViewDataSource {
 
 extension CustomBodyPartViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         
 //        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
 //
@@ -209,31 +216,10 @@ extension CustomBodyPartViewController : UITableViewDelegate {
         selectedExercise = twoDimensionalArray[indexPath.section][indexPath.row]
         selectedExerciseID = selectedExercise.exerciseID
         
-        
-//        let exerciseDetails : [String:Any] = ["name": selectedExercise.name]
-//        let exerciseDict : [String:Any] = [selectedExercise.exerciseID:exerciseDetails]
-        
         nameLabel.text = selectedExercise.name
 
         loadCustomView()
-
-//        ref.child("users").child(currentUserID).child("programs").child(selectedProgramID).child("exercises").setValue(exerciseDict)
-        
     }
-    
-//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        guard let selectedCell : UITableViewCell = tableView.cellForRow(at: indexPath) else {return}
-//        selectedCell.contentView.backgroundColor = UIColor.clear
-//
-//        let selectedExercise = twoDimensionalArray[indexPath.section][indexPath.row]
-//
-//        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
-//
-////        ref.child("users").child(currentUserID).child("programs").child(selectedProgramID).child("exercises").child(selectedExercise.exerciseID).removeValue()
-//
-//    }
-    
-    
 }
 
 
