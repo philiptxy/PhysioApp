@@ -21,6 +21,9 @@ class CustomProgramViewController: UIViewController {
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         
+        
+        ref.child("users").child(currentUserID).child("programs").childByAutoId()
+        
         let path = ref.child("users").child(currentUserID).child("programs").childByAutoId()
         
         let key = path.key

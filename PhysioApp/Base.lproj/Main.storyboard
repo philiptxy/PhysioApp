@@ -351,11 +351,18 @@
                         <viewLayoutGuide key="safeArea" id="laR-Xv-i5t"/>
                     </view>
                     <navigationItem key="navigationItem" id="1oe-u1-piV">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Ps-Fv-Ckn">
-                            <connections>
-                                <action selector="addButtonTapped:" destination="AoH-IO-NuV" id="LfC-kH-bGW"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="8Ps-Fv-Ckn">
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="AoH-IO-NuV" id="LfC-kH-bGW"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" id="len-vc-iVV">
+                                <connections>
+                                    <segue destination="5OI-Py-2BW" kind="show" id="FKI-Vm-bpQ"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="sRa-V5-U98" id="cGR-qc-Gbg"/>
@@ -374,7 +381,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Qp0-SM-Zfs">
-                                <rect key="frame" x="28" y="507" width="320" height="150"/>
+                                <rect key="frame" x="28" y="458" width="320" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set daily reminder at:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvg-Fb-4O4">
                                         <rect key="frame" x="76.5" y="0.0" width="167" height="30"/>
@@ -424,7 +431,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9GM-9v-09x">
-                                <rect key="frame" x="0.0" y="70" width="375" height="427"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="334"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" style="IBUITableViewCellStyleDefault" id="Hdj-PD-t6l">
@@ -447,7 +454,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Program Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVF-rH-pez">
-                                <rect key="frame" x="103.5" y="30" width="169" height="30"/>
+                                <rect key="frame" x="103.5" y="74" width="169" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
