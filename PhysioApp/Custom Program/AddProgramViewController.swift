@@ -50,6 +50,7 @@ class AddProgramViewController: UIViewController {
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "CustomBodyPartViewController") as? CustomBodyPartViewController else {return}
         
+        vc.selectedProgram = selectedProgram
         
         self.present(vc, animated: true, completion: nil)
         
@@ -72,16 +73,16 @@ class AddProgramViewController: UIViewController {
     }
     
     func loadDatabase() {
-        guard let currentUserID = Auth.auth().currentUser else {return}
+        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
         
         ref.child("users/\(currentUserID)/programs/\(selectedProgram.programID)/exercises").observe(.childAdded) { (snapshot) in
             
             if let dict = snapshot.value as? [String:Any] {
                 let exercise = Exercise(exerciseID: snapshot.key, dict: dict)
-                
+
                 DispatchQueue.main.async {
                     self.exercises.append(exercise)
-                    let indexPath = IndexPath(row: self.exercises.count - 1, section: 0)
+                    let indexPath = IndexPath(row: self.exercises.count, section: 0)
                     self.tableView.insertRows(at: [indexPath], with: .automatic)
                 }
             }
@@ -98,6 +99,8 @@ extension AddProgramViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        loadDatabase()
         
         cell.textLabel?.text = exercises[indexPath.row].name
         

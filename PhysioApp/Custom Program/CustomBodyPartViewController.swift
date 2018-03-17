@@ -39,7 +39,7 @@ class CustomBodyPartViewController: UIViewController {
     var selectedExercises : [Exercise] = []
     var selectedBodyParts : [String] = []
     
-    var selectedProgramID : String = ""
+    var selectedProgram : Program = Program()
     var selectedExerciseID : String = ""
     var selectedBodyPart : String = ""
     var selectedExercise : Exercise = Exercise()
@@ -88,7 +88,7 @@ class CustomBodyPartViewController: UIViewController {
             let currentUserID = Auth.auth().currentUser?.uid {
            
             let exerciseDict : [String : Any] = ["name" : selectedExercise.name, "sets" : sets, "reps" : reps, "bodyPart" : selectedBodyPart]
-            ref.child("users").child(currentUserID).child("programs").child(selectedProgramID).child("exercises").child(selectedExerciseID).setValue(exerciseDict)
+            ref.child("users").child(currentUserID).child("programs").child(selectedProgram.programID).child("exercises").child(selectedExerciseID).setValue(exerciseDict)
             
             customView.isHidden = true
             setsTextField.text = ""
@@ -187,7 +187,7 @@ extension CustomBodyPartViewController : UITableViewDataSource {
         
         cell.textLabel?.text = twoDimensionalArray[indexPath.section][indexPath.row].name
         
-        ref.child("users/\(currentUserID)/programs/\(selectedProgramID)/exercises").observe(.childAdded) { (snapshot) in
+        ref.child("users/\(currentUserID)/programs/\(selectedProgram.programID)/exercises").observe(.childAdded) { (snapshot) in
             
             if snapshot.key == self.twoDimensionalArray[indexPath.section][indexPath.row].exerciseID {
                 cell.selectionStyle = UITableViewCellSelectionStyle.gray
