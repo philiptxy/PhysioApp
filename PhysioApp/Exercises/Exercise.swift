@@ -14,9 +14,16 @@ class Exercise {
     var name : String = ""
     var videoUrl : String = ""
     var description : String = ""
+    var reps : String = ""
+    var sets : String = ""
+    var bodyPart : String = ""
     
     init() {
         
+    }
+    
+    init(exerciseID : String) {
+        self.exerciseID = exerciseID
     }
     
     init(exerciseID : String, dict : [String : Any]) {
@@ -24,6 +31,9 @@ class Exercise {
         self.name = dict["name"] as? String ?? ""
         self.videoUrl = dict["videoUrl"] as? String ?? ""
         self.description = dict["description"] as? String ?? ""
+        self.sets = dict["sets"] as? String ?? ""
+        self.reps = dict["reps"] as? String ?? ""
+        self.bodyPart = dict["bodyPart"] as? String ?? ""
 
     }
 }
