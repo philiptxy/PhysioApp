@@ -12,7 +12,6 @@ class Program {
     
     var programID : String = ""
     var name : String = ""
-    var photoURL : String = ""
     var totalTime : Int = 0
     
     init() {
@@ -22,7 +21,6 @@ class Program {
     init(programID: String, dict: [String:Any]) {
         self.programID = programID
         self.name = dict["name"] as? String ?? ""
-        self.photoURL = dict["photoURL"] as? String ?? ""
         self.totalTime = dict["totalTime"] as? Int ?? 0
     }
     
