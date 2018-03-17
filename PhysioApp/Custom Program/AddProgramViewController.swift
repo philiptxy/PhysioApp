@@ -82,7 +82,7 @@ class AddProgramViewController: UIViewController {
 
                 DispatchQueue.main.async {
                     self.exercises.append(exercise)
-                    let indexPath = IndexPath(row: self.exercises.count, section: 0)
+                    let indexPath = IndexPath(row: self.exercises.count - 1, section: 0)
                     self.tableView.insertRows(at: [indexPath], with: .automatic)
                 }
             }
@@ -99,8 +99,6 @@ extension AddProgramViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        loadDatabase()
         
         cell.textLabel?.text = exercises[indexPath.row].name
         

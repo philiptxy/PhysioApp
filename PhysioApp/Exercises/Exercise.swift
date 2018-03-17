@@ -17,6 +17,7 @@ class Exercise {
     var reps : String = ""
     var sets : String = ""
     var bodyPart : String = ""
+    var time : Int = 0
     
     init() {
         
@@ -34,6 +35,7 @@ class Exercise {
         self.sets = dict["sets"] as? String ?? ""
         self.reps = dict["reps"] as? String ?? ""
         self.bodyPart = dict["bodyPart"] as? String ?? ""
+        self.time = dict["time"] as? Int ?? 0
 
     }
 }

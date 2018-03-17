@@ -469,10 +469,8 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Program Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVF-rH-pez">
-
                                 <rect key="frame" x="102.5" y="30" width="170.5" height="29.5"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="25"/>
-
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -527,6 +525,7 @@
                         <outlet property="datePicker" destination="8AZ-dI-Xwc" id="JvX-gA-fWu"/>
                         <outlet property="removeButton" destination="VFW-Vv-K0P" id="BNs-hG-nsN"/>
                         <outlet property="setButton" destination="8jN-vc-KW0" id="WhO-TG-lON"/>
+                        <outlet property="tableView" destination="9GM-9v-09x" id="Xbf-0x-6nZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVR-iA-LtK" userLabel="First Responder" sceneMemberID="firstResponder"/>

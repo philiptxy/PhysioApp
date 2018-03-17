@@ -85,9 +85,15 @@ class CustomBodyPartViewController: UIViewController {
     @objc func confirmButtonTapped() {
         if let sets = setsTextField.text,
             let reps = repsTextField.text,
-            let currentUserID = Auth.auth().currentUser?.uid {
+            let currentUserID = Auth.auth().currentUser?.uid,
+            let setsNumber = Int(sets),
+            let repsNumber = Int(reps) {
+            
+            let time = setsNumber * repsNumber * 2 + ((setsNumber - 1) * 60)
+            
+//            let time = ((setsNumber - 1) * 30) * repsNumber * 2
            
-            let exerciseDict : [String : Any] = ["name" : selectedExercise.name, "sets" : sets, "reps" : reps, "bodyPart" : selectedBodyPart]
+            let exerciseDict : [String : Any] = ["name" : selectedExercise.name, "sets" : sets, "reps" : reps, "bodyPart" : selectedBodyPart, "time" : time]
             ref.child("users").child(currentUserID).child("programs").child(selectedProgram.programID).child("exercises").child(selectedExerciseID).setValue(exerciseDict)
             
             customView.isHidden = true
