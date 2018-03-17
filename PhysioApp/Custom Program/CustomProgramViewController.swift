@@ -94,7 +94,6 @@ extension CustomProgramViewController : UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CustomProgramCollectionViewCell else {return UICollectionViewCell()}
         
 //        let photoURL = programs[indexPath.row].photoURL
-        getImage("https://static1.squarespace.com/static/55a91762e4b0b8b2c8ec1996/55b270bce4b09435f235ba17/55b2715be4b09f505f14e9d0/1437757789668/Photo+2014-11-09%2C+12+38+07+PM.jpg", cell.imageView)
         cell.nameLabel.text = programs[indexPath.row].name
         cell.timeLabel.text = "Estimated Time : \(String(programs[indexPath.row].totalTime)) minutes"
         
