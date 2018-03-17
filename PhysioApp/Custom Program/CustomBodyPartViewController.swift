@@ -33,8 +33,9 @@ class CustomBodyPartViewController: UIViewController {
     
     @IBOutlet weak var confirmButton: UIButton!
     
+    @IBOutlet weak var customCancelButton: UIButton!
     
-    
+    var totalTime : Double = 0
     
     var selectedExercises : [Exercise] = []
     var selectedBodyParts : [String] = []
@@ -62,6 +63,7 @@ class CustomBodyPartViewController: UIViewController {
         currentUserID = Auth.auth().currentUser?.uid ?? ""
         
         customView.isHidden = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,29 +82,62 @@ class CustomBodyPartViewController: UIViewController {
     func loadCustomView() {
         customView.isHidden = false
         confirmButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
+        customCancelButton.addTarget(self, action: #selector(customCancelButtonTapped), for: .touchUpInside)
+        tableView.allowsSelection = false
+    }
+    
+    @objc func customCancelButtonTapped() {
+        customView.isHidden = true
+        setsTextField.text = ""
+        repsTextField.text = ""
+        nameLabel.text = ""
+        
+        
+        tableView.reloadData()
+        
+        tableView.allowsSelection = true
     }
     
     @objc func confirmButtonTapped() {
         if let sets = setsTextField.text,
             let reps = repsTextField.text,
-            let currentUserID = Auth.auth().currentUser?.uid,
             let setsNumber = Int(sets),
             let repsNumber = Int(reps) {
             
             let time = setsNumber * repsNumber * 2 + ((setsNumber - 1) * 60)
             
-//            let time = ((setsNumber - 1) * 30) * repsNumber * 2
-           
             let exerciseDict : [String : Any] = ["name" : selectedExercise.name, "sets" : sets, "reps" : reps, "bodyPart" : selectedBodyPart, "time" : time]
-            ref.child("users").child(currentUserID).child("programs").child(selectedProgram.programID).child("exercises").child(selectedExerciseID).setValue(exerciseDict)
+        ref.child("users").child(currentUserID).child("programs").child(selectedProgram.programID).child("exercises").child(selectedExerciseID).setValue(exerciseDict)
             
             customView.isHidden = true
             setsTextField.text = ""
             repsTextField.text = ""
             nameLabel.text = ""
             
+            tableView.allowsSelection = true
+            
+            setTotalTime()
             
             self.dismiss(animated: true, completion: nil)
+        }
+        
+        
+    }
+    
+    func setTotalTime() {
+        
+        //get time of each exercise and add it
+        //set value for totalTime
+        ref.child("users/\(currentUserID)/programs/\(selectedProgram.programID)/exercises").observe(.childAdded) { (snapshot) in
+            
+            if let dict = snapshot.value as? [String : Any],
+                let time = dict["time"] as? Double {
+                self.totalTime += time
+                
+                self.ref.child("users/\(self.currentUserID)/programs/\(self.selectedProgram.programID)/totalTime").setValue(Int(self.totalTime/60))
+            }
+            
+            
         }
         
         
@@ -197,6 +232,7 @@ extension CustomBodyPartViewController : UITableViewDataSource {
             
             if snapshot.key == self.twoDimensionalArray[indexPath.section][indexPath.row].exerciseID {
                 cell.selectionStyle = UITableViewCellSelectionStyle.gray
+                cell.backgroundColor = UIColor.yellow
                 cell.isUserInteractionEnabled = false
                 cell.textLabel?.isEnabled = false
             }

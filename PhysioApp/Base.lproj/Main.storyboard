@@ -769,6 +769,7 @@
                     </view>
                     <connections>
                         <outlet property="confirmButton" destination="fNu-Sy-GPK" id="ScR-i2-APq"/>
+                        <outlet property="customCancelButton" destination="CDu-WW-47E" id="7vX-Qs-Hah"/>
                         <outlet property="customView" destination="XZB-qC-wkZ" id="fMV-Kj-kKb"/>
                         <outlet property="nameLabel" destination="sYC-SR-58w" id="HTs-Tz-g1I"/>
                         <outlet property="repsTextField" destination="ttQ-bs-daH" id="epa-fD-4gt"/>
