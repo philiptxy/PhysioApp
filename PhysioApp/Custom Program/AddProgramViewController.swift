@@ -19,6 +19,12 @@ class AddProgramViewController: UIViewController {
             tableView.delegate = self
         }
     }
+    @IBOutlet weak var editTableButton: UIBarButtonItem! {
+        didSet {
+            editTableButton.action = #selector(editTableButtonTapped)
+            editTableButton.target = self
+        }
+    }
     
     @IBOutlet weak var editImageView: UIImageView! {
         didSet {
@@ -128,6 +134,19 @@ class AddProgramViewController: UIViewController {
         }
     }
     
+    @objc func editTableButtonTapped() {
+        if(self.tableView.isEditing == true)
+        {
+            self.tableView.isEditing = false
+            editTableButton.title = "Edit"
+        }
+        else
+        {
+            self.tableView.isEditing = true
+            editTableButton.title = "Done"
+        }
+    }
+    
     @objc func editImageViewTapped() {
         editImageView.isHidden = true
         programName.isHidden = true
@@ -177,6 +196,27 @@ extension AddProgramViewController : UITableViewDataSource {
         
         return cell
     }
+    
+    //------------------- moveRow and delete ---------------------
+    
+    // Override to support editing the table view.
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let path = ref.child("users").child(currentUserID).child("programs").child(selectedProgram.programID).child("exercises").child(exercises[indexPath.row].exerciseID)
+        
+        exercises.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        
+        path.removeValue()
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        let data = exercises.remove(at: sourceIndexPath.row)
+        exercises.insert(data, at: destinationIndexPath.row)
+    }
+
     
 }
 

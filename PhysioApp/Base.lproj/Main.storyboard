@@ -112,8 +112,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="FUB-7K-Q2Z">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zLK-GG-x3b">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" red="0.68942713737487793" green="0.81120306253433228" blue="0.83137744665145874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="EUo-yA-1xK" style="IBUITableViewCellStyleDefault" id="bUL-vD-XGL">
@@ -139,20 +143,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="aHE-n4-h7e" firstAttribute="bottom" secondItem="zLK-GG-x3b" secondAttribute="bottom" id="gKW-18-fBD"/>
-                            <constraint firstItem="zLK-GG-x3b" firstAttribute="top" secondItem="aHE-n4-h7e" secondAttribute="top" id="i2j-La-bti"/>
-                            <constraint firstItem="zLK-GG-x3b" firstAttribute="trailing" secondItem="aHE-n4-h7e" secondAttribute="trailing" id="tcS-2J-Zx7"/>
-                            <constraint firstItem="zLK-GG-x3b" firstAttribute="leading" secondItem="aHE-n4-h7e" secondAttribute="leading" id="uMh-j9-NYh"/>
+                            <constraint firstItem="zLK-GG-x3b" firstAttribute="bottom" secondItem="aHE-n4-h7e" secondAttribute="bottom" id="2K0-PF-WOe"/>
+                            <constraint firstItem="zLK-GG-x3b" firstAttribute="leading" secondItem="aHE-n4-h7e" secondAttribute="leading" id="5eJ-9O-ABG"/>
+                            <constraint firstItem="zLK-GG-x3b" firstAttribute="trailing" secondItem="aHE-n4-h7e" secondAttribute="trailing" id="KBP-2t-Asa"/>
+                            <constraint firstItem="FUB-7K-Q2Z" firstAttribute="trailing" secondItem="aHE-n4-h7e" secondAttribute="trailing" id="Lja-Fn-eml"/>
+                            <constraint firstItem="zLK-GG-x3b" firstAttribute="top" secondItem="FUB-7K-Q2Z" secondAttribute="bottom" id="j2o-Bs-GIn"/>
+                            <constraint firstItem="FUB-7K-Q2Z" firstAttribute="top" secondItem="aHE-n4-h7e" secondAttribute="top" id="nYF-Cf-VIW"/>
+                            <constraint firstItem="FUB-7K-Q2Z" firstAttribute="leading" secondItem="aHE-n4-h7e" secondAttribute="leading" id="saV-82-r7z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aHE-n4-h7e"/>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="FUB-7K-Q2Z" id="TiX-UZ-EPE"/>
                         <outlet property="tableView" destination="zLK-GG-x3b" id="hjN-W5-4um"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZUA-PC-TMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1279" y="133"/>
+            <point key="canvasLocation" x="1277.5999999999999" y="132.68365817091455"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="Xuo-4O-HYG">
@@ -529,6 +537,7 @@
                                     <action selector="addButtonTapped:" destination="5OI-Py-2BW" id="Dqf-oP-AyC"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="Edit" id="wkj-E8-fRt"/>
                             <barButtonItem title="Timer" id="K0b-DL-6BD">
                                 <connections>
                                     <segue destination="yf5-5b-aB4" kind="show" identifier="" id="bGl-KF-Csq"/>
@@ -542,6 +551,7 @@
                         <outlet property="doneEditingButton" destination="a8e-dS-lqd" id="4R6-sZ-KHe"/>
                         <outlet property="editImageView" destination="PQ3-QV-1EH" id="shf-8q-9Lo"/>
                         <outlet property="editNameTextField" destination="N36-Yt-glJ" id="GqG-yN-lKM"/>
+                        <outlet property="editTableButton" destination="wkj-E8-fRt" id="UYD-lD-0YO"/>
                         <outlet property="programName" destination="BVF-rH-pez" id="d3A-Cz-Idh"/>
                         <outlet property="removeButton" destination="VFW-Vv-K0P" id="BNs-hG-nsN"/>
                         <outlet property="setButton" destination="8jN-vc-KW0" id="WhO-TG-lON"/>
