@@ -37,6 +37,10 @@ class CustomBodyPartViewController: UIViewController {
     
     var totalTime : Double = 0
     
+    var alertController: UIAlertController?
+    var alertTimer: Timer?
+    var remainingTime = 0
+    
     var selectedExercises : [Exercise] = []
     var selectedBodyParts : [String] = []
     
@@ -79,6 +83,34 @@ class CustomBodyPartViewController: UIViewController {
         tableView.reloadData()
     }
     
+    func showAlertMsg(withTitle title: String, message: String?, time: Int) {
+        
+        guard (self.alertController == nil) else {
+            print("Alert already displayed")
+            return
+        }
+        
+        self.remainingTime = time
+        
+        self.alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        self.alertTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
+        
+        self.present(self.alertController!, animated: true, completion: nil)
+    }
+    
+    @objc func countDown() {
+        self.remainingTime -= 1
+        if (self.remainingTime < 0) {
+            self.alertTimer?.invalidate()
+            self.alertTimer = nil
+            self.alertController!.dismiss(animated: true, completion: {
+                self.alertController = nil
+            })
+        }
+        
+    }
+    
     func loadCustomView() {
         customView.isHidden = false
         confirmButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
@@ -117,6 +149,8 @@ class CustomBodyPartViewController: UIViewController {
             tableView.allowsSelection = true
             
             setTotalTime()
+            
+            showAlertMsg(withTitle: "\(selectedExercise.name) added", message: nil, time: 1)
             
             self.dismiss(animated: true, completion: nil)
         }

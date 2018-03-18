@@ -30,6 +30,7 @@ class ExerciseVideoViewController: UIViewController {
             let filledStarImage = UIImage(named: "Filled Star")
             sender.setBackgroundImage(filledStarImage, for: .normal, barMetrics: .default)
             sender.tintColor = UIColor.black
+            showAlertMsg(withTitle: "Added To Favorites", message: nil, time: 1)
             favoriteChecker = true
         } else {
             let emptyStarImage = UIImage(named: "Empty Star")
@@ -61,6 +62,11 @@ class ExerciseVideoViewController: UIViewController {
     var selectedExercise : Exercise = Exercise()
     var downloadURL : URL?
     
+    //alert with timer
+    var alertController: UIAlertController?
+    var alertTimer: Timer?
+    var remainingTime = 0
+    
     var ref : DatabaseReference!
     
     var favoriteChecker : Bool = false
@@ -87,25 +93,34 @@ class ExerciseVideoViewController: UIViewController {
                     }
                     
                 }
-                
-                
-//                if let dict = snapshot.value as? [String:Any] {
-//                    for (k, v) in dict {
-//                        if k == self.selectedExercise.exerciseID {
-//                            let filledStarImage = UIImage(named: "Filled Star")
-//                            self.favoriteButton.setBackgroundImage(filledStarImage, for: .normal, barMetrics: .default)
-//                            self.favoriteButton.tintColor = UIColor.black
-//                            self.favoriteChecker = true
-//                        }
-//                    }
-//                }
-                
-//                if snapshot.key == self.selectedExercise.exerciseID && snapshot.value != nil {
-//                    let filledStarImage = UIImage(named: "Filled Star")
-//                    self.favoriteButton.setBackgroundImage(filledStarImage, for: .normal, barMetrics: .default)
-//                    self.favoriteButton.tintColor = UIColor.black
-//                    self.favoriteChecker = true
-//                }
+            })
+        }
+        
+    }
+    
+    func showAlertMsg(withTitle title: String, message: String?, time: Int) {
+        
+        guard (self.alertController == nil) else {
+            print("Alert already displayed")
+            return
+        }
+        
+        self.remainingTime = time
+        
+        self.alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        self.alertTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
+        
+        self.present(self.alertController!, animated: true, completion: nil)
+    }
+    
+    @objc func countDown() {
+        self.remainingTime -= 1
+        if (self.remainingTime < 0) {
+            self.alertTimer?.invalidate()
+            self.alertTimer = nil
+            self.alertController!.dismiss(animated: true, completion: {
+                self.alertController = nil
             })
         }
         

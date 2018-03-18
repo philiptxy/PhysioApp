@@ -86,7 +86,9 @@ class AddProgramViewController: UIViewController {
     
     
 //---------------------------------- Global Variables ----------------------------------------
-    
+    var alertController: UIAlertController?
+    var alertTimer: Timer?
+    var remainingTime = 0
     
     var exercises : [Exercise] = []
     var currentUserID : String = ""
@@ -114,6 +116,34 @@ class AddProgramViewController: UIViewController {
         editNameTextField.isHidden = true
         doneEditingButton.isHidden = true
         cancelButton.isHidden = true
+    }
+    
+    func showAlertMsg(withTitle title: String, message: String?, time: Int) {
+        
+        guard (self.alertController == nil) else {
+            print("Alert already displayed")
+            return
+        }
+        
+        self.remainingTime = time
+        
+        self.alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        self.alertTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
+        
+        self.present(self.alertController!, animated: true, completion: nil)
+    }
+    
+    @objc func countDown() {
+        self.remainingTime -= 1
+        if (self.remainingTime < 0) {
+            self.alertTimer?.invalidate()
+            self.alertTimer = nil
+            self.alertController!.dismiss(animated: true, completion: {
+                self.alertController = nil
+            })
+        }
+        
     }
     
     func loadProgramName() {
@@ -178,7 +208,11 @@ class AddProgramViewController: UIViewController {
         editNameTextField.isHidden = true
         doneEditingButton.isHidden = true
         cancelButton.isHidden = true
+        
         guard let newProgramName = editNameTextField.text else {return}
+        if programName.text != editNameTextField.text {
+            showAlert(withTitle: "Name Change Successful", message: "Current program name changed to: \(newProgramName)")
+        }
         programName.text = newProgramName
         
         ref.child("users").child(currentUserID).child("programs").child(selectedProgram.programID).updateChildValues(["name" : newProgramName])
@@ -229,7 +263,7 @@ extension AddProgramViewController : UITableViewDataSource {
         
         path.removeValue()
         
-        
+        showAlert(withTitle: "Exercise deleted successfully", message: nil)
 //        ref.child("users/\(currentUserID)/programs/\(selectedProgram.programID)/exercises").observe(.childAdded) { (snapshot) in
 //
 //            if let dict = snapshot.value as? [String : Any],
@@ -282,10 +316,11 @@ extension AddProgramViewController {
         
         
         scheduler.scheduleNotification(notification: firstNotification)
-        
+        showAlertMsg(withTitle: "Daily Reminder Set", message: nil, time: 3)
     }
     
     @objc func removeButtonTapped() {
         scheduler.cancelAlllNotifications()
+        showAlertMsg(withTitle: "Daily Reminder Removed", message: nil, time: 1)
     }
 }

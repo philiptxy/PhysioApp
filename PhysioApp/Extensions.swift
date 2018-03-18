@@ -12,7 +12,7 @@ import UIKit
 extension UIViewController {
     
     //Show alert for validation of signUp and signIn process
-    func showAlert(withTitle title: String, message: String) {
+    func showAlert(withTitle title: String, message: String?) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
@@ -22,6 +22,7 @@ extension UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
 }
 
 extension UIViewController {
