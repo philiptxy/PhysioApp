@@ -22,8 +22,8 @@ class ExerciseVideoViewController: UIViewController {
         if let user = Auth.auth().currentUser {
             let userID = user.uid
             
-            let favoritePost : [String : Any] = [selectedExercise.exerciseID : true]
-            ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).setValue(favoritePost)
+            let favoritePost : [String : Any] = ["isFavorited" : true]
+            ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).child(selectedExercise.exerciseID).setValue(favoritePost)
         }
         
         if favoriteChecker == false {
@@ -74,14 +74,38 @@ class ExerciseVideoViewController: UIViewController {
         
         if let user = Auth.auth().currentUser {
             let userID = user.uid
-            ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).observe(.childAdded, with: { (snapshot) in
+            ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).child(selectedExercise.exerciseID).observe(.value, with: { (snapshot) in
                 
-                if snapshot.key == self.selectedExercise.exerciseID && snapshot.value != nil {
-                    let filledStarImage = UIImage(named: "Filled Star")
-                    self.favoriteButton.setBackgroundImage(filledStarImage, for: .normal, barMetrics: .default)
-                    self.favoriteButton.tintColor = UIColor.black
-                    self.favoriteChecker = true
+                if let dict = snapshot.value as? [String:Bool],
+                    let favoriteBool = dict["isFavorited"] {
+                    
+                    if favoriteBool == true {
+                        let filledStarImage = UIImage(named: "Filled Star")
+                        self.favoriteButton.setBackgroundImage(filledStarImage, for: .normal, barMetrics: .default)
+                        self.favoriteButton.tintColor = UIColor.black
+                        self.favoriteChecker = true
+                    }
+                    
                 }
+                
+                
+//                if let dict = snapshot.value as? [String:Any] {
+//                    for (k, v) in dict {
+//                        if k == self.selectedExercise.exerciseID {
+//                            let filledStarImage = UIImage(named: "Filled Star")
+//                            self.favoriteButton.setBackgroundImage(filledStarImage, for: .normal, barMetrics: .default)
+//                            self.favoriteButton.tintColor = UIColor.black
+//                            self.favoriteChecker = true
+//                        }
+//                    }
+//                }
+                
+//                if snapshot.key == self.selectedExercise.exerciseID && snapshot.value != nil {
+//                    let filledStarImage = UIImage(named: "Filled Star")
+//                    self.favoriteButton.setBackgroundImage(filledStarImage, for: .normal, barMetrics: .default)
+//                    self.favoriteButton.tintColor = UIColor.black
+//                    self.favoriteChecker = true
+//                }
             })
         }
         
