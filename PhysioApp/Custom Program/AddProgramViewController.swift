@@ -54,7 +54,7 @@ class AddProgramViewController: UIViewController {
         let dateFormatter = DateFormatter()
         
         dateFormatter.dateStyle = DateFormatter.Style.short
-     //   dateFormatter.dateStyle = .none
+        //   dateFormatter.dateStyle = .none
         dateFormatter.timeStyle = DateFormatter.Style.short
         
         let strDate = dateFormatter.string(from: datePicker.date)
@@ -84,12 +84,20 @@ class AddProgramViewController: UIViewController {
         
     }
     
+    
+//---------------------------------- Global Variables ----------------------------------------
+    
+    
     var exercises : [Exercise] = []
     var currentUserID : String = ""
     var selectedProgram : Program = Program()
     let scheduler = DLNotificationScheduler()
     
     var ref : DatabaseReference!
+    
+    
+//------------------------------------  Functions ---------------------------------------------
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,13 +126,13 @@ class AddProgramViewController: UIViewController {
     }
     
     func loadDatabase() {
-
+        
         
         ref.child("users/\(currentUserID)/programs/\(selectedProgram.programID)/exercises").observe(.childAdded) { (snapshot) in
             
             if let dict = snapshot.value as? [String:Any] {
                 let exercise = Exercise(exerciseID: snapshot.key, dict: dict)
-
+                
                 DispatchQueue.main.async {
                     self.exercises.append(exercise)
                     let indexPath = IndexPath(row: self.exercises.count - 1, section: 0)
@@ -170,9 +178,9 @@ class AddProgramViewController: UIViewController {
         editNameTextField.isHidden = true
         doneEditingButton.isHidden = true
         cancelButton.isHidden = true
-         guard let newProgramName = editNameTextField.text else {return}
+        guard let newProgramName = editNameTextField.text else {return}
         programName.text = newProgramName
-       
+        
         ref.child("users").child(currentUserID).child("programs").child(selectedProgram.programID).updateChildValues(["name" : newProgramName])
     }
     
@@ -203,12 +211,40 @@ extension AddProgramViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
+        var deletedExercise = Exercise()
+        ref.child("users").child(currentUserID).child("programs").child(selectedProgram.programID).child("exercises").child(exercises[indexPath.row].exerciseID).observeSingleEvent(of: .value) { (snapshot) in
+            guard let dict = snapshot.value as? [String : Any] else {return}
+            deletedExercise = Exercise(exerciseID: snapshot.key, dict: dict)
+            
+            DispatchQueue.main.async {
+                let newTotalTime = self.selectedProgram.totalTime - (deletedExercise.time/60)
+                self.ref.child("users/\(self.currentUserID)/programs/\(self.selectedProgram.programID)").updateChildValues(["totalTime" : newTotalTime])
+            }
+        }
+        
         let path = ref.child("users").child(currentUserID).child("programs").child(selectedProgram.programID).child("exercises").child(exercises[indexPath.row].exerciseID)
         
         exercises.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
         
         path.removeValue()
+        
+        
+//        ref.child("users/\(currentUserID)/programs/\(selectedProgram.programID)/exercises").observe(.childAdded) { (snapshot) in
+//
+//            if let dict = snapshot.value as? [String : Any],
+//                let time = dict["time"] as? Double {
+//                selectedProgram.totalTime += time
+//
+//                self.ref.child("users/\(self.currentUserID)/programs/\(self.selectedProgram.programID)/totalTime").setValue(Int(self.totalTime/60))
+//            }
+//
+//
+//        }
+        
+        
+        
+        
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
@@ -216,7 +252,7 @@ extension AddProgramViewController : UITableViewDataSource {
         let data = exercises.remove(at: sourceIndexPath.row)
         exercises.insert(data, at: destinationIndexPath.row)
     }
-
+    
     
 }
 
@@ -243,7 +279,7 @@ extension AddProgramViewController {
     @objc func setButtonTapped() {
         scheduler.cancelAlllNotifications()
         let firstNotification = DLNotification(identifier: "reminder", alertTitle: "Reminder!", alertBody: "It is time to do your physiotherapy exercises", date: datePicker.date, repeats: .Daily)
-
+        
         
         scheduler.scheduleNotification(notification: firstNotification)
         
