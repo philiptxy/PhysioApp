@@ -76,15 +76,36 @@ class AddProgramViewController: UIViewController {
     @IBOutlet weak var setButton: UIButton! {
         didSet {
             setButton.addTarget(self, action: #selector(setButtonTapped), for: .touchUpInside)
+            setButton.layer.cornerRadius = 10
+            setButton.layer.borderWidth = 1
         }
     }
     @IBOutlet weak var removeButton: UIButton! {
         didSet {
             removeButton.addTarget(self, action: #selector(removeButtonTapped), for: .touchUpInside)
+            removeButton.layer.cornerRadius = 10
+            removeButton.layer.borderWidth = 1
         }
     }
     
-    @IBOutlet weak var programName: UILabel!
+    @IBOutlet weak var reminderLabel: UILabel! {
+        didSet {
+            reminderLabel.layer.cornerRadius = 10
+            reminderLabel.layer.borderWidth = 1
+            reminderLabel.layer.masksToBounds = true
+            reminderLabel.layer.borderColor = UIColor.clear.cgColor
+        }
+    }
+    
+    
+    @IBOutlet weak var programName: UILabel! {
+        didSet {
+            programName.layer.cornerRadius = 10
+            programName.layer.borderWidth = 1
+            programName.layer.masksToBounds = true
+            programName.layer.borderColor = UIColor.clear.cgColor
+        }
+    }
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "CustomBodyPartViewController") as? CustomBodyPartViewController else {return}

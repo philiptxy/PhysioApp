@@ -418,7 +418,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Yk8-m2-dot"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -517,6 +517,7 @@
                             <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N36-Yt-glJ">
                                 <rect key="frame" x="173" y="30" width="29" height="40"/>
                                 <color key="backgroundColor" red="0.146351442" green="0.21935182249999999" blue="0.55631345180000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hHh-li-O1x"/>
                                 </constraints>
@@ -589,6 +590,7 @@
                         <outlet property="editNameTextField" destination="N36-Yt-glJ" id="GqG-yN-lKM"/>
                         <outlet property="editTableButton" destination="wkj-E8-fRt" id="UYD-lD-0YO"/>
                         <outlet property="programName" destination="BVF-rH-pez" id="d3A-Cz-Idh"/>
+                        <outlet property="reminderLabel" destination="Vvg-Fb-4O4" id="cIR-mz-g88"/>
                         <outlet property="removeButton" destination="VFW-Vv-K0P" id="BNs-hG-nsN"/>
                         <outlet property="setButton" destination="8jN-vc-KW0" id="WhO-TG-lON"/>
                         <outlet property="tableView" destination="9GM-9v-09x" id="Xbf-0x-6nZ"/>
