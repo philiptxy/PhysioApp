@@ -23,7 +23,12 @@ class CustomBodyPartViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var customView: UIView!
+    @IBOutlet weak var customView: UIView! {
+        didSet {
+            customView.layer.cornerRadius = 10
+            customView.layer.borderWidth = 1
+        }
+    }
     
     @IBOutlet weak var nameLabel: UILabel!
     
