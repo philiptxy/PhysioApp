@@ -38,6 +38,8 @@
 		FC96E1CB2057816300BB880C /* HomeExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1CA2057816300BB880C /* HomeExerciseViewController.swift */; };
 		FC96E1CD205783D000BB880C /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96E1CC205783D000BB880C /* Exercise.swift */; };
 		FCAE6875205F765D003548C0 /* ExpandableNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE6874205F765D003548C0 /* ExpandableNames.swift */; };
+		FCAE687A205FAFAE003548C0 /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE6878205FAFAE003548C0 /* ExerciseTableViewCell.swift */; };
+		FCAE687B205FAFAE003548C0 /* ExerciseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCAE6879205FAFAE003548C0 /* ExerciseTableViewCell.xib */; };
 		FCF9BD8C2057BCA400EC7C61 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF9BD8B2057BCA400EC7C61 /* Favorites.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +79,8 @@
 		FC96E1CA2057816300BB880C /* HomeExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExerciseViewController.swift; sourceTree = "<group>"; };
 		FC96E1CC205783D000BB880C /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		FCAE6874205F765D003548C0 /* ExpandableNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableNames.swift; sourceTree = "<group>"; };
+		FCAE6878205FAFAE003548C0 /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
+		FCAE6879205FAFAE003548C0 /* ExerciseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseTableViewCell.xib; sourceTree = "<group>"; };
 		FCF9BD8B2057BCA400EC7C61 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +183,8 @@
 				00BE93DA205F9F7B0097ECC9 /* LabelInsets.swift */,
 				FC1AAC40205663B500D4A1C0 /* FavoritesViewController.swift */,
 				FCF9BD8B2057BCA400EC7C61 /* Favorites.swift */,
+				FCAE6878205FAFAE003548C0 /* ExerciseTableViewCell.swift */,
+				FCAE6879205FAFAE003548C0 /* ExerciseTableViewCell.xib */,
 				FCAE6874205F765D003548C0 /* ExpandableNames.swift */,
 				FC1AAC42205663D100D4A1C0 /* AllProgramsViewController.swift */,
 				FC28C3452056328B003336A2 /* Assets.xcassets */,
@@ -256,6 +262,7 @@
 				00D867482056345200AA5E80 /* GoogleService-Info.plist in Resources */,
 				FC28C3492056328B003336A2 /* LaunchScreen.storyboard in Resources */,
 				FC28C3462056328B003336A2 /* Assets.xcassets in Resources */,
+				FCAE687B205FAFAE003548C0 /* ExerciseTableViewCell.xib in Resources */,
 				FC42181D205A2B4F007B3EBA /* TimerView.xib in Resources */,
 				00D8674A2056623200AA5E80 /* Auth.storyboard in Resources */,
 			);
@@ -353,6 +360,7 @@
 				FC96E1CD205783D000BB880C /* Exercise.swift in Sources */,
 				001A9DBC205904B4005400F1 /* AddProgramViewController.swift in Sources */,
 				FC96E1C52056718300BB880C /* HomeBodyPartViewController.swift in Sources */,
+				FCAE687A205FAFAE003548C0 /* ExerciseTableViewCell.swift in Sources */,
 				FC96E1C920568EE400BB880C /* BodyPart.swift in Sources */,
 				000C302120577224001CEF22 /* ExerciseVideoViewController.swift in Sources */,
 				FC28C33F2056328B003336A2 /* AppDelegate.swift in Sources */,

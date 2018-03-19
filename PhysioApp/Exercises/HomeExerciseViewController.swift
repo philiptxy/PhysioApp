@@ -16,6 +16,7 @@ class HomeExerciseViewController: UIViewController {
         didSet {
             tableView.dataSource = self
             tableView.delegate = self
+            tableView.rowHeight = 122
             
             //            tableView.backgroundView = UIImageView(image: UIImage(named: "Gradient Background"))
             //        tableView.backgroundView?.alpha = 0.5
@@ -63,17 +64,22 @@ extension HomeExerciseViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = filteredExercises[indexPath.row].name
-        cell.detailTextLabel?.text = "Difficulty: \(filteredExercises[indexPath.row].difficulty)"
+    //    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        //cell.textLabel?.
+        guard let cell = Bundle.main.loadNibNamed("ExerciseTableViewCell", owner: nil, options: nil)?.first as? ExerciseTableViewCell else {return UITableViewCell()}
+        cell.selectionStyle = .none
         
-        //        cell.backgroundView = UIImageView(image: UIImage(named: "Gradient Background"))
-        //
-        //        cell.backgroundView?.alpha = 0.5
+        cell.titlelabel.text = filteredExercises[indexPath.row].name
+        cell.detailLabel.text = "Difficulty: \(filteredExercises[indexPath.row].difficulty)"
+        cell.exerciseImageView.image = UIImage(named: "Gradient Background")
         
+//        cell.layoutIfNeeded()
+
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.layoutIfNeeded()
     }
 }
 
@@ -97,13 +103,13 @@ extension HomeExerciseViewController : UISearchBarDelegate {
             tableView.reloadData()
             return
         }
-        
+
         //true - not filtered out
         filteredExercises = exercises.filter({ (exercise) -> Bool in
             exercise.name.lowercased().contains(searchText.lowercased())
         })
         self.tableView.reloadData()
-        
+
     }
     
     
