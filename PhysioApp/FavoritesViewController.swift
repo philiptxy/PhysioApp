@@ -160,6 +160,10 @@ extension FavoritesViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
+        cell.layer.cornerRadius = 10
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 2
+        
         let bodyParts = ["hip", "knee", "lowerBack", "neck", "shoulder", "wrist"]
         
         //when using .value, snapshot.key is the last .child() in the code.

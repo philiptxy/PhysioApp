@@ -270,6 +270,10 @@ extension CustomBodyPartViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
+        cell.layer.cornerRadius = 10
+        cell.layer.borderColor = UIColor.clear.cgColor
+        cell.layer.borderWidth = 2
+        
         cell.textLabel?.text = twoDimensionalArray[indexPath.section][indexPath.row].name
         
         ref.child("users/\(currentUserID)/programs/\(selectedProgram.programID)/exercises").observe(.childAdded) { (snapshot) in
