@@ -23,20 +23,25 @@ class ExerciseVideoViewController: UIViewController {
             let userID = user.uid
             
             let favoritePost : [String : Any] = ["isFavorited" : true]
-            ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).child(selectedExercise.exerciseID).setValue(favoritePost)
-        }
-        
+            
         if favoriteChecker == false {
+        ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).child(selectedExercise.exerciseID).setValue(favoritePost)
+            
             let filledStarImage = UIImage(named: "Filled Star")
             sender.setBackgroundImage(filledStarImage, for: .normal, barMetrics: .default)
             sender.tintColor = UIColor.black
             showAlertMsg(withTitle: "Added To Favorites", message: nil, time: 1)
             favoriteChecker = true
+            
         } else {
+        ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).child(selectedExercise.exerciseID).removeValue()
+
             let emptyStarImage = UIImage(named: "Empty Star")
             sender.setBackgroundImage(emptyStarImage, for: .normal, barMetrics: .default)
             sender.tintColor = UIColor.black
+            showAlertMsg(withTitle: "Removed From Favorites", message: nil, time: 1)
             favoriteChecker = false
+        }
         }
     }
     
