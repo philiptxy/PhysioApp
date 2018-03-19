@@ -237,7 +237,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="fsY-Qe-4SO">
-                                <rect key="frame" x="51" y="132" width="273.5" height="80"/>
+                                <rect key="frame" x="51" y="137.5" width="273.5" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rau-am-jcH">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -262,11 +262,11 @@
                         <constraints>
                             <constraint firstItem="Opd-zk-qen" firstAttribute="trailing" secondItem="mpW-SI-KW4" secondAttribute="trailing" id="9Yc-cM-oa2"/>
                             <constraint firstItem="mpW-SI-KW4" firstAttribute="centerX" secondItem="JhV-RJ-n41" secondAttribute="centerX" id="Gb1-nV-fQ9"/>
-                            <constraint firstItem="OjD-zt-fRH" firstAttribute="bottom" secondItem="Opd-zk-qen" secondAttribute="bottom" constant="50" id="Wwp-pF-DP6"/>
+                            <constraint firstItem="Opd-zk-qen" firstAttribute="top" secondItem="fsY-Qe-4SO" secondAttribute="bottom" constant="10" id="Gyv-oO-AEO"/>
                             <constraint firstItem="mpW-SI-KW4" firstAttribute="top" secondItem="OjD-zt-fRH" secondAttribute="top" constant="30" id="Zyy-hp-b8w"/>
-                            <constraint firstItem="Opd-zk-qen" firstAttribute="top" secondItem="fsY-Qe-4SO" secondAttribute="bottom" constant="15" id="fQc-fQ-c9a"/>
                             <constraint firstItem="Opd-zk-qen" firstAttribute="leading" secondItem="OjD-zt-fRH" secondAttribute="leading" constant="20" id="hwr-gL-6Dr"/>
                             <constraint firstItem="OjD-zt-fRH" firstAttribute="trailing" secondItem="Opd-zk-qen" secondAttribute="trailing" constant="20" id="mjn-8g-MSg"/>
+                            <constraint firstItem="fsY-Qe-4SO" firstAttribute="top" secondItem="mpW-SI-KW4" secondAttribute="bottom" constant="10" id="tBV-kd-0VR"/>
                             <constraint firstItem="Opd-zk-qen" firstAttribute="leading" secondItem="mpW-SI-KW4" secondAttribute="leading" id="toB-fe-dm5"/>
                             <constraint firstItem="fsY-Qe-4SO" firstAttribute="centerX" secondItem="JhV-RJ-n41" secondAttribute="centerX" id="wQc-Kw-gOe"/>
                         </constraints>
