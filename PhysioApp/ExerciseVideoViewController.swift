@@ -59,7 +59,10 @@ class ExerciseVideoViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel! {
+        didSet {
+        }
+    }
     
     @IBOutlet weak var descriptionLabel: UITextView!
     
@@ -166,3 +169,5 @@ class ExerciseVideoViewController: UIViewController {
         }
     }
 }
+
+
