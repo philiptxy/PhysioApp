@@ -569,8 +569,8 @@
                                     <action selector="addButtonTapped:" destination="5OI-Py-2BW" id="Dqf-oP-AyC"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="edit" id="wkj-E8-fRt"/>
-                            <barButtonItem title="Item" largeContentSizeImage="timer-ios-7-interface-symbol_318-34834" id="K0b-DL-6BD">
+                            <barButtonItem title="  Edit" id="wkj-E8-fRt"/>
+                            <barButtonItem title=" " largeContentSizeImage="timer-ios-7-interface-symbol_318-34834" id="K0b-DL-6BD">
                                 <connections>
                                     <segue destination="yf5-5b-aB4" kind="show" identifier="" id="bGl-KF-Csq"/>
                                 </connections>
@@ -588,6 +588,7 @@
                         <outlet property="removeButton" destination="VFW-Vv-K0P" id="BNs-hG-nsN"/>
                         <outlet property="setButton" destination="8jN-vc-KW0" id="WhO-TG-lON"/>
                         <outlet property="tableView" destination="9GM-9v-09x" id="Xbf-0x-6nZ"/>
+                        <outlet property="timerButton" destination="K0b-DL-6BD" id="QWz-9o-stw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVR-iA-LtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -801,7 +802,7 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6X6-KD-n6l" firstAttribute="top" secondItem="tyd-DA-sNC" secondAttribute="top" id="6Ha-r4-wmI"/>
                             <constraint firstItem="tyd-DA-sNC" firstAttribute="trailing" secondItem="6X6-KD-n6l" secondAttribute="trailing" id="7Vx-3g-Bhw"/>

@@ -19,6 +19,13 @@ class AddProgramViewController: UIViewController {
             tableView.delegate = self
         }
     }
+    
+    @IBOutlet weak var timerButton: UIBarButtonItem! {
+        didSet {
+            timerButton.setBackgroundImage(UIImage(named: "timer"), for: .normal, barMetrics: .default)
+        }
+    }
+    
     @IBOutlet weak var editTableButton: UIBarButtonItem! {
         didSet {
             editTableButton.action = #selector(editTableButtonTapped)
@@ -123,6 +130,7 @@ class AddProgramViewController: UIViewController {
         cancelButton.isHidden = true
     }
     
+    
     func showAlertMsg(withTitle title: String, message: String?, time: Int) {
         
         guard (self.alertController == nil) else {
@@ -181,12 +189,12 @@ class AddProgramViewController: UIViewController {
         if(self.tableView.isEditing == true)
         {
             self.tableView.isEditing = false
-            editTableButton.title = "Edit"
+            editTableButton.title = "  Edit"
         }
         else
         {
             self.tableView.isEditing = true
-            editTableButton.title = "Done"
+            editTableButton.title = "  Done"
         }
     }
     
