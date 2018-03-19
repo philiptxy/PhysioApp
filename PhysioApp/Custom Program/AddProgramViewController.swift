@@ -78,6 +78,7 @@ class AddProgramViewController: UIViewController {
             setButton.addTarget(self, action: #selector(setButtonTapped), for: .touchUpInside)
             setButton.layer.cornerRadius = 10
             setButton.layer.borderWidth = 1
+          //  setButton.isEnabled = false
         }
     }
     @IBOutlet weak var removeButton: UIButton! {
@@ -85,6 +86,8 @@ class AddProgramViewController: UIViewController {
             removeButton.addTarget(self, action: #selector(removeButtonTapped), for: .touchUpInside)
             removeButton.layer.cornerRadius = 10
             removeButton.layer.borderWidth = 1
+            removeButton.isEnabled = false
+            removeButton.setTitleColor(UIColor.lightGray, for: .normal)
         }
     }
     
@@ -348,13 +351,20 @@ extension AddProgramViewController {
         scheduler.cancelAlllNotifications()
         let firstNotification = DLNotification(identifier: "reminder", alertTitle: "Reminder!", alertBody: "It is time to do your physiotherapy exercises", date: datePicker.date, repeats: .Daily)
         
-        
         scheduler.scheduleNotification(notification: firstNotification)
         showAlertMsg(withTitle: "Daily Reminder Set", message: nil, time: 3)
+        setButton.isEnabled = false
+        removeButton.isEnabled = true
+        setButton.setTitleColor(UIColor.lightGray, for: .normal)
+        removeButton.setTitleColor(UIColor.black, for: .normal)
     }
     
     @objc func removeButtonTapped() {
         scheduler.cancelAlllNotifications()
         showAlertMsg(withTitle: "Daily Reminder Removed", message: nil, time: 1)
+        setButton.isEnabled = true
+        removeButton.isEnabled = false
+        setButton.setTitleColor(UIColor.black, for: .normal)
+        removeButton.setTitleColor(UIColor.lightGray, for: .normal)
     }
 }

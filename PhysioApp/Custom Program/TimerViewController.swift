@@ -31,6 +31,9 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton! {
         didSet {
             startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
+            startButton.layer.cornerRadius = 10
+            startButton.layer.borderWidth = 0
+            
         }
     }
     
