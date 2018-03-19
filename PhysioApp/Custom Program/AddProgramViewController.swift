@@ -266,6 +266,10 @@ extension AddProgramViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
+        cell.layer.cornerRadius = 10
+        cell.layer.borderColor = UIColor.clear.cgColor
+        cell.layer.borderWidth = 2
+        
         cell.textLabel?.text = exercises[indexPath.row].name
         
         let reps = exercises[indexPath.row].reps

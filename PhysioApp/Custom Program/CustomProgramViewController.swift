@@ -93,6 +93,10 @@ extension CustomProgramViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CustomProgramCollectionViewCell else {return UICollectionViewCell()}
         
+        cell.layer.cornerRadius = 10
+        cell.layer.borderColor = UIColor.clear.cgColor
+        cell.layer.borderWidth = 2
+        
 //        let photoURL = programs[indexPath.row].photoURL
         cell.nameLabel.text = programs[indexPath.row].name
         cell.timeLabel.text = "\(String(programs[indexPath.row].totalTime)) mins"

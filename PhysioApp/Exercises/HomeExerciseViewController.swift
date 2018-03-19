@@ -69,6 +69,10 @@ extension HomeExerciseViewController : UITableViewDataSource {
         guard let cell = Bundle.main.loadNibNamed("ExerciseTableViewCell", owner: nil, options: nil)?.first as? ExerciseTableViewCell else {return UITableViewCell()}
         cell.selectionStyle = .none
         
+        cell.layer.cornerRadius = 10
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 2
+                
         cell.titlelabel.text = filteredExercises[indexPath.row].name
         cell.detailLabel.text = "Difficulty: \(filteredExercises[indexPath.row].difficulty)"
         
