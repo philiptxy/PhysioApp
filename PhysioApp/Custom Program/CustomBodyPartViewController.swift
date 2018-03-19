@@ -114,7 +114,12 @@ class CustomBodyPartViewController: UIViewController {
     func loadCustomView() {
         customView.isHidden = false
         confirmButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
+        confirmButton.layer.cornerRadius = 10
+        confirmButton.layer.borderWidth = 1
+        
         customCancelButton.addTarget(self, action: #selector(customCancelButtonTapped), for: .touchUpInside)
+        customCancelButton.layer.cornerRadius = 10
+        customCancelButton.layer.borderWidth = 1
         tableView.allowsSelection = false
     }
     
