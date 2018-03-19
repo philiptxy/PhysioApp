@@ -19,9 +19,6 @@
         <array key="HelveticaNeueExtras.ttc">
             <string>HelveticaNeue-CondensedBold</string>
         </array>
-        <array key="Kefa.ttf">
-            <string>Kefa-Regular</string>
-        </array>
         <array key="Palatino.ttc">
             <string>Palatino-Bold</string>
         </array>
@@ -225,6 +222,13 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="videoWallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="Xt1-gb-on1">
                                 <rect key="frame" x="0.0" y="64" width="375" height="163"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="mpW-SI-KW4" customClass="LabelInsets" customModule="PhysioApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="94" width="335" height="33.5"/>
+                                <color key="backgroundColor" red="0.146351442" green="0.21935182249999999" blue="0.55631345180000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opd-zk-qen">
                                 <rect key="frame" x="20" y="227" width="335" height="440"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -235,47 +239,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="mpW-SI-KW4" customClass="LabelInsets" customModule="PhysioApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="94" width="335" height="33.5"/>
-                                <color key="backgroundColor" red="0.146351442" green="0.21935182249999999" blue="0.55631345180000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="fsY-Qe-4SO">
-                                <rect key="frame" x="51" y="161.33333333333334" width="273.5" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rau-am-jcH">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="4YY-4K-3db"/>
-                                            <constraint firstAttribute="width" secondItem="rau-am-jcH" secondAttribute="height" multiplier="1:1" id="dys-cG-d9c"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="icons8-next-80">
-                                            <color key="titleColor" red="0.45913159847259521" green="0.45037680864334106" blue="0.47451317310333252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watch Video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiH-iM-LQj">
-                                        <rect key="frame" x="105" y="22.5" width="168.5" height="35"/>
-                                        <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="30"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rau-am-jcH">
+                                <rect key="frame" x="30" y="132.5" width="80" height="89.5"/>
+                                <state key="normal" image="icons8-next-80">
+                                    <color key="titleColor" red="0.45913159847259521" green="0.45037680864334106" blue="0.47451317310333252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rau-am-jcH" firstAttribute="leading" secondItem="OjD-zt-fRH" secondAttribute="leading" constant="30" id="1KN-zI-atP"/>
+                            <constraint firstItem="rau-am-jcH" firstAttribute="leading" secondItem="OjD-zt-fRH" secondAttribute="leading" constant="30" id="1ic-of-hcD"/>
                             <constraint firstItem="Xt1-gb-on1" firstAttribute="trailing" secondItem="OjD-zt-fRH" secondAttribute="trailing" id="33a-fo-4df"/>
+                            <constraint firstItem="rau-am-jcH" firstAttribute="top" secondItem="mpW-SI-KW4" secondAttribute="bottom" constant="5" id="4lL-Vz-F1d"/>
                             <constraint firstItem="Opd-zk-qen" firstAttribute="trailing" secondItem="mpW-SI-KW4" secondAttribute="trailing" id="9Yc-cM-oa2"/>
                             <constraint firstItem="mpW-SI-KW4" firstAttribute="centerX" secondItem="JhV-RJ-n41" secondAttribute="centerX" id="Gb1-nV-fQ9"/>
                             <constraint firstItem="Xt1-gb-on1" firstAttribute="leading" secondItem="OjD-zt-fRH" secondAttribute="leading" id="N66-ZB-qxf"/>
+                            <constraint firstItem="Opd-zk-qen" firstAttribute="top" secondItem="rau-am-jcH" secondAttribute="bottom" constant="5" id="Rgg-eG-1xH"/>
                             <constraint firstItem="Opd-zk-qen" firstAttribute="top" secondItem="Xt1-gb-on1" secondAttribute="bottom" id="SEd-3N-Mfp"/>
                             <constraint firstItem="Xt1-gb-on1" firstAttribute="top" secondItem="OjD-zt-fRH" secondAttribute="top" id="Sfr-ab-O20"/>
                             <constraint firstItem="mpW-SI-KW4" firstAttribute="top" secondItem="Xt1-gb-on1" secondAttribute="top" constant="30" id="Zyy-hp-b8w"/>
-                            <constraint firstItem="rau-am-jcH" firstAttribute="top" secondItem="mpW-SI-KW4" secondAttribute="bottom" constant="10" id="fwY-G6-KX2"/>
                             <constraint firstItem="Opd-zk-qen" firstAttribute="leading" secondItem="OjD-zt-fRH" secondAttribute="leading" constant="20" id="hwr-gL-6Dr"/>
                             <constraint firstItem="OjD-zt-fRH" firstAttribute="trailing" secondItem="Opd-zk-qen" secondAttribute="trailing" constant="20" id="mjn-8g-MSg"/>
                             <constraint firstItem="Opd-zk-qen" firstAttribute="leading" secondItem="mpW-SI-KW4" secondAttribute="leading" id="toB-fe-dm5"/>
