@@ -65,9 +65,11 @@ class CountdownViewController: UIViewController, CountdownLabelDelegate {
         if countdownLabel.isPaused {
             // timer start
             countdownLabel.start()
+            pauseButton.setTitle("Pause", for: .normal)
         } else {
             // timer pause
             countdownLabel.pause()
+            pauseButton.setTitle("Resume", for: .normal)
         }
     }
     
