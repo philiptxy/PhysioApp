@@ -48,7 +48,11 @@ class AddProgramViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var datePicker: UIDatePicker! {
+        didSet {
+            datePicker.backgroundColor = UIColor.white
+        }
+    }
     
     @IBAction func datePickerChanged(_ sender: Any) {
         let dateFormatter = DateFormatter()

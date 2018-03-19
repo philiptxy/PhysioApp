@@ -16,6 +16,7 @@ class HomeExerciseViewController: UIViewController {
         didSet {
             tableView.dataSource = self
             tableView.delegate = self
+            
             //            tableView.backgroundView = UIImageView(image: UIImage(named: "Gradient Background"))
             //        tableView.backgroundView?.alpha = 0.5
         }
