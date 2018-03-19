@@ -167,8 +167,10 @@ extension FavoritesViewController : UITableViewDataSource {
         ref.child("bodyParts").child(bodyParts[indexPath.section]).child("exercises").child(twoDimensionalArray[indexPath.section][indexPath.row]).observeSingleEvent(of: .value) { (snapshot) in
             guard let dict = snapshot.value as? [String : Any] else {return}
             guard let name = dict["name"] as? String else {return}
+            guard let difficulty = dict["difficulty"] as? String else {return}
             DispatchQueue.main.async {
                 cell.textLabel?.text = name
+                cell.detailTextLabel?.text = "Difficulty: \(difficulty)"
             }
             
         }

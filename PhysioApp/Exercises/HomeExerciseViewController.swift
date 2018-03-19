@@ -65,6 +65,7 @@ extension HomeExerciseViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = filteredExercises[indexPath.row].name
+        cell.detailTextLabel?.text = "Difficulty: \(filteredExercises[indexPath.row].difficulty)"
         
         //cell.textLabel?.
         
