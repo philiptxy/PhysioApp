@@ -71,15 +71,48 @@ extension HomeExerciseViewController : UITableViewDataSource {
         
         cell.titlelabel.text = filteredExercises[indexPath.row].name
         cell.detailLabel.text = "Difficulty: \(filteredExercises[indexPath.row].difficulty)"
-        cell.exerciseImageView.image = UIImage(named: "Gradient Background")
         
-//        cell.layoutIfNeeded()
+        if filteredExercises[indexPath.row].name == "Lying Hip Rotations" {
+            cell.exerciseImageView.image = UIImage(named: "Lying Hip Rotations")
+        } else if filteredExercises[indexPath.row].name == "Towel Assisted Knee Mobility" {
+            cell.exerciseImageView.image = UIImage(named: "Towel Assisted Knee Mobility")
+        } else if filteredExercises[indexPath.row].name == "Knee To Chest Stretch" {
+            cell.exerciseImageView.image = UIImage(named: "Knee To Chest Stretch")
+        } else if filteredExercises[indexPath.row].name == "Lunge Stretch" {
+            cell.exerciseImageView.image = UIImage(named: "Lunge Stretch")
+        } else if filteredExercises[indexPath.row].name == "Glute Bridge" {
+            cell.exerciseImageView.image = UIImage(named: "Glute Bridge")
+        } else if filteredExercises[indexPath.row].name == "Lower Back Side Bending" {
+            cell.exerciseImageView.image = UIImage(named: "Lower Back Side Bending")
+        } else if filteredExercises[indexPath.row].name == "Lower Back Stretching In Sitting" {
+            cell.exerciseImageView.image = UIImage(named: "Lower Back Stretching In Sitting")
+        } else if filteredExercises[indexPath.row].name == "Rotation To Both Sides In Sitting" {
+            cell.exerciseImageView.image = UIImage(named: "Rotation To Both Sides In Sitting")
+        } else if filteredExercises[indexPath.row].name == "Looking Over Both Shoulders" {
+            cell.exerciseImageView.image = UIImage(named: "Looking Over Both Shoulders")
+        } else if filteredExercises[indexPath.row].name == "1-Hand External Rotation" {
+            cell.exerciseImageView.image = UIImage(named: "1 Hand External Rotation")
+        } else if filteredExercises[indexPath.row].name == "1-Hand Internal Rotation" {
+            cell.exerciseImageView.image = UIImage(named: "1 Hand Internal Rotation")
+        } else if filteredExercises[indexPath.row].name == "Lateral Raise" {
+            cell.exerciseImageView.image = UIImage(named: "Lateral Raise")
+        } else if filteredExercises[indexPath.row].name == "Lying External Rotation" {
+            cell.exerciseImageView.image = UIImage(named: "Lying External Rotation")
+        } else if filteredExercises[indexPath.row].name == "Underhand Pull Aparts" {
+            cell.exerciseImageView.image = UIImage(named: "Underhand Pull Aparts")
+        } else if filteredExercises[indexPath.row].name == "Bending The Wrist Forwards" {
+            cell.exerciseImageView.image = UIImage(named: "Bending The Wrist Forwards")
+        } else {
+            cell.exerciseImageView.image = UIImage(named: "Empty Star")
+        }
+        
+        cell.layoutIfNeeded()
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.layoutIfNeeded()
+        cell.layoutSubviews()
     }
 }
 

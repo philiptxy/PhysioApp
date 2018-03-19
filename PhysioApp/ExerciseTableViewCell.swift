@@ -39,9 +39,20 @@ class ExerciseTableViewCell: UITableViewCell {
 //        exerciseImageView.clipsToBounds = true
 //    }
     
-    override func layoutIfNeeded() {
-        super.layoutIfNeeded()
+//    override func layoutIfNeeded() {
+//        super.layoutIfNeeded()
+//        exerciseImageView.frame.size = CGSize(width: 80, height: 80)
+//        exerciseImageView.layer.borderWidth = 1.0
+//        exerciseImageView.layer.masksToBounds = false
+//        exerciseImageView.layer.borderColor = UIColor.white.cgColor
+//        exerciseImageView.layer.cornerRadius = exerciseImageView.frame.size.width / 2
+//        exerciseImageView.clipsToBounds = true
+//    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         exerciseImageView.frame.size = CGSize(width: 80, height: 80)
+        exerciseImageView.center.y = 60
         exerciseImageView.layer.borderWidth = 1.0
         exerciseImageView.layer.masksToBounds = false
         exerciseImageView.layer.borderColor = UIColor.white.cgColor

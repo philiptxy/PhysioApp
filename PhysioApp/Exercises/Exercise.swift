@@ -12,6 +12,7 @@ class Exercise {
     
     var exerciseID : String = ""
     var name : String = ""
+    var picUrl : String = ""
     var videoUrl : String = ""
     var description : String = ""
     var difficulty : String = ""
@@ -31,6 +32,7 @@ class Exercise {
     init(exerciseID : String, dict : [String : Any]) {
         self.exerciseID = exerciseID
         self.name = dict["name"] as? String ?? ""
+        self.picUrl = dict["picUrl"] as? String ?? ""
         self.videoUrl = dict["videoUrl"] as? String ?? ""
         self.description = dict["description"] as? String ?? ""
         self.difficulty = dict["difficulty"] as? String ?? ""
