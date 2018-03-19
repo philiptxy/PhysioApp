@@ -61,6 +61,10 @@ class ExerciseVideoViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel! {
         didSet {
+            nameLabel.layer.cornerRadius = 10
+            nameLabel.layer.borderWidth = 1
+            nameLabel.layer.masksToBounds = true
+            nameLabel.layer.borderColor = UIColor.clear.cgColor
         }
     }
     

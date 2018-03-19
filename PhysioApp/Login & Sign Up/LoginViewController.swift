@@ -52,6 +52,7 @@ class LoginViewController: UIViewController {
         ref = Database.database().reference()
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.bold)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.navigationItem.title = "Login"
         
         //Set Background Image
