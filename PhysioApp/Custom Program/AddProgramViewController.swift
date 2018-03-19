@@ -107,6 +107,7 @@ class AddProgramViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ref = Database.database().reference()
         currentUserID = Auth.auth().currentUser?.uid ?? ""
         
