@@ -858,12 +858,12 @@
             <objects>
                 <tabBarController storyboardIdentifier="tabBarController" automaticallyAdjustsScrollViewInsets="NO" id="Hxw-rs-jKZ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bEL-wr-M5Z">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionIndicatorImage="exercise icon" id="bEL-wr-M5Z">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="LmC-Vp-Kex" kind="relationship" relationship="viewControllers" id="wcq-9N-ARO"/>
@@ -936,6 +936,7 @@
     <resources>
         <image name="Empty Star" width="30" height="30"/>
         <image name="Photo+2014-11-09,+12+38+07+PM" width="1000" height="1000"/>
+        <image name="exercise icon" width="26" height="26"/>
         <image name="icons8-next-80" width="80" height="80"/>
         <image name="pencil-in-a-square-edit-interface-symbol_318-53384" width="626" height="626"/>
         <image name="timer-ios-7-interface-symbol_318-34834" width="626" height="626"/>
