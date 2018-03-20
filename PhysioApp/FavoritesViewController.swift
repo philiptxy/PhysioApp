@@ -210,6 +210,16 @@ class FavoritesViewController: UIViewController {
                     }
                 })
             }
+        } else {
+            DispatchQueue.main.async {
+                self.twoDExerciseArray.append(self.hipArray)
+                self.twoDExerciseArray.append(self.kneeArray)
+                self.twoDExerciseArray.append(self.lowerBackArray)
+                self.twoDExerciseArray.append(self.neckArray)
+                self.twoDExerciseArray.append(self.shoulderArray)
+                self.twoDExerciseArray.append(self.wristArray)
+                self.tableView.reloadData()
+            }
         }
         
         
