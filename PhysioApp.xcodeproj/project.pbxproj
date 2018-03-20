@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		000C302120577224001CEF22 /* ExerciseVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C302020577224001CEF22 /* ExerciseVideoViewController.swift */; };
+		00167DB920600F620018B431 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00167DB820600F620018B431 /* CustomTableViewCell.swift */; };
 		001A9DB62058E1FD005400F1 /* CustomProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A9DB52058E1FD005400F1 /* CustomProgramViewController.swift */; };
 		001A9DB82058FFEC005400F1 /* CustomProgramCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A9DB72058FFEC005400F1 /* CustomProgramCollectionViewCell.swift */; };
 		001A9DBA205900C7005400F1 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A9DB9205900C7005400F1 /* Program.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		000C302020577224001CEF22 /* ExerciseVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseVideoViewController.swift; sourceTree = "<group>"; };
+		00167DB820600F620018B431 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		001A9DB52058E1FD005400F1 /* CustomProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgramViewController.swift; sourceTree = "<group>"; };
 		001A9DB72058FFEC005400F1 /* CustomProgramCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgramCollectionViewCell.swift; sourceTree = "<group>"; };
 		001A9DB9205900C7005400F1 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				FC28C33E2056328B003336A2 /* AppDelegate.swift */,
 				00E782D820567BC4001554B1 /* Extensions.swift */,
+				00167DB820600F620018B431 /* CustomTableViewCell.swift */,
 				00D8674E2056645900AA5E80 /* Login & Sign Up */,
 				FC1AAC4620566AA700D4A1C0 /* Exercises */,
 				FC28C3422056328B003336A2 /* Main.storyboard */,
@@ -357,6 +360,7 @@
 				00E782D5205668D5001554B1 /* DisclaimerViewController.swift in Sources */,
 				001A9DB62058E1FD005400F1 /* CustomProgramViewController.swift in Sources */,
 				001A9DB82058FFEC005400F1 /* CustomProgramCollectionViewCell.swift in Sources */,
+				00167DB920600F620018B431 /* CustomTableViewCell.swift in Sources */,
 				FC96E1CD205783D000BB880C /* Exercise.swift in Sources */,
 				001A9DBC205904B4005400F1 /* AddProgramViewController.swift in Sources */,
 				FC96E1C52056718300BB880C /* HomeBodyPartViewController.swift in Sources */,
