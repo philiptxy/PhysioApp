@@ -292,7 +292,7 @@ extension AddProgramViewController : UITableViewDataSource {
             deletedExercise = Exercise(exerciseID: snapshot.key, dict: dict)
             
             DispatchQueue.main.async {
-                let newTotalTime = self.selectedProgram.totalTime - (deletedExercise.time/60)
+                let newTotalTime = self.selectedProgram.totalTime - (deletedExercise.time)
                 self.ref.child("users/\(self.currentUserID)/programs/\(self.selectedProgram.programID)").updateChildValues(["totalTime" : newTotalTime])
             }
         }

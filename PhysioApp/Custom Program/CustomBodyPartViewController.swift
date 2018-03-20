@@ -147,7 +147,7 @@ class CustomBodyPartViewController: UIViewController {
             let setsNumber = Int(sets),
             let repsNumber = Int(reps) {
             
-            let time = setsNumber * repsNumber * 2 + ((setsNumber - 1) * 60)
+            let time = ( setsNumber * repsNumber * 2 + ((setsNumber - 1) * 60) ) / 60
             
             let exerciseDict : [String : Any] = ["name" : selectedExercise.name, "sets" : sets, "reps" : reps, "bodyPart" : selectedBodyPart, "time" : time]
         ref.child("users").child(currentUserID).child("programs").child(selectedProgram.programID).child("exercises").child(selectedExerciseID).setValue(exerciseDict)
@@ -160,8 +160,6 @@ class CustomBodyPartViewController: UIViewController {
             tableView.allowsSelection = true
             
             setTotalTime()
-            
-            showAlertMsg(withTitle: "\(selectedExercise.name) added", message: nil, time: 1)
             
             self.dismiss(animated: true, completion: nil)
         }
@@ -277,7 +275,7 @@ extension CustomBodyPartViewController : UITableViewDataSource {
         cell.layer.borderWidth = 2
         
         cell.titlelabel.text = twoDimensionalArray[indexPath.section][indexPath.row].name
-        cell.detailLabel.text = twoDimensionalArray[indexPath.section][indexPath.row].difficulty
+        cell.detailLabel.text = "Difficulty: \(twoDimensionalArray[indexPath.section][indexPath.row].difficulty)"
         
         let name = twoDimensionalArray[indexPath.section][indexPath.row].name
         
@@ -319,9 +317,11 @@ extension CustomBodyPartViewController : UITableViewDataSource {
             
             if snapshot.key == self.twoDimensionalArray[indexPath.section][indexPath.row].exerciseID {
                 cell.selectionStyle = UITableViewCellSelectionStyle.gray
-                cell.backgroundColor = UIColor.yellow
+                cell.backgroundColor = UIColor.lightGray
                 cell.isUserInteractionEnabled = false
-                cell.textLabel?.isEnabled = false
+                //cell.textLabel?.isEnabled = false
+                cell.titlelabel?.textColor = UIColor.lightText
+                cell.detailLabel?.textColor = UIColor.lightText
             }
             
         }

@@ -136,37 +136,37 @@ class FavoritesViewController: UIViewController {
 
 extension FavoritesViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let headers = ["Hip", "Knee", "Lower Back", "Neck", "Shoulder", "Wrist"]
+        let headers = ["Hip", "Knee", "Lower Back", "Neck", "Shoulder", "Wrist"]
+
+        let label = UILabel()
+        label.text = headers[section]
+        label.backgroundColor = UIColor.blue
+        return label
+        
+//        let button = UIButton(type: .system)
+//        button.setTitle("Close", for: .normal)
+//        button.setTitleColor(.black, for: .normal)
+//        button.backgroundColor = UIColor.yellow
+//        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
 //
-//        let label = UILabel()
-//        label.text = headers[section]
-//        label.backgroundColor = UIColor.blue
-//        return label
-        
-        let button = UIButton(type: .system)
-        button.setTitle("Close", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = UIColor.yellow
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        
-        button.addTarget(self, action: #selector(openCloseHandler), for: .touchUpInside)
-        
-        button.tag = section
-        
-        return button
+//        button.addTarget(self, action: #selector(openCloseHandler), for: .touchUpInside)
+//
+//        button.tag = section
+//
+//        return button
     }
     
-    @objc func openCloseHandler(button: UIButton) {
-        let section = button.tag
-        
-        var indexPaths = [IndexPath]()
-        for row in twoDimensionalArray[section].indices {
-            let indexPath = IndexPath(row: row, section: section)
-            indexPaths.append(indexPath)
-        }
-        
-        tableView.deleteRows(at: indexPaths, with: .fade)
-    }
+//    @objc func openCloseHandler(button: UIButton) {
+//        let section = button.tag
+//
+//        var indexPaths = [IndexPath]()
+//        for row in twoDimensionalArray[section].indices {
+//            let indexPath = IndexPath(row: row, section: section)
+//            indexPaths.append(indexPath)
+//        }
+//
+//        tableView.deleteRows(at: indexPaths, with: .fade)
+//    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 36
