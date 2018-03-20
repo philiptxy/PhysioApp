@@ -61,11 +61,18 @@ class CustomProgramViewController: UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference()
         currentUserID = Auth.auth().currentUser?.uid ?? ""
+        //loadPrograms()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        programs = []
+        loadPrograms()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        programs = []
-        loadPrograms()
+        //programs = []
+//        loadPrograms()
     }
     
     
@@ -77,9 +84,28 @@ class CustomProgramViewController: UIViewController {
             DispatchQueue.main.async {
                 self.programs.append(aProgram)
                 self.collectionView.reloadData()
+                //let indexPath = IndexPath(item: self.programs.count - 1, section: 0)
+                //self.collectionView.insertItems(at: [indexPath])
             }
             
         }
+        
+//        ref.child("users").child(currentUserID).child("programs").observe(.childChanged) { (snapshot) in
+//            guard let dict = snapshot.value as? [String : Any] else {return}
+//
+//            for (index, program) in self.programs.enumerated() {
+//                if program.programID == snapshot.key {
+//                    DispatchQueue.main.async {
+//                        let aProgram = Program(programID: snapshot.key, dict: dict)
+//                        self.programs[index] = aProgram
+//                        let indexPath = IndexPath(item: self.programs.count - 1, section: 0)
+//                        self.collectionView.reloadItems(at: [indexPath])
+//                        return
+//                    }
+//                }
+//            }
+//
+//        }
     }
 
 }
