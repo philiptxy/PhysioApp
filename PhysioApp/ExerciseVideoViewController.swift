@@ -19,29 +19,31 @@ class ExerciseVideoViewController: UIViewController {
     
     @IBAction func favoriteButtonTapped(_ sender: UIBarButtonItem) {
         
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
+        
         if let user = Auth.auth().currentUser {
             let userID = user.uid
-            
+
             let favoritePost : [String : Any] = ["isFavorited" : true, "name" : selectedExercise.name, "difficulty" : selectedExercise.difficulty]
-            
+
         if favoriteChecker == false {
         ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).child(selectedExercise.exerciseID).setValue(favoritePost)
-            
+
             let filledStarImage = UIImage(named: "Filled Star")
             sender.setBackgroundImage(filledStarImage, for: .normal, barMetrics: .default)
-            sender.tintColor = UIColor.black
+            //            sender.tintColor = UIColor.black
             showAlertMsg(withTitle: "Added To Favorites", message: nil, time: 1)
             favoriteChecker = true
-            
+
         } else {
-        ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).child(selectedExercise.exerciseID).removeValue()
+            ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).child(selectedExercise.exerciseID).removeValue()
 
             let emptyStarImage = UIImage(named: "Empty Star")
             sender.setBackgroundImage(emptyStarImage, for: .normal, barMetrics: .default)
-            sender.tintColor = UIColor.black
+            //            sender.tintColor = UIColor.black
             showAlertMsg(withTitle: "Removed From Favorites", message: nil, time: 1)
             favoriteChecker = false
-        }
+            }
         }
     }
     
@@ -94,13 +96,14 @@ class ExerciseVideoViewController: UIViewController {
             let userID = user.uid
             ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).child(selectedExercise.exerciseID).observe(.value, with: { (snapshot) in
                 
-                if let dict = snapshot.value as? [String:Bool],
-                    let favoriteBool = dict["isFavorited"] {
+                if let dict = snapshot.value as? [String:Any],
+                    let favoriteBool = dict["isFavorited"] as? Int {
                     
-                    if favoriteBool == true {
+                    if favoriteBool == 1 {
+                        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
                         let filledStarImage = UIImage(named: "Filled Star")
                         self.favoriteButton.setBackgroundImage(filledStarImage, for: .normal, barMetrics: .default)
-                        self.favoriteButton.tintColor = UIColor.black
+//                        self.favoriteButton.tintColor = UIColor.black
                         self.favoriteChecker = true
                     }
                     
