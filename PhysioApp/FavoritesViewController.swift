@@ -17,6 +17,7 @@ class FavoritesViewController: UIViewController {
             tableView.dataSource = self
             tableView.delegate = self
             tableView.rowHeight = 122
+            tableView.separatorStyle = .none
         }
     }
     
@@ -26,6 +27,13 @@ class FavoritesViewController: UIViewController {
     var neckExercises : [String] = []
     var shoulderExercises : [String] = []
     var wristExercises : [String] = []
+    
+    var hipArray : [Exercise] = []
+    var kneeArray : [Exercise] = []
+    var lowerBackArray : [Exercise] = []
+    var neckArray : [Exercise] = []
+    var shoulderArray : [Exercise] = []
+    var wristArray : [Exercise] = []
     
     var twoDExerciseArray : [[Exercise]] = []
     var twoDimensionalArray : [[String]] = []
@@ -44,7 +52,7 @@ class FavoritesViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadInfo()
+        
         
         hipExercises = []
         kneeExercises = []
@@ -53,6 +61,10 @@ class FavoritesViewController: UIViewController {
         shoulderExercises = []
         wristExercises = []
         twoDimensionalArray = []
+        twoDExerciseArray = []
+        
+        loadInfo()
+        
         tableView.reloadData()
     }
     
@@ -107,7 +119,7 @@ class FavoritesViewController: UIViewController {
             self.twoDimensionalArray.append(self.wristExercises)
             
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.loadExerciseInfo()
             }
         }
     }
@@ -121,7 +133,7 @@ class FavoritesViewController: UIViewController {
                     guard let dict = snapshot.value as? [String : Any] else {return}
                     let anExercise = Exercise(exerciseID: snapshot.key, dict: dict)
                     DispatchQueue.main.async {
-                        self.twoDExerciseArray[0].append(anExercise)
+                        self.hipArray.append(anExercise)
                     }
                 })
             }
@@ -133,7 +145,7 @@ class FavoritesViewController: UIViewController {
                     guard let dict = snapshot.value as? [String : Any] else {return}
                     let anExercise = Exercise(exerciseID: snapshot.key, dict: dict)
                     DispatchQueue.main.async {
-                        self.twoDExerciseArray[1].append(anExercise)
+                        self.kneeArray.append(anExercise)
                     }
                 })
             }
@@ -145,7 +157,7 @@ class FavoritesViewController: UIViewController {
                     guard let dict = snapshot.value as? [String : Any] else {return}
                     let anExercise = Exercise(exerciseID: snapshot.key, dict: dict)
                     DispatchQueue.main.async {
-                        self.twoDExerciseArray[2].append(anExercise)
+                        self.lowerBackArray.append(anExercise)
                     }
                 })
             }
@@ -157,7 +169,7 @@ class FavoritesViewController: UIViewController {
                     guard let dict = snapshot.value as? [String : Any] else {return}
                     let anExercise = Exercise(exerciseID: snapshot.key, dict: dict)
                     DispatchQueue.main.async {
-                        self.twoDExerciseArray[3].append(anExercise)
+                        self.neckArray.append(anExercise)
                     }
                 })
             }
@@ -169,7 +181,7 @@ class FavoritesViewController: UIViewController {
                     guard let dict = snapshot.value as? [String : Any] else {return}
                     let anExercise = Exercise(exerciseID: snapshot.key, dict: dict)
                     DispatchQueue.main.async {
-                        self.twoDExerciseArray[4].append(anExercise)
+                        self.shoulderArray.append(anExercise)
                     }
                 })
             }
@@ -181,7 +193,14 @@ class FavoritesViewController: UIViewController {
                     guard let dict = snapshot.value as? [String : Any] else {return}
                     let anExercise = Exercise(exerciseID: snapshot.key, dict: dict)
                     DispatchQueue.main.async {
-                        self.twoDExerciseArray[5].append(anExercise)
+                        self.wristArray.append(anExercise)
+                        self.twoDExerciseArray.append(self.hipArray)
+                        self.twoDExerciseArray.append(self.kneeArray)
+                        self.twoDExerciseArray.append(self.lowerBackArray)
+                        self.twoDExerciseArray.append(self.neckArray)
+                        self.twoDExerciseArray.append(self.shoulderArray)
+                        self.twoDExerciseArray.append(self.wristArray)
+                        self.tableView.reloadData()
                     }
                 })
             }
@@ -194,11 +213,12 @@ class FavoritesViewController: UIViewController {
 
 extension FavoritesViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headers = ["Hip", "Knee", "Lower Back", "Neck", "Shoulder", "Wrist"]
+        let headers = ["  Hip", "  Knee", "  Lower Back", "  Neck", "  Shoulder", "  Wrist"]
         
         let label = UILabel()
         label.text = headers[section]
-        label.backgroundColor = UIColor.blue
+        label.backgroundColor = UIColor(red: 37/255, green: 56/255, blue: 142/255, alpha: 1.00)
+        label.textColor = UIColor.white
         return label
         
         //        let button = UIButton(type: .system)
@@ -253,7 +273,7 @@ extension FavoritesViewController : UITableViewDataSource {
         cell.selectionStyle = .none
         
         cell.layer.cornerRadius = 10
-        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderColor = UIColor.clear.cgColor
         cell.layer.borderWidth = 2
     //    cell.exerciseImageView.image = UIImage(named: "Lying Hip Rotations")
         
