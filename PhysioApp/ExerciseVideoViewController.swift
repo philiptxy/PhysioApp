@@ -14,11 +14,28 @@ import FirebaseAuth
 
 class ExerciseVideoViewController: UIViewController {
     
+
+    @IBOutlet weak var thumbnailView: UIImageView! {
+        didSet {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(playButtonTapped))
+            let exerciseImage = UIImage(named: selectedExercise.name)
+            thumbnailView.image = exerciseImage
+            thumbnailView.isUserInteractionEnabled = true
+            thumbnailView.addGestureRecognizer(tap)
+        }
+    }
+    
+    @IBOutlet weak var playImageView: UIImageView! {
+        didSet {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(playButtonTapped))
+            playImageView.isUserInteractionEnabled = true
+            playImageView.addGestureRecognizer(tap)
+        }
+    }
     
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
     
     @IBAction func favoriteButtonTapped(_ sender: UIBarButtonItem) {
-        
         navigationItem.rightBarButtonItem?.tintColor = UIColor.clear
         
         if let user = Auth.auth().currentUser {
@@ -44,20 +61,6 @@ class ExerciseVideoViewController: UIViewController {
             showAlertMsg(withTitle: "Removed From Favorites", message: nil, time: 1)
             favoriteChecker = false
             }
-        }
-    }
-    
-    @IBOutlet weak var playVideoButton: UIButton! {
-        didSet {
-            playVideoButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
-        }
-    }
-    
-    @IBOutlet weak var watchVideoLabel: UILabel! {
-        didSet {
-            let tap = UITapGestureRecognizer(target: self, action: #selector(playButtonTapped))
-            watchVideoLabel.addGestureRecognizer(tap)
-            watchVideoLabel.isUserInteractionEnabled = true
         }
     }
     
