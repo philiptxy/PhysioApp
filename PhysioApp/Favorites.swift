@@ -32,3 +32,17 @@ class Favorites {
     }
 }
 
+//class FavExercise {
+//    var name : String = ""
+//    var difficulty : String = ""
+//    
+//    init() {
+//        
+//    }
+//    
+//    init(exerciseID: String, dict: [String : String]) {
+//        self.name = dict["name"] ?? ""
+//        self.difficulty = dict["difficulty"] ?? ""
+//    }
+//}
+

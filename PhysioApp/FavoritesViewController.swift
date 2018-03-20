@@ -26,7 +26,10 @@ class FavoritesViewController: UIViewController {
     var neckExercises : [String] = []
     var shoulderExercises : [String] = []
     var wristExercises : [String] = []
+    
     var twoDimensionalArray : [[String]] = []
+    
+//    var dictArray = ["lowerback": "section" : 0, "exercises" : [Exercise.init(exerciseID: "")]]
 
     var currentUserID : String = ""
     var ref : DatabaseReference!
@@ -107,6 +110,28 @@ class FavoritesViewController: UIViewController {
             }
         }
     }
+    
+//    func loadExerciseInfo() {
+//        let bodyParts = ["hip", "knee", "lowerBack", "neck", "shoulder", "wrist"]
+    
+        //when using .value, snapshot.key is the last .child() in the code.
+        //when using .childAdded, snapshot.key is each item inside the last .child() in the code.
+        
+//        if twoDimensionalArray[0][0] != "empty" {
+//            for each in twoDimensionalArray[0] {
+//                ref.child("users").child(currentUserID).child("favorites").child("hip").child(each).observeSingleEvent(of: .value, with: { (snapshot) in
+//
+//                })
+//            }
+//        }
+        
+        
+//        ref.child("bodyParts").child(bodyParts[indexPath.section]).child("exercises").child(twoDimensionalArray[indexPath.section][indexPath.row]).observeSingleEvent(of: .value) { (snapshot) in
+//            guard let dict = snapshot.value as? [String : Any] else {return}
+//            guard let name = dict["name"] as? String else {return}
+//            guard let difficulty = dict["difficulty"] as? String else {return}
+//            DispatchQueue.main.async {
+//    }
 }
 
 extension FavoritesViewController : UITableViewDataSource {
@@ -166,11 +191,16 @@ extension FavoritesViewController : UITableViewDataSource {
         cell.layer.cornerRadius = 10
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 2
+        cell.exerciseImageView.image = UIImage(named: "Lying Hip Rotations")
         
         let bodyParts = ["hip", "knee", "lowerBack", "neck", "shoulder", "wrist"]
         
         //when using .value, snapshot.key is the last .child() in the code.
         //when using .childAdded, snapshot.key is each item inside the last .child() in the code.
+        
+        
+        
+        
         ref.child("bodyParts").child(bodyParts[indexPath.section]).child("exercises").child(twoDimensionalArray[indexPath.section][indexPath.row]).observeSingleEvent(of: .value) { (snapshot) in
             guard let dict = snapshot.value as? [String : Any] else {return}
             guard let name = dict["name"] as? String else {return}
@@ -180,40 +210,79 @@ extension FavoritesViewController : UITableViewDataSource {
                 cell.titlelabel.text = name
                 cell.detailLabel.text = "Difficulty: \(difficulty)"
                 
-                if name == "Lying Hip Rotations" {
-                    cell.exerciseImageView.image = UIImage(named: "Lying Hip Rotations")
-                } else if name == "Towel Assisted Knee Mobility" {
-                    cell.exerciseImageView.image = UIImage(named: "Towel Assisted Knee Mobility")
-                } else if name == "Knee To Chest Stretch" {
-                    cell.exerciseImageView.image = UIImage(named: "Knee To Chest Stretch")
-                } else if name == "Lunge Stretch" {
-                    cell.exerciseImageView.image = UIImage(named: "Lunge Stretch")
-                } else if name == "Glute Bridge" {
-                    cell.exerciseImageView.image = UIImage(named: "Glute Bridge")
-                } else if name == "Lower Back Side Bending" {
-                    cell.exerciseImageView.image = UIImage(named: "Lower Back Side Bending")
-                } else if name == "Lower Back Stretching In Sitting" {
-                    cell.exerciseImageView.image = UIImage(named: "Lower Back Stretching In Sitting")
-                } else if name == "Rotation To Both Sides In Sitting" {
-                    cell.exerciseImageView.image = UIImage(named: "Rotation To Both Sides In Sitting")
-                } else if name == "Looking Over Both Shoulders" {
-                    cell.exerciseImageView.image = UIImage(named: "Looking Over Both Shoulders")
-                } else if name == "1-Hand External Rotation" {
-                    cell.exerciseImageView.image = UIImage(named: "1 Hand External Rotation")
-                } else if name == "1-Hand Internal Rotation" {
-                    cell.exerciseImageView.image = UIImage(named: "1 Hand Internal Rotation")
-                } else if name == "Lateral Raise" {
-                    cell.exerciseImageView.image = UIImage(named: "Lateral Raise")
-                } else if name == "Lying External Rotation" {
-                    cell.exerciseImageView.image = UIImage(named: "Lying External Rotation")
-                } else if name == "Underhand Pull Aparts" {
-                    cell.exerciseImageView.image = UIImage(named: "Underhand Pull Aparts")
-                } else if name == "Bending The Wrist Forwards" {
-                    cell.exerciseImageView.image = UIImage(named: "Bending The Wrist Forwards")
-                } else {
-                    cell.exerciseImageView.image = UIImage(named: "Empty Star")
-                }
+             //   var img = UIImage()
+                cell.exerciseImageView.image = UIImage(named: "Lying Hip Rotations")
+
+//                if name == "Lying Hip Rotations" {
+//                    cell.exerciseImageView.image = UIImage(named: "Lying Hip Rotations")
+//                } else if name == "Towel Assisted Knee Mobility" {
+//                    cell.exerciseImageView.image = UIImage(named: "Towel Assisted Knee Mobility")
+//                }
+                //else if name == "Knee To Chest Stretch" {
+//                    cell.exerciseImageView.image = UIImage(named: "Knee To Chest Stretch")
+//                } else if name == "Lunge Stretch" {
+//                    cell.exerciseImageView.image = UIImage(named: "Lunge Stretch")
+//                } else if name == "Glute Bridge" {
+//                    cell.exerciseImageView.image = UIImage(named: "Glute Bridge")
+//                } else if name == "Lower Back Side Bending" {
+//                    cell.exerciseImageView.image = UIImage(named: "Lower Back Side Bending")
+//                } else if name == "Lower Back Stretching In Sitting" {
+//                    cell.exerciseImageView.image = UIImage(named: "Lower Back Stretching In Sitting")
+//                } else if name == "Rotation To Both Sides In Sitting" {
+//                    cell.exerciseImageView.image = UIImage(named: "Rotation To Both Sides In Sitting")
+//                } else if name == "Looking Over Both Shoulders" {
+//                    cell.exerciseImageView.image = UIImage(named: "Looking Over Both Shoulders")
+//                } else if name == "1-Hand External Rotation" {
+//                    cell.exerciseImageView.image = UIImage(named: "1 Hand External Rotation")
+//                } else if name == "1-Hand Internal Rotation" {
+//                    cell.exerciseImageView.image = UIImage(named: "1 Hand Internal Rotation")
+//                } else if name == "Lateral Raise" {
+//                    cell.exerciseImageView.image = UIImage(named: "Lateral Raise")
+//                } else if name == "Lying External Rotation" {
+//                    cell.exerciseImageView.image = UIImage(named: "Lying External Rotation")
+//                } else if name == "Underhand Pull Aparts" {
+//                    cell.exerciseImageView.image = UIImage(named: "Underhand Pull Aparts")
+//                } else if name == "Bending The Wrist Forwards" {
+//                    cell.exerciseImageView.image = UIImage(named: "Bending The Wrist Forwards")
+//                } else {
+//                    cell.exerciseImageView.image = UIImage(named: "Empty Star")
+//                }
                 
+//                if name == "Lying Hip Rotations" {
+//                    img = UIImage(named: "Lying Hip Rotations")!
+//                } else if name == "Towel Assisted Knee Mobility" {
+//                    img = UIImage(named: "Towel Assisted Knee Mobility")!
+//                } else if name == "Knee To Chest Stretch" {
+//                    img = UIImage(named: "Knee To Chest Stretch")!
+//                } else if name == "Lunge Stretch" {
+//                    img = UIImage(named: "Lunge Stretch")!
+//                } else if name == "Glute Bridge" {
+//                    img = UIImage(named: "Glute Bridge")!
+//                } else if name == "Lower Back Side Bending" {
+//                    img = UIImage(named: "Lower Back Side Bending")!
+//                } else if name == "Lower Back Stretching In Sitting" {
+//                    img = UIImage(named: "Lower Back Stretching In Sitting")!
+//                } else if name == "Rotation To Both Sides In Sitting" {
+//                    img = UIImage(named: "Rotation To Both Sides In Sitting")!
+//                } else if name == "Looking Over Both Shoulders" {
+//                    img = UIImage(named: "Looking Over Both Shoulders")!
+//                } else if name == "1-Hand External Rotation" {
+//                    img = UIImage(named: "1 Hand External Rotation")!
+//                } else if name == "1-Hand Internal Rotation" {
+//                    img = UIImage(named: "1 Hand Internal Rotation")!
+//                } else if name == "Lateral Raise" {
+//                    img = UIImage(named: "Lateral Raise")!
+//                } else if name == "Lying External Rotation" {
+//                    img = UIImage(named: "Lying External Rotation")!
+//                } else if name == "Underhand Pull Aparts" {
+//                    img = UIImage(named: "Underhand Pull Aparts")!
+//                } else if name == "Bending The Wrist Forwards" {
+//                    img = UIImage(named: "Bending The Wrist Forwards")!
+//                } else {
+//                    img = UIImage(named: "Empty Star")!
+//                }
+//
+//                cell.exerciseImage = img
                 cell.layoutIfNeeded()
             }
             

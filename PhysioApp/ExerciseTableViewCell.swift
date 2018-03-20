@@ -37,6 +37,13 @@ class ExerciseTableViewCell: UITableViewCell {
     
     @IBOutlet weak var detailLabel: UILabel!
     
+    var exerciseImage : UIImage? {
+        didSet {
+            exerciseImageView.image = exerciseImage
+            layoutIfNeeded()
+        }
+    }
+    
 //    override func layoutSubviews() {
 //        super.layoutSubviews()
 //

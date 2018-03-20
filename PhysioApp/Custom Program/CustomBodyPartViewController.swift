@@ -172,7 +172,7 @@ class CustomBodyPartViewController: UIViewController {
     func setTotalTime() {
         
         //get time of each exercise and add it
-        //set value for totalTime
+        //set value for totalTime   
         ref.child("users/\(currentUserID)/programs/\(selectedProgram.programID)/exercises").observe(.childAdded) { (snapshot) in
             
             if let dict = snapshot.value as? [String : Any],
