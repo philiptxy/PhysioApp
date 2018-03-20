@@ -320,12 +320,18 @@ extension AddProgramViewController : UITableViewDelegate {
         let selectedBodyPartStr = exercises[indexPath.row].bodyPart
         let selectedBodyPart = BodyPart(bodyPart: selectedBodyPartStr)
         
-        let selectedExercise = Exercise(exerciseID: exercises[indexPath.row].exerciseID)
+        ref.child("bodyParts").child(selectedBodyPartStr).child("exercises").child(exercises[indexPath.row].exerciseID).observe(.value) { (snapshot) in
+            guard let dict = snapshot.value as? [String : Any] else {return}
+            let selectedExercise = Exercise(exerciseID: snapshot.key, dict: dict)
+            DispatchQueue.main.async {
+                vc.selectedBodyPart = selectedBodyPart
+                vc.selectedExercise = selectedExercise
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
         
-        vc.selectedBodyPart = selectedBodyPart
-        vc.selectedExercise = selectedExercise
         
-        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
