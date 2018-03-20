@@ -14,6 +14,8 @@ class CustomTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -21,10 +23,11 @@ class CustomTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-//    func setFrame(frame: CGRect) {
-//        var frame = frame
-//        frame.origin.x += inset
-//
-//    }
+    func setFrame(_ frame: CGRect) {
+        var frame = frame
+        frame.origin.x += separatorInset.left
+        frame.size.width -= 2 * separatorInset.left
+        setFrame(frame)
+    }
 
 }
