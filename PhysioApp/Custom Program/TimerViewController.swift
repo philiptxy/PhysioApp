@@ -19,6 +19,8 @@ class TimerViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var colonLabel: UILabel!
+    
     @IBOutlet weak var secondLabel: UILabel! {
         didSet {
             secondLabel.tag = 1
@@ -44,6 +46,12 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for label in [minuteLabel, colonLabel, secondLabel] {
+            if let size = label?.font.pointSize {
+                label?.font = UIFont.monospacedDigitSystemFont(ofSize: size , weight: .regular)
+            }
+        }
         
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "Gradient Background")

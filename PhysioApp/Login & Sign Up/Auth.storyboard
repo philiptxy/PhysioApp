@@ -208,7 +208,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vyx-D3-zEv">
-                                <rect key="frame" x="116.66666666666667" y="691" width="142.33333333333331" height="50"/>
+                                <rect key="frame" x="116.66666666666667" y="708" width="142.33333333333331" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="JcZ-lZ-nhI"/>
                                     <constraint firstAttribute="width" constant="142.33000000000001" id="j40-Ql-BA0"/>
@@ -220,11 +220,8 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8b-xq-xtg">
-                                <rect key="frame" x="10" y="201" width="355" height="450"/>
+                                <rect key="frame" x="10" y="201" width="355" height="467"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="450" id="gsy-ZC-018"/>
-                                </constraints>
                                 <string key="text">Exercises shown in PhysioApp should be done with caution especially for people suffering in pain or previous condition. In case of doubt, check with your doctor/physiotherapist with regards to your condition. This application is designed to provide examples of the exercises used to assess and treat certain conditions. It does not cover all physical conditions, injuries, diseases or ailments. It does not cover all treatment modalities. It is compiled from a variety of resources and may not be complete or timely. It should NOT be used as a diagnostic tool. It should NOT replace the advice or care from a healthcare provider. It should NOT be used in place of visiting your healthcare provider. You should NOT disregard any advice or care from your healthcare provider based on information you obtain from this application. All exercises are to be done at your own risk.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -239,6 +236,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yXz-p3-bCG" firstAttribute="top" secondItem="53o-Ck-hKa" secondAttribute="top" constant="40" id="EU2-Y5-Gz0"/>
+                            <constraint firstItem="53o-Ck-hKa" firstAttribute="bottom" secondItem="Vyx-D3-zEv" secondAttribute="bottom" constant="20" id="SRR-aH-w2O"/>
                             <constraint firstItem="Vyx-D3-zEv" firstAttribute="centerX" secondItem="2ls-jh-BgI" secondAttribute="centerX" id="ZxG-MQ-F6J"/>
                             <constraint firstItem="53o-Ck-hKa" firstAttribute="trailing" secondItem="J8b-xq-xtg" secondAttribute="trailing" constant="10" id="brA-3J-jwZ"/>
                             <constraint firstItem="yXz-p3-bCG" firstAttribute="centerX" secondItem="2ls-jh-BgI" secondAttribute="centerX" id="e4I-hu-bzr"/>

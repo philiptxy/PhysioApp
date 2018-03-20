@@ -99,7 +99,7 @@ extension HomeBodyPartViewController : UICollectionViewDataSource {
 
 extension HomeBodyPartViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width / 2 - 5, height: view.frame.height / 2 - 10)
+        return CGSize(width: view.frame.width / 2 - 15, height: view.frame.height / 3 - 10)
     }
 }
 
@@ -113,5 +113,6 @@ extension HomeBodyPartViewController : UICollectionViewDelegate {
         
         navigationController?.pushViewController(vc, animated: true)
     }
+
 }
 

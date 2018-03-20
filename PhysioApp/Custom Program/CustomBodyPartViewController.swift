@@ -255,7 +255,8 @@ extension CustomBodyPartViewController : UITableViewDataSource {
         let headers = ["Hip", "Knee", "Lower Back", "Neck", "Shoulder", "Wrist"]
         let label = UILabel()
         label.text = headers[section]
-        label.backgroundColor = UIColor.blue
+        label.backgroundColor = UIColor(red: 37/255, green: 56/255, blue: 142/255, alpha: 1.00)
+        label.textColor = UIColor.white
         return label
     }
     func numberOfSections(in tableView: UITableView) -> Int {

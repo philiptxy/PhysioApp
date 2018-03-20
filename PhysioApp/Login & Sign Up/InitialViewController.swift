@@ -57,6 +57,8 @@ class InitialViewController: UIViewController {
             signUpButton.alpha = 0.0
             message.alpha = 0.0
         }
+        
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -87,6 +89,11 @@ class InitialViewController: UIViewController {
         
     }
     
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
     func checkUserIsLogin() {
         if Auth.auth().currentUser != nil {
             

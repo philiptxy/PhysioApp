@@ -39,18 +39,18 @@ class CustomProgramViewController: UIViewController {
         
         
         
-//        ref.child("users").child(currentUserID).child("programs").child(key).observe(.value) { (snapshot) in
-//            guard let dict = snapshot.value as? [String : Any] else {return}
-//            let aProgram = Program(programID: snapshot.key, dict: dict)
-//            DispatchQueue.main.async {
-//                vc.selectedProgram = aProgram
-//
-//                    self.navigationController?.pushViewController(vc, animated: true)
-//            }
-//        }
+        //        ref.child("users").child(currentUserID).child("programs").child(key).observe(.value) { (snapshot) in
+        //            guard let dict = snapshot.value as? [String : Any] else {return}
+        //            let aProgram = Program(programID: snapshot.key, dict: dict)
+        //            DispatchQueue.main.async {
+        //                vc.selectedProgram = aProgram
+        //
+        //                    self.navigationController?.pushViewController(vc, animated: true)
+        //            }
+        //        }
         
         
-//        ref
+        //        ref
     }
     
     var ref : DatabaseReference!
@@ -72,7 +72,7 @@ class CustomProgramViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         //programs = []
-//        loadPrograms()
+        //        loadPrograms()
     }
     
     
@@ -90,24 +90,24 @@ class CustomProgramViewController: UIViewController {
             
         }
         
-//        ref.child("users").child(currentUserID).child("programs").observe(.childChanged) { (snapshot) in
-//            guard let dict = snapshot.value as? [String : Any] else {return}
-//
-//            for (index, program) in self.programs.enumerated() {
-//                if program.programID == snapshot.key {
-//                    DispatchQueue.main.async {
-//                        let aProgram = Program(programID: snapshot.key, dict: dict)
-//                        self.programs[index] = aProgram
-//                        let indexPath = IndexPath(item: self.programs.count - 1, section: 0)
-//                        self.collectionView.reloadItems(at: [indexPath])
-//                        return
-//                    }
-//                }
-//            }
-//
-//        }
+        //        ref.child("users").child(currentUserID).child("programs").observe(.childChanged) { (snapshot) in
+        //            guard let dict = snapshot.value as? [String : Any] else {return}
+        //
+        //            for (index, program) in self.programs.enumerated() {
+        //                if program.programID == snapshot.key {
+        //                    DispatchQueue.main.async {
+        //                        let aProgram = Program(programID: snapshot.key, dict: dict)
+        //                        self.programs[index] = aProgram
+        //                        let indexPath = IndexPath(item: self.programs.count - 1, section: 0)
+        //                        self.collectionView.reloadItems(at: [indexPath])
+        //                        return
+        //                    }
+        //                }
+        //            }
+        //
+        //        }
     }
-
+    
 }
 
 extension CustomProgramViewController : UICollectionViewDataSource {
@@ -123,7 +123,7 @@ extension CustomProgramViewController : UICollectionViewDataSource {
         cell.layer.borderColor = UIColor.clear.cgColor
         cell.layer.borderWidth = 2
         
-//        let photoURL = programs[indexPath.row].photoURL
+        //        let photoURL = programs[indexPath.row].photoURL
         cell.nameLabel.text = programs[indexPath.row].name
         cell.timeLabel.text = "\(String(programs[indexPath.row].totalTime)) mins"
         
@@ -142,4 +142,12 @@ extension CustomProgramViewController : UICollectionViewDelegate {
         
         navigationController?.pushViewController(vc, animated: true)
     }
+}
+
+extension CustomProgramViewController : UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width / 2 - 15, height: view.frame.height / 3 - 10)
+    }
+    
 }
