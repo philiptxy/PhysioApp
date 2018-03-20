@@ -299,26 +299,7 @@ extension AddProgramViewController : UITableViewDataSource {
         
         let path = ref.child("users").child(currentUserID).child("programs").child(selectedProgram.programID).child("exercises").child(exercises[indexPath.row].exerciseID)
         
-        exercises.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .fade)
-        
-        path.removeValue()
-        
-        showAlert(withTitle: "Exercise deleted successfully", message: nil)
-//        ref.child("users/\(currentUserID)/programs/\(selectedProgram.programID)/exercises").observe(.childAdded) { (snapshot) in
-//
-//            if let dict = snapshot.value as? [String : Any],
-//                let time = dict["time"] as? Double {
-//                selectedProgram.totalTime += time
-//
-//                self.ref.child("users/\(self.currentUserID)/programs/\(self.selectedProgram.programID)/totalTime").setValue(Int(self.totalTime/60))
-//            }
-//
-//
-//        }
-        
-        
-        
+        deleteAlertConfirmation(indexPath: indexPath, path: path)
         
     }
     
@@ -370,5 +351,28 @@ extension AddProgramViewController {
         removeButton.isEnabled = false
         setButton.setTitleColor(UIColor.black, for: .normal)
         removeButton.setTitleColor(UIColor.lightGray, for: .normal)
+    }
+}
+
+extension AddProgramViewController {
+    func deleteAlertConfirmation(indexPath: IndexPath, path: DatabaseReference) {
+        
+        let alertController = UIAlertController(title: "Delete", message: "Are you sure you want to delete this?", preferredStyle: .alert)
+        
+        let delete = UIAlertAction(title: "Yes", style: .destructive) { (action) in
+            self.exercises.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            path.removeValue()
+            
+            self.showAlertMsg(withTitle: "Exercise deleted succesfully", message: nil, time: 0)
+        }
+        
+        let cancel = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        
+        alertController.addAction(delete)
+        alertController.addAction(cancel)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }

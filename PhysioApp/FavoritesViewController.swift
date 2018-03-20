@@ -16,6 +16,7 @@ class FavoritesViewController: UIViewController {
         didSet {
             tableView.dataSource = self
             tableView.delegate = self
+            tableView.rowHeight = 122
         }
     }
     
@@ -157,8 +158,10 @@ extension FavoritesViewController : UITableViewDataSource {
         
         return twoDimensionalArray[section].count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard let cell = Bundle.main.loadNibNamed("ExerciseTableViewCell", owner: nil, options: nil)?.first as? ExerciseTableViewCell else {return UITableViewCell()}
+        cell.selectionStyle = .none
         
         cell.layer.cornerRadius = 10
         cell.layer.borderColor = UIColor.black.cgColor
@@ -173,12 +176,53 @@ extension FavoritesViewController : UITableViewDataSource {
             guard let name = dict["name"] as? String else {return}
             guard let difficulty = dict["difficulty"] as? String else {return}
             DispatchQueue.main.async {
-                cell.textLabel?.text = name
-                cell.detailTextLabel?.text = "Difficulty: \(difficulty)"
+                
+                cell.titlelabel.text = name
+                cell.detailLabel.text = "Difficulty: \(difficulty)"
+                
+                if name == "Lying Hip Rotations" {
+                    cell.exerciseImageView.image = UIImage(named: "Lying Hip Rotations")
+                } else if name == "Towel Assisted Knee Mobility" {
+                    cell.exerciseImageView.image = UIImage(named: "Towel Assisted Knee Mobility")
+                } else if name == "Knee To Chest Stretch" {
+                    cell.exerciseImageView.image = UIImage(named: "Knee To Chest Stretch")
+                } else if name == "Lunge Stretch" {
+                    cell.exerciseImageView.image = UIImage(named: "Lunge Stretch")
+                } else if name == "Glute Bridge" {
+                    cell.exerciseImageView.image = UIImage(named: "Glute Bridge")
+                } else if name == "Lower Back Side Bending" {
+                    cell.exerciseImageView.image = UIImage(named: "Lower Back Side Bending")
+                } else if name == "Lower Back Stretching In Sitting" {
+                    cell.exerciseImageView.image = UIImage(named: "Lower Back Stretching In Sitting")
+                } else if name == "Rotation To Both Sides In Sitting" {
+                    cell.exerciseImageView.image = UIImage(named: "Rotation To Both Sides In Sitting")
+                } else if name == "Looking Over Both Shoulders" {
+                    cell.exerciseImageView.image = UIImage(named: "Looking Over Both Shoulders")
+                } else if name == "1-Hand External Rotation" {
+                    cell.exerciseImageView.image = UIImage(named: "1 Hand External Rotation")
+                } else if name == "1-Hand Internal Rotation" {
+                    cell.exerciseImageView.image = UIImage(named: "1 Hand Internal Rotation")
+                } else if name == "Lateral Raise" {
+                    cell.exerciseImageView.image = UIImage(named: "Lateral Raise")
+                } else if name == "Lying External Rotation" {
+                    cell.exerciseImageView.image = UIImage(named: "Lying External Rotation")
+                } else if name == "Underhand Pull Aparts" {
+                    cell.exerciseImageView.image = UIImage(named: "Underhand Pull Aparts")
+                } else if name == "Bending The Wrist Forwards" {
+                    cell.exerciseImageView.image = UIImage(named: "Bending The Wrist Forwards")
+                } else {
+                    cell.exerciseImageView.image = UIImage(named: "Empty Star")
+                }
+                
+                cell.layoutIfNeeded()
             }
             
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.layoutSubviews()
     }
 }
 
