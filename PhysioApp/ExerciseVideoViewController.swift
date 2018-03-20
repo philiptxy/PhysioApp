@@ -22,7 +22,7 @@ class ExerciseVideoViewController: UIViewController {
         if let user = Auth.auth().currentUser {
             let userID = user.uid
             
-            let favoritePost : [String : Any] = ["isFavorited" : true]
+            let favoritePost : [String : Any] = ["isFavorited" : true, "name" : selectedExercise.name, "difficulty" : selectedExercise.difficulty]
             
         if favoriteChecker == false {
         ref.child("users").child(userID).child("favorites").child(selectedBodyPart.bodyPart).child(selectedExercise.exerciseID).setValue(favoritePost)

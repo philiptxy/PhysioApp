@@ -9,7 +9,15 @@
 import UIKit
 
 class ExerciseTableViewCell: UITableViewCell {
+    
 
+    @IBOutlet weak var paddingView: UIView! {
+        didSet {
+            paddingView.layer.cornerRadius = 10
+            paddingView.layer.borderColor = UIColor.clear.cgColor
+            paddingView.layer.borderWidth = 2
+        }
+    }
     
     @IBOutlet weak var exerciseImageView: UIImageView! {
         didSet {
@@ -58,8 +66,8 @@ class ExerciseTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        exerciseImageView.frame.size = CGSize(width: 80, height: 80)
-        exerciseImageView.center.y = 60
+//        exerciseImageView.frame.size = CGSize(width: 80, height: 80)
+//        exerciseImageView.center.y = 61
         exerciseImageView.layer.borderWidth = 1.0
         exerciseImageView.layer.masksToBounds = false
         exerciseImageView.layer.borderColor = UIColor.white.cgColor
