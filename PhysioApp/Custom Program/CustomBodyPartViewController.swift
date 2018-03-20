@@ -177,7 +177,7 @@ class CustomBodyPartViewController: UIViewController {
                 let time = dict["time"] as? Double {
                 self.totalTime += time
                 
-                self.ref.child("users/\(self.currentUserID)/programs/\(self.selectedProgram.programID)/totalTime").setValue(Int(self.totalTime/60))
+                self.ref.child("users/\(self.currentUserID)/programs/\(self.selectedProgram.programID)/totalTime").setValue(Int(self.totalTime))
             }
             
             
@@ -320,8 +320,8 @@ extension CustomBodyPartViewController : UITableViewDataSource {
                 cell.backgroundColor = UIColor.lightGray
                 cell.isUserInteractionEnabled = false
                 //cell.textLabel?.isEnabled = false
-                cell.titlelabel?.textColor = UIColor.lightText
-                cell.detailLabel?.textColor = UIColor.lightText
+                cell.titlelabel?.textColor = UIColor.lightGray
+                cell.detailLabel?.textColor = UIColor.lightGray
             }
             
         }
